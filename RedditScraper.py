@@ -1,16 +1,15 @@
-# Reading API key
 import os
 from dotenv import load_dotenv
+import praw
+from pandas import DataFrame
+
+# Load API Keys
 load_dotenv()
-#
 client_id = os.getenv('CLIENT_ID')
 client_secret = os.getenv('CLIENT_SECRET')
 user_agent = os.getenv('APP_NAME')
 username = os.getenv('REDDIT_USER_NAME')
 password = os.getenv('REDDIT_PASSWORD')
-
-# Retrieving data from Reddit
-import praw
 
 reddit = praw.Reddit(client_id = client_id,
                      client_secret = client_secret,
@@ -18,66 +17,54 @@ reddit = praw.Reddit(client_id = client_id,
                      user_agent = user_agent,
                      password = password)
 
-subred = reddit.subreddit("depression")
-hot = subred.hot(limit = 2)
-# new = subred.new(limit = 3)
-# new = subred.controversial(limit = 3)
-# top = subred.top(limit = 3)
-# gilded = subred.gilded(limit = 3)
-#
-x = next(hot)
-print(dir(x))
+# Retrieve Posts Function
+reddit_message_dict = []
 
-pulled_reddit_message = []
-for i in hot:
-    print(i.title ,
-          i.author,
-          i.author_flair_text,
-    #       i.author_fullname,
-    #       i.category,
-    #       i.clicked,
-    #       i.comments,
-    #       i.created,
-    #       i.downs,
-    #       i.num_reports,
-    #       i.over_18,
-    #       i.parent_whitelist_status,
-    #       i.quarantine,
-    #       i.score,
-    #       i.saved,
-    #       i.thumbnail,
-    #       i.upvote_ratio,
-    #       i.view_count,
-    #       i.whitelist_status,
-          i.url)
+def retrieve_posts(subred_input, result_input, limit_input, subred_type):
+    subred = reddit.subreddit(subred_input)
 
-# important parameters
-# '_comments_by_id'
-# 'author'
-# 'author_flair_text'
-# 'author_flair_type'
-# 'author_fullname'
-# 'category'
-# 'clicked'
-# 'comment_sort'
-# 'comments'
-# 'created'
-# 'downs'
-# 'id_from_url'
-# 'likes'
-# 'media'
-# 'num_comments'
-# 'name'
-# 'num_reports'
-# 'over_18'
-# 'parent_whitelist_status'
-# 'quarantine'
-# 'saved'
-# 'score'
-# 'subreddit_id'
-# 'title'
-# 'thumbnail'
-# 'upvote_ratio'
-# 'view_count'
-# 'whitelist_status'
-# 'url'
+    if subred_type == "new":
+        subred_test = subred.new(limit=limit_input)
+
+    if subred_type == "top":
+        subred_test = subred.top(limit=limit_input)
+
+    if subred_type == "hot":
+        subred_test = subred.hot(limit=limit_input)
+
+    for i in subred_test:
+        if i.is_self and i.url not in reddit_message_dict:
+            pulled_reddit_message = {'url': i.url,
+                                     # 'post_ID': i.id_from_url(url=i.url),
+                                     'title': i.title,
+                                     'author_name': i.author,
+                                     'created': i.created,      # in Unix time
+                                     'score': i.score,
+                                     'upvote_ratio': i.upvote_ratio,
+                                     'content': i.selftext,
+                                     'result': result_input}
+            reddit_message_dict.append(pulled_reddit_message)
+
+# Retrieve Happy/Sad posts
+# retrieve_posts("depression", 1)
+retrieve_posts("depression", 0, 10, "new")
+retrieve_posts("depression", 0, 10, "top")
+retrieve_posts("depression", 0, 10, "hot")
+retrieve_posts("sad", 0, 10, "new")
+retrieve_posts("sad", 0, 10, "top")
+retrieve_posts("sad", 0, 10, "hot")
+
+
+# retrieve_posts("happy", 0, 100000)
+# retrieve_posts("depressed", 1, 100000)
+# retrieve_posts("depression", 1, 100000)
+# retrieve_posts("sad", 1, 100000)
+# retrieve_posts("SuicideWatch", 1, 100000)
+
+
+
+# Write to excel file
+
+DB_columns = ['url', 'title', 'author_name', 'created', 'score', 'upvote_ratio', 'content', 'result']
+df = DataFrame(reddit_message_dict, columns = DB_columns)
+df.to_excel('Depression_Reddit_Database2.xlsx')
