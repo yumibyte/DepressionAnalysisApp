@@ -1,7 +1,11 @@
 import os
+from typing import List
+
 from dotenv import load_dotenv
 import praw
 from pandas import DataFrame
+import pandas as pd
+from openpyxl import load_workbook
 
 # Load API Keys
 load_dotenv()
@@ -36,6 +40,7 @@ def retrieve_posts(subred_input, result_input, limit_input, subred_type):
         if i.is_self and i.url not in reddit_message_dict:
             pulled_reddit_message = {'url': i.url,
                                      # 'post_ID': i.id_from_url(url=i.url),
+                                     'subreddit': subred_input,
                                      'title': i.title,
                                      'author_name': i.author,
                                      'created': i.created,      # in Unix time
@@ -45,26 +50,48 @@ def retrieve_posts(subred_input, result_input, limit_input, subred_type):
                                      'result': result_input}
             reddit_message_dict.append(pulled_reddit_message)
 
+# Write to excel file
+
+DB_columns = ['url', 'subreddit', 'title', 'author_name', 'created', 'score', 'upvote_ratio', 'content', 'result']
+
+def Write_xlsx(file_name, reddit_dict):
+    df = DataFrame(reddit_dict, columns=DB_columns)
+    df.to_excel(file_name, index=False)
+
+
+def Append_xlsx(file_name, reddit_dict):
+    df = pd.DataFrame(reddit_dict, columns=DB_columns)
+    writer = pd.ExcelWriter(file_name, engine='openpyxl')
+    # try to open an existing workbook
+    writer.book = load_workbook(file_name)
+    # copy existing sheets
+    writer.sheets = dict((ws.title, ws) for ws in writer.book.worksheets)
+    # read existing file
+    reader = pd.read_excel(file_name)
+    # write out the new sheet
+    df.to_excel(writer, index=False, header=False, startrow=len(reader) + 1)
+
+    writer.close()
+
+
+
+
 # Retrieve Happy/Sad posts
-# retrieve_posts("depression", 1)
-retrieve_posts("depression", 0, 10, "new")
-retrieve_posts("depression", 0, 10, "top")
-retrieve_posts("depression", 0, 10, "hot")
-retrieve_posts("sad", 0, 10, "new")
-retrieve_posts("sad", 0, 10, "top")
-retrieve_posts("sad", 0, 10, "hot")
+# retrieve_posts("depression", 1, 200, "new")
+# retrieve_posts("depression", 1, 200, "top")
+# retrieve_posts("depression", 1, 200, "hot")
+#
+# retrieve_posts("SuicideWatch", 1, 200, "new")
+# retrieve_posts("SuicideWatch", 1, 200, "top")
+# retrieve_posts("SuicideWatch", 1, 200, "hot")
+retrieve_posts("SuicideWatch", 1, 10, "hot")
 
+# retrieve_posts("happy", 0, 10, "new")
 
-# retrieve_posts("happy", 0, 100000)
 # retrieve_posts("depressed", 1, 100000)
 # retrieve_posts("depression", 1, 100000)
 # retrieve_posts("sad", 1, 100000)
 # retrieve_posts("SuicideWatch", 1, 100000)
 
+Write_xlsx('Depression_Reddit_Database2.xlsx', reddit_message_dict)
 
-
-# Write to excel file
-
-DB_columns = ['url', 'title', 'author_name', 'created', 'score', 'upvote_ratio', 'content', 'result']
-df = DataFrame(reddit_message_dict, columns = DB_columns)
-df.to_excel('Depression_Reddit_Database2.xlsx')
