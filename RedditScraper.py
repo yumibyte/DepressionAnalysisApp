@@ -39,7 +39,6 @@ def retrieve_posts(subred_input, result_input, limit_input, subred_type):
     for i in subred_test:
         if i.is_self and i.url not in reddit_message_dict:
             pulled_reddit_message = {'url': i.url,
-                                     # 'post_ID': i.id_from_url(url=i.url),
                                      'subreddit': subred_input,
                                      'title': i.title,
                                      'author_name': i.author,
@@ -60,7 +59,20 @@ def Write_xlsx(file_name, reddit_dict):
 
 
 def Append_xlsx(file_name, reddit_dict):
-    df = pd.DataFrame(reddit_dict, columns=DB_columns)
+
+    final_dict = []
+    # check if post is already in DB
+    df = pd.ExcelFile(file_name).parse('Sheet1')
+    for x in reddit_dict:
+        # print(x['url'])
+        if x['url'] in df['url'].to_list():
+            # del reddit_dict[reddit_dict.index(x)]
+            continue
+        final_dict.append(x)
+    print("-------------------->>> RES")
+
+    df_new = pd.DataFrame(final_dict, columns=DB_columns)
+
     writer = pd.ExcelWriter(file_name, engine='openpyxl')
     # try to open an existing workbook
     writer.book = load_workbook(file_name)
@@ -69,7 +81,7 @@ def Append_xlsx(file_name, reddit_dict):
     # read existing file
     reader = pd.read_excel(file_name)
     # write out the new sheet
-    df.to_excel(writer, index=False, header=False, startrow=len(reader) + 1)
+    df_new.to_excel(writer, index=False, header=False, startrow=len(reader) + 1)
 
     writer.close()
 
@@ -77,21 +89,38 @@ def Append_xlsx(file_name, reddit_dict):
 
 
 # Retrieve Happy/Sad posts
-# retrieve_posts("depression", 1, 200, "new")
-# retrieve_posts("depression", 1, 200, "top")
-# retrieve_posts("depression", 1, 200, "hot")
+retrieve_posts("depression", 1, 1000, "new")
+# retrieve_posts("depression", 1, 100, "top")
+retrieve_posts("depression", 1, 1000, "hot")
+
+# retrieve_posts("SuicideWatch", 1, 2, "new")
+# retrieve_posts("SuicideWatch", 1, 2, "top")
+# retrieve_posts("SuicideWatch", 1, 2, "hot")
 #
-# retrieve_posts("SuicideWatch", 1, 200, "new")
-# retrieve_posts("SuicideWatch", 1, 200, "top")
-# retrieve_posts("SuicideWatch", 1, 200, "hot")
-retrieve_posts("SuicideWatch", 1, 10, "hot")
+# retrieve_posts("happy", 0, 2, "new")
+# retrieve_posts("happy", 0, 2, "top")
+# retrieve_posts("happy", 0, 2, "hot")
+#
+# retrieve_posts("neutraltalk", 0, 2, "new")
+# retrieve_posts("neutraltalk", 0, 2, "top")
+# retrieve_posts("neutraltalk", 0, 2, "hot")
+#
+# retrieve_posts("unpopularopinion", 0, 2, "new")
+# retrieve_posts("unpopularopinion", 0, 2, "top")
+# retrieve_posts("unpopularopinion", 0, 2, "hot")
+#
+# retrieve_posts("applyingtocollege", 0, 2, "new")
+# retrieve_posts("applyingtocollege", 0, 2, "top")
+# retrieve_posts("applyingtocollege", 0, 2, "hot")
+#
+# retrieve_posts("CasualConversation", 0, 2, "new")
+# retrieve_posts("CasualConversation", 0, 2, "top")
+# retrieve_posts("CasualConversation", 0, 2, "hot")
+#
+# retrieve_posts("CongratsLikeImFive", 0, 2, "new")
+# retrieve_posts("CongratsLikeImFive", 0, 2, "top")
+# retrieve_posts("CongratsLikeImFive", 0, 2, "hot")
 
-# retrieve_posts("happy", 0, 10, "new")
 
-# retrieve_posts("depressed", 1, 100000)
-# retrieve_posts("depression", 1, 100000)
-# retrieve_posts("sad", 1, 100000)
-# retrieve_posts("SuicideWatch", 1, 100000)
 
-Write_xlsx('Depression_Reddit_Database2.xlsx', reddit_message_dict)
-
+Append_xlsx('Depression_Reddit_Database_Final.xlsx', reddit_message_dict)
