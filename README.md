@@ -1,6 +1,32 @@
-Notes about Reddit Scraper
-* For every 10,000 posts, about 17 will work for "happy"
-* "positive" works much better (29/100)
+# Reddit Scraper
+- Will scrape from a given subreddit using PRAW
 
-*The ratio of positive to negative is 1:10
-* 1196
+### Scraping Functions
+- Call retrieve posts with the subreddit (ex.: "happy"), output (0 or 1), limit (# of posts retrieved, and type of post (hot, top, or new)
+'''
+retrieve_posts("your_subreddit", output, limit, "type")
+'''
+### Writing to a xlsx file
+- Write_xlsx() will overwrite any data in the database.
+- Append_xlsx() will add to the end of a current xlsx file and will also check for duplicates to make sure it doesn't append a post already in the database
+- To call either input the file name (including .xlsx file type on the end!!) and the array containing the post dictionaries.
+
+'''
+Write_xlsx('file_name.xlsx', input_posts)
+'''
+or
+'''
+Append.xlsx('file_name.xlsx', input_posts)
+'''
+
+### Known Issues
+- When retrieving posts th scraping function (retrieve_posts()) may crash! Do not try to exceed 100 requests at once but the recommended max is 1,000 (and it may crash for certain subreddits at 1,000)
+- If you scrape 100 posts and attempt to scrape another 100 posts by calling the same function with the same parameters, PRAW will pull basically the same posts (unless you're using "new" as ur type or waiting long periods of time, as then the first 100 top/hot posts would then be given time to change)
+- DO NOT call retrieve_posts() multiple times in a row without appending it to the database!!! Since append_posts() only compares the values in the database to the current dictionary of posts, current duplicates in the dictionary will not be accomodated for. Here is an example of how to call this function without getting duplicates:
+'''
+retrieve_posts("depression", 1, 100, "hot")
+Append_xlsx('Depression_Reddit_Database.xlsx', reddit_message_dict)
+retrieve_posts("depression", 1, 1000, "hot")
+Append_xlsx('Depression_Reddit_Database.xlsx', reddit_message_dict)
+'''
+- The first 100 of the second call would have been duplicates since PRAW pulls the same first posts between short intervals of calling these functions
