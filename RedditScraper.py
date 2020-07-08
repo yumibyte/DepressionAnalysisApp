@@ -61,16 +61,15 @@ def Write_xlsx(file_name, reddit_dict):
 def Append_xlsx(file_name, reddit_dict):
 
     final_dict = []
+    
     # check if post is already in DB
     df = pd.ExcelFile(file_name).parse('Sheet1')
     for x in reddit_dict:
-        # print(x['url'])
         if x['url'] in df['url'].to_list():
-            # del reddit_dict[reddit_dict.index(x)]
             continue
         final_dict.append(x)
+        
     print("-------------------->>> RES")
-
     df_new = pd.DataFrame(final_dict, columns=DB_columns)
 
     writer = pd.ExcelWriter(file_name, engine='openpyxl')
@@ -89,38 +88,7 @@ def Append_xlsx(file_name, reddit_dict):
 
 
 # Retrieve Happy/Sad posts
-retrieve_posts("depression", 1, 1000, "new")
-# retrieve_posts("depression", 1, 100, "top")
-retrieve_posts("depression", 1, 1000, "hot")
-
-# retrieve_posts("SuicideWatch", 1, 2, "new")
-# retrieve_posts("SuicideWatch", 1, 2, "top")
-# retrieve_posts("SuicideWatch", 1, 2, "hot")
-#
-# retrieve_posts("happy", 0, 2, "new")
-# retrieve_posts("happy", 0, 2, "top")
-# retrieve_posts("happy", 0, 2, "hot")
-#
-# retrieve_posts("neutraltalk", 0, 2, "new")
-# retrieve_posts("neutraltalk", 0, 2, "top")
-# retrieve_posts("neutraltalk", 0, 2, "hot")
-#
-# retrieve_posts("unpopularopinion", 0, 2, "new")
-# retrieve_posts("unpopularopinion", 0, 2, "top")
-# retrieve_posts("unpopularopinion", 0, 2, "hot")
-#
-# retrieve_posts("applyingtocollege", 0, 2, "new")
-# retrieve_posts("applyingtocollege", 0, 2, "top")
-# retrieve_posts("applyingtocollege", 0, 2, "hot")
-#
-# retrieve_posts("CasualConversation", 0, 2, "new")
-# retrieve_posts("CasualConversation", 0, 2, "top")
-# retrieve_posts("CasualConversation", 0, 2, "hot")
-#
-# retrieve_posts("CongratsLikeImFive", 0, 2, "new")
-# retrieve_posts("CongratsLikeImFive", 0, 2, "top")
-# retrieve_posts("CongratsLikeImFive", 0, 2, "hot")
-
-
-
+# output, limit, typ ("new", "hot", "top")
+retrieve_posts("CongratsLikeImFive", 0, 100, "hot")
 Append_xlsx('Depression_Reddit_Database_Final.xlsx', reddit_message_dict)
+
