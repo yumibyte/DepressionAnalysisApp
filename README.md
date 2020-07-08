@@ -1,7 +1,7 @@
 # Reddit Scraper
 - Will scrape from a given subreddit using PRAW
 
-### Scraping Functions
+### Scraping Function
 - Call retrieve posts function with the subreddit (ex.: "happy"), output (0 or 1), limit (# of posts retrieved), and type of post (hot, top, or new)
 ```
 retrieve_posts("your_subreddit", output, limit, "type")
