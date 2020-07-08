@@ -1,5 +1,5 @@
 # Reddit Scraper
-- Will scrape from a given subreddit using PRAW
+- Will scrape from a given subreddit using PRAW and output the results to a xlsx spreadshet
 
 ### Scraping Function
 - Call retrieve posts function with the subreddit (ex.: "happy"), output (0 or 1), limit (# of posts retrieved), and type of post (hot, top, or new)
