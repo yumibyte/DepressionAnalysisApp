@@ -29,4 +29,4 @@ Append_xlsx('Depression_Reddit_Database.xlsx', reddit_message_dict)
 retrieve_posts("depression", 1, 1000, "hot")
 Append_xlsx('Depression_Reddit_Database.xlsx', reddit_message_dict)
 ```
-- The first 100 posts of the second call would have been duplicates since PRAW pulls the same first posts between short intervals of time. Now theere won't be any duplicates in your database :)
+- The first 100 posts of the second call would have been duplicates since PRAW pulls the same first posts between short intervals of time. Now there won't be any duplicates in your database :)
