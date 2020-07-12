@@ -14,7 +14,6 @@
 		16F9404324BAF1A3002E6ECD /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 16F9404224BAF1A3002E6ECD /* Preview Assets.xcassets */; };
 		16F9404624BAF1A3002E6ECD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 16F9404424BAF1A3002E6ECD /* LaunchScreen.storyboard */; };
 		16F9404E24BAF2DB002E6ECD /* TwitterService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16F9404D24BAF2DB002E6ECD /* TwitterService.swift */; };
-		16F9405824BAF5F4002E6ECD /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 16F9405724BAF5F4002E6ECD /* GoogleService-Info.plist */; };
 		16F9405A24BAF808002E6ECD /* Keys.plist in Resources */ = {isa = PBXBuildFile; fileRef = 16F9405924BAF808002E6ECD /* Keys.plist */; };
 		16F9405C24BAFAD8002E6ECD /* FindAPIKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16F9405B24BAFAD8002E6ECD /* FindAPIKey.swift */; };
 		16F9405E24BAFDD5002E6ECD /* CustomSafariViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16F9405D24BAFDD5002E6ECD /* CustomSafariViewController.swift */; };
@@ -30,7 +29,6 @@
 		16F9404524BAF1A3002E6ECD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		16F9404724BAF1A3002E6ECD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		16F9404D24BAF2DB002E6ECD /* TwitterService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwitterService.swift; sourceTree = "<group>"; };
-		16F9405724BAF5F4002E6ECD /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		16F9405924BAF808002E6ECD /* Keys.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Keys.plist; sourceTree = "<group>"; };
 		16F9405B24BAFAD8002E6ECD /* FindAPIKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindAPIKey.swift; sourceTree = "<group>"; };
 		16F9405D24BAFDD5002E6ECD /* CustomSafariViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSafariViewController.swift; sourceTree = "<group>"; };
@@ -87,7 +85,6 @@
 		16F9405124BAF4DD002E6ECD /* Sensitive Files */ = {
 			isa = PBXGroup;
 			children = (
-				16F9405724BAF5F4002E6ECD /* GoogleService-Info.plist */,
 				16F9405924BAF808002E6ECD /* Keys.plist */,
 			);
 			path = "Sensitive Files";
@@ -183,7 +180,6 @@
 				16F9405A24BAF808002E6ECD /* Keys.plist in Resources */,
 				16F9404624BAF1A3002E6ECD /* LaunchScreen.storyboard in Resources */,
 				16F9404324BAF1A3002E6ECD /* Preview Assets.xcassets in Resources */,
-				16F9405824BAF5F4002E6ECD /* GoogleService-Info.plist in Resources */,
 				16F9404024BAF1A3002E6ECD /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

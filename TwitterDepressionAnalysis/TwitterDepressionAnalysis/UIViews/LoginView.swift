@@ -20,7 +20,7 @@ struct LoginView: View {
             Text(twitter.credential?.screenName ?? "")
         }
         .sheet(isPresented: self.$twitter.showSheet) {
-            SafariView(url: self.$twitter.authUrl)
+            CustomSafariViewController.SafariView(url: self.$twitter.authUrl)
             
         }
     }
@@ -28,6 +28,6 @@ struct LoginView: View {
 
 struct LoginView_Previews: PreviewProvider {
     static var previews: some View {
-        LoginView().EnvironmentObject(TwitterService())
+        LoginView()
     }
 }

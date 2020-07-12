@@ -11,12 +11,10 @@ import Combine
 import CommonCrypto
 
 class TwitterService: NSObject, ObservableObject {
-
+    
     let TWITTER_CONSUMER_KEY = FindAPIKey().valueForAPIKey(named: "TWITTER_CONSUMER_KEY")
-
-
     let TWITTER_CONSUMER_SECRET = FindAPIKey().valueForAPIKey(named: "TWITTER_CONSUMER_SECRET")
-    let TWITTER_URL_SCHEME = "twittersdk"
+    let TWITTER_SDK = "twittersdk"
     
     // Allows binding to LoginView()
     let objectWillChange = PassthroughSubject<TwitterService,Never>()
@@ -37,7 +35,7 @@ class TwitterService: NSObject, ObservableObject {
         }
       }
       
-      func authorizationHeader(params: [String: Any]) -> String {
+    func authorizationHeader(params: [String: Any]) -> String {
         var parts: [String] = []
         for param in params {
           let key = param.key.urlEncoded
@@ -47,7 +45,6 @@ class TwitterService: NSObject, ObservableObject {
         return "OAuth " + parts.sorted().joined(separator: ", ")
       }
       
-    }
 
     // Sorting URLs
     func signatureParameterString(params: [String: Any]) -> String {
@@ -109,38 +106,38 @@ class TwitterService: NSObject, ObservableObject {
     }
     func requestOAuthToken(args: RequestOAuthTokenInput,_ complete: @escaping (RequestOAuthTokenResponse) -> Void) {
       
-      let request = (url: "https://api.twitter.com/oauth/request_token", httpMethod: "POST")
-      let callback = args.callbackScheme + "://success"
+        let request = (url: "https://api.twitter.com/oauth/request_token", httpMethod: "POST")
+        let callback = args.callbackScheme + "://success"
       
-      var params: [String: Any] = [
+        var params: [String: Any] = [
         "oauth_callback" : callback,
         "oauth_consumer_key" : args.consumerKey,
         "oauth_nonce" : UUID().uuidString, // nonce can be any 32-bit string made up of random ASCII values
         "oauth_signature_method" : "HMAC-SHA1",
         "oauth_timestamp" : String(Int(NSDate().timeIntervalSince1970)),
         "oauth_version" : "1.0"
-      ]
-      // Build the OAuth Signature from Parameters
-      params["oauth_signature"] = oauthSignature(httpMethod: request.httpMethod, url: request.url,
+        ]
+        // Build the OAuth Signature from Parameters
+        params["oauth_signature"] = oauthSignature(httpMethod: request.httpMethod, url: request.url,
                                                  params: params, consumerSecret: args.consumerSecret)
       
-      // Once OAuth Signature is included in our parameters, build the authorization header
-      let authHeader = authorizationHeader(params: params)
+        // Once OAuth Signature is included in our parameters, build the authorization header
+        let authHeader = self.authorizationHeader(params: params)
       
-      guard let url = URL(string: request.url) else { return }
-      var urlRequest = URLRequest(url: url)
-      urlRequest.httpMethod = request.httpMethod
-      urlRequest.setValue(authHeader, forHTTPHeaderField: "Authorization")
-      let task = URLSession.shared.dataTask(with: urlRequest) { (data, response, error) in
-        guard let data = data else { return }
-        guard let dataString = String(data: data, encoding: .utf8) else { return }
-        // dataString should return: oauth_token=XXXX&oauth_token_secret=YYYY&oauth_callback_confirmed=true
-        let attributes = dataString.urlQueryStringParameters
-        let result = RequestOAuthTokenResponse(oauthToken: attributes["oauth_token"] ?? "",
-                                               oauthTokenSecret: attributes["oauth_token_secret"] ?? "",
-                                               oauthCallbackConfirmed: attributes["oauth_callback_confirmed"] ?? "")
-        complete(result)
-      }
+        guard let url = URL(string: request.url) else { return }
+        var urlRequest = URLRequest(url: url)
+        urlRequest.httpMethod = request.httpMethod
+        urlRequest.setValue(authHeader, forHTTPHeaderField: "Authorization")
+        let task = URLSession.shared.dataTask(with: urlRequest) { (data, response, error) in
+            guard let data = data else { return }
+            guard let dataString = String(data: data, encoding: .utf8) else { return }
+//             dataString should return: oauth_token=XXXX&oauth_token_secret=YYYY&oauth_callback_confirmed=true
+            let attributes = dataString.urlQueryStringParameters
+            let result = RequestOAuthTokenResponse(oauthToken: attributes["oauth_token"] ?? "",
+                                                   oauthTokenSecret: attributes["oauth_token_secret"] ?? "",
+                                                   oauthCallbackConfirmed: attributes["oauth_callback_confirmed"] ?? "")
+            complete(result)
+        }
       task.resume()
     }
 
@@ -206,39 +203,39 @@ class TwitterService: NSObject, ObservableObject {
     }
 
     func authorize() {
-      self.showSheet = true // opens the sheet containing our safari view
+        self.showSheet = true // opens the sheet containing our safari view
       
       // Start Step 1: Requesting an access token
-        let oAuthTokenInput = RequestOAuthTokenInput(consumerKey: TwitterService().TWITTER_CONSUMER_KEY,
-                                                     consumerSecret: TwitterService().TWITTER_CONSUMER_SECRET,
-                                                     callbackScheme: TwitterService().TWITTER_URL_SCHEME)
-      requestOAuthToken(args: oAuthTokenInput) { oAuthTokenResponse in
+        let oAuthTokenInput = RequestOAuthTokenInput(consumerKey: TWITTER_CONSUMER_KEY,
+                                                     consumerSecret: TWITTER_CONSUMER_SECRET,
+                                                     callbackScheme: TWITTER_SDK)
+        requestOAuthToken(args: oAuthTokenInput) { oAuthTokenResponse in
         // Kick off our Step 2 observer: start listening for user login callback in scene delegate (from handleOpenUrl)
-        self.callbackObserver = NotificationCenter.default.addObserver(forName: .twitterCallback, object: nil, queue: .main) { notification in
-          self.callbackObserver = nil // remove notification observer
-          self.showSheet = false      // hide sheet containing safari view
-          self.authUrl = nil          // remove safari view
-          guard let url = notification.object as? URL else { return }
-          guard let parameters = url.query?.urlQueryStringParameters else { return }
-          /*
-          url => twittersdk://success?oauth_token=XXXX&oauth_verifier=ZZZZ
-          url.query => oauth_token=XXXX&oauth_verifier=ZZZZ
-          url.query?.urlQueryStringParameters => ["oauth_token": "XXXX", "oauth_verifier": "YYYY"]
-          */
-          guard let verifier = parameters["oauth_verifier"] else { return }
+            self.callbackObserver = NotificationCenter.default.addObserver(forName: .twitterCallback, object: nil, queue: .main) { notification in
+            self.callbackObserver = nil // remove notification observer
+            self.showSheet = false      // hide sheet containing safari view
+            self.authUrl = nil          // remove safari view
+            guard let url = notification.object as? URL else { return }
+            guard let parameters = url.query?.urlQueryStringParameters else { return }
+              /*
+              url => twittersdk://success?oauth_token=XXXX&oauth_verifier=ZZZZ
+              url.query => oauth_token=XXXX&oauth_verifier=ZZZZ
+              url.query?.urlQueryStringParameters => ["oauth_token": "XXXX", "oauth_verifier": "YYYY"]
+              */
+            guard let verifier = parameters["oauth_verifier"] else { return }
           // Start Step 3: Request Access Token
-          let accessTokenInput = RequestAccessTokenInput(consumerKey: TWITTER_CONSUMER_KEY,
-                                                         consumerSecret: TWITTER_CONSUMER_SECRET,
-                                                         requestToken: oAuthTokenResponse.oauthToken,
-                                                         requestTokenSecret: oAuthTokenResponse.oauthTokenSecret,
-                                                         oauthVerifier: verifier)
-          self.requestAccessToken(args: accessTokenInput) { accessTokenResponse in
-            // Process Completed Successfully!
-            DispatchQueue.main.async {
-              self.credential = accessTokenResponse
-              self.authUrl = nil
+                let accessTokenInput = RequestAccessTokenInput(consumerKey: self.TWITTER_CONSUMER_KEY,
+                                                               consumerSecret: self.TWITTER_CONSUMER_SECRET,
+                                                           requestToken: oAuthTokenResponse.oauthToken,
+                                                           requestTokenSecret: oAuthTokenResponse.oauthTokenSecret,
+                                                           oauthVerifier: verifier)
+            self.requestAccessToken(args: accessTokenInput) { accessTokenResponse in
+                // Process Completed Successfully!
+                DispatchQueue.main.async {
+                    self.credential = accessTokenResponse
+                    self.authUrl = nil
+                }
             }
-          }
         }
                                                 
         // Start Step 2: User Twitter Login
@@ -246,6 +243,7 @@ class TwitterService: NSObject, ObservableObject {
         guard let oauthUrl = URL(string: urlString) else { return }
         DispatchQueue.main.async {
           self.authUrl = oauthUrl // sets our safari view url
+            }
         }
     }
 }

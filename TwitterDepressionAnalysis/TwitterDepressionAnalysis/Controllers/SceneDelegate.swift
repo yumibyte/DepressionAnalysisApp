@@ -9,42 +9,46 @@
 import UIKit
 import SwiftUI
 
+
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
     let twitterKeys = TwitterService()
-
+    
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
-                
-        if let windowScene = scene as? UIWindowScene {
-            
-            let window = UIWindow(windowScene: windowScene)
-            self.window = window
-            
-            let vc = UIHostingController(rootView: LoginView().environmentObject(TwitterService()))
-            window.rootViewController = vc
-
-            window.makeKeyAndVisible()
-        }
-        
+      // Create the SwiftUI view that provides the window contents.
+      let twitter = TwitterService()
+      let contentView = LoginView().environmentObject(twitter)
+      // Use a UIHostingController as window root view controller.
+      if let windowScene = scene as? UIWindowScene {
+        let window = UIWindow(windowScene: windowScene)
+        window.rootViewController = UIHostingController(rootView: contentView)
+        self.window = window
+        window.makeKeyAndVisible()
+      }
     }
+//    // Connect environment Object
+//    func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
+//        if let windowScene = scene as? UIWindowScene {
+//
+//            let window = UIWindow(windowScene: windowScene)
+//            self.window = window
+//
+//            let vc = UIHostingController(rootView: LoginView().environmentObject(TwitterService()))
+//            window.rootViewController = vc
+//            //            window.rootViewController = UIHostingController(
+//            //                rootView: LoginScreen().environmentObject(SessionStore())
+//            //            )
+//            window.makeKeyAndVisible()
+//            }
+//    }
     
     // URL Scheme for Twitter Login
     func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>) {
       
          handleOpenUrl(notificationName: .twitterCallback,
-                       callbackScheme: twitterKeys.TWITTER_URL_SCHEME,
+                       callbackScheme: twitterKeys.TWITTER_SDK,
          url: URLContexts.first?.url)
-        // Create the SwiftUI view that provides the window contents.
-        let twitter = TwitterService()
-        let contentView = LoginView().environmentObject(twitter)
-        // Use a UIHostingController as window root view controller.
-        if let windowScene = scene as? UIWindowScene {
-          let window = UIWindow(windowScene: windowScene)
-          window.rootViewController = UIHostingController(rootView: contentView)
-          self.window = window
-          window.makeKeyAndVisible()
-        }
     }
     
     func handleOpenUrl(notificationName: Notification.Name,
