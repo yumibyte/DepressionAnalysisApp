@@ -9,13 +9,25 @@
 import SwiftUI
 
 struct LoginView: View {
+    @EnvironmentObject var twitter: TwitterService
+    
     var body: some View {
-        Text("Hello, World!")
+        VStack {
+            Button(action: { self.twitter.authorize() }) {
+                Text("Login with Twitter")
+            }
+            Text(twitter.credential?.userId ?? "")
+            Text(twitter.credential?.screenName ?? "")
+        }
+        .sheet(isPresented: self.$twitter.showSheet) {
+            SafariView(url: self.$twitter.authUrl)
+            
+        }
     }
 }
 
 struct LoginView_Previews: PreviewProvider {
     static var previews: some View {
-        LoginView()
+        LoginView().EnvironmentObject(TwitterService())
     }
 }

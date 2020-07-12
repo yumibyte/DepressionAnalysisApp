@@ -15,15 +15,18 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     let twitterKeys = TwitterService()
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
-        
-        let contentView = LoginView()
-
+                
         if let windowScene = scene as? UIWindowScene {
+            
             let window = UIWindow(windowScene: windowScene)
-            window.rootViewController = UIHostingController(rootView: contentView)
             self.window = window
+            
+            let vc = UIHostingController(rootView: LoginView().environmentObject(TwitterService()))
+            window.rootViewController = vc
+
             window.makeKeyAndVisible()
         }
+        
     }
     
     // URL Scheme for Twitter Login
@@ -32,6 +35,16 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
          handleOpenUrl(notificationName: .twitterCallback,
                        callbackScheme: twitterKeys.TWITTER_URL_SCHEME,
          url: URLContexts.first?.url)
+        // Create the SwiftUI view that provides the window contents.
+        let twitter = TwitterService()
+        let contentView = LoginView().environmentObject(twitter)
+        // Use a UIHostingController as window root view controller.
+        if let windowScene = scene as? UIWindowScene {
+          let window = UIWindow(windowScene: windowScene)
+          window.rootViewController = UIHostingController(rootView: contentView)
+          self.window = window
+          window.makeKeyAndVisible()
+        }
     }
     
     func handleOpenUrl(notificationName: Notification.Name,
