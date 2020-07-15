@@ -10,10 +10,13 @@ import matplotlib.pyplot as plt
 import pandas as pd
 
 # Importing the dataset
-dataset = pd.read_csv('Depression_DB_Modified.xlsx')
-X = dataset.iloc[:, 2].values + dataset.iloc[:, 4:7].values
+dataset = pd.read_csv('Depression_DB_Modified.csv')
+#X_first = dataset.iloc[:, 2].values 
+#X_second = dataset.iloc[:, 4:7].values
+#X = X_first + X_second
+X = dataset[slice(4, 7)].values
+X_final = X.append(dataset.iloc[:, 2.values])
 y = dataset.iloc[:, 8].values
-
 # Encoding categorical data
 from sklearn.preprocessing import LabelEncoder, OneHotEncoder
 from sklearn.compose import ColumnTransformer
