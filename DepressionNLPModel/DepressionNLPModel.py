@@ -38,17 +38,15 @@ clf.score(X_test,y_test)
 y_pred = clf.predict(X_test)
 # print(classification_report(y_test, y_pred))
 
-import joblib
-joblib.dump(clf, 'Depression_NLP_model.pkl') 
+# Store cv for deeplearning model
+import pickle
 
+f = open('store.pckl', 'wb')
+pickle.dump(cv, f)
+f.close()
 
-
-#def ProcessText():
-    
-    #data = [X_input]
-    #vect = cv.transform(data).toarray()
-    #new_prediction = clf.predict(vect)
-
-    #print(new_prediction)
+#result = clf.predict(cv.transform(np.array(['Very cool!'])))
+#import joblib
+#joblib.dump(clf, 'Depression_NLP_model.pkl') 
 
 
