@@ -11,7 +11,7 @@ import matplotlib.pyplot as plt
 import pandas as pd
 
 # Importing the dataset
-dataset = pd.read_csv('Depression_Reddit_Database_Filtered.csv')
+dataset = pd.read_csv('TEST_CASE.csv')
 
 # Take key values for future processing
 X_key_vars = dataset.iloc[:, 3:8].values
@@ -31,22 +31,54 @@ from sklearn.metrics import classification_report
 cv = CountVectorizer()
 X_content = cv.fit_transform(X_content) # Fit the Data
 X_train, X_test, y_train, y_test = train_test_split(X_content, y, test_size=0.2, random_state=42)
+
 #Naive Bayes Classifier
 clf = MultinomialNB()
 clf.fit(X_train,y_train)
 clf.score(X_test,y_test)
 y_pred = clf.predict(X_test)
-# print(classification_report(y_test, y_pred))
+X_probability_results = clf.predict_proba(X_content)
+X_probability_results = X_probability_results
 
-# Store cv for deeplearning model
+import csv
+from pandas import read_csv      
+
+# Swap content for probabilities
+reader = csv.reader(open("TEST_CASE.csv", "r"))
+writer = csv.writer(open("TEST_CASE_RESULT.csv", "w"))
+count = 0
+next(reader)
+for row in reader: 
+    if count < len(X_probability_results) - 1:
+        # modify desired element in row
+        row[4] = X_probability_results[count][1]
+        writer.writerow(row)
+        count += 1
+        print(row[4])
+
+csv_result = pd.read_csv('TEST_CASE_RESULT.csv')
+csv_result.columns = ['url', 'subreddit', 'author_name', 'created', 'title', 'score', 'upvote_ratio', 'content', 'result']
+csv_result.to_csv('TEST_CASE_RESULT.csv')
+
+print("finish")
+
+        
+#csv_test_final = pd.read_csv('TEST_CASE_RESULT.csv')
+ 
+# create pickle and pkl file
+
+"""
+print(classification_report(y_test, y_pred))
+
+Store cv for deeplearning model
 import pickle
 
 f = open('store.pckl', 'wb')
 pickle.dump(cv, f)
 f.close()
 
-#result = clf.predict(cv.transform(np.array(['Very cool!'])))
-#import joblib
-#joblib.dump(clf, 'Depression_NLP_model.pkl') 
-
+result = clf.predict(cv.transform(np.array(['Very cool!'])))
+import joblib
+joblib.dump(clf, 'Depression_NLP_model.pkl') 
+"""
 

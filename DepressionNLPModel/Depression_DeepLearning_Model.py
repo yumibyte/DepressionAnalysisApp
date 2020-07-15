@@ -24,9 +24,9 @@ clf = joblib.load(NB_spam_model)
 
 #Calculate result
 
-result = clf.predict(cv.transform(np.array(['Very cool!'])))
+# result = clf.predict(cv.transform(np.array(['I hate myself!']))) # use this for binary output
+# result_1 = clf.predict_proba(cv.transform(np.array(['I hate myself!']))) # percentage output
 
-#clf.predict(test)
-#new_prediction = classifier.predict(sc.transform(np.array([[0, 0, 600, 1, 40, 3, 60000, 2, 1, 1, 50000]])))
+# Modify DB to contain percentages 
 
-# Train Model
+
