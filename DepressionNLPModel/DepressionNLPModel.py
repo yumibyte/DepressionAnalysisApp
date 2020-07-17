@@ -21,7 +21,7 @@ def Classify_Text(in_file_name, text_type):
     
     # Take solely text to be processed
     if text_type == "title":
-        X = dataset.iloc[:, 4].values
+        X = dataset.iloc[:, 3].values
     if text_type == "content":
         X = dataset.iloc[:, 7].values
     y = dataset.iloc[:, 8].values
@@ -61,7 +61,7 @@ def Text_Swap(text_type, in_file_name, out_file_name):
         
         # find index of text based on type
         if text_type == "title":
-            index_of_text_in_DB = 4
+            index_of_text_in_DB = 3
         if text_type == "content":
             index_of_text_in_DB = 7
         
@@ -84,8 +84,8 @@ def Text_Swap(text_type, in_file_name, out_file_name):
     #csv_read = pd.read_csv('TEST_CASE.csv')
     #csv_result = pd.read_csv('TEST_CASE_RESULT.csv')
     
-Classify_Text('TEST_CASE.csv', "content")
-Text_Swap("content", 'TEST_CASE_RESULTS.csv', 'TEST_CASE_RESULTS.csv')
+Classify_Text('Depression_Reddit_Database_Filtered.csv', "title")
+Text_Swap("title", 'Depression_Reddit_Database_Filtered_Final.csv', 'Depression_Reddit_Database_Filtered_Final.csv')
 
 
 
