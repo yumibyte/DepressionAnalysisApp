@@ -33,11 +33,13 @@ def Classify_Text(in_file_name, text_type):
     from sklearn.metrics import classification_report
     
     # Train Model
+    global cv
     cv = CountVectorizer()
     X = cv.fit_transform(X) # Fit the Data
     X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
     
     #Naive Bayes Classifier
+    global clf
     clf = MultinomialNB()
     clf.fit(X_train,y_train)
     clf.score(X_test,y_test)
@@ -85,16 +87,15 @@ def Text_Swap(text_type, in_file_name, out_file_name):
     #csv_result = pd.read_csv('TEST_CASE_RESULT.csv')
     
 Classify_Text('Depression_Reddit_Database_Filtered.csv', "title")
-Text_Swap("title", 'Depression_Reddit_Database_Filtered_Final.csv', 'Depression_Reddit_Database_Filtered_Final.csv')
+#Text_Swap("title", 'Depression_Reddit_Database_Filtered_Final.csv', 'Depression_Reddit_Database_Filtered_Final.csv')
 
 
 
 # create pickle and pkl file
 
-"""
-print(classification_report(y_test, y_pred))
 
-Store cv for deeplearning model
+#Store cv for deeplearning model
+"""
 import pickle
 
 f = open('store.pckl', 'wb')
@@ -104,5 +105,31 @@ f.close()
 result = clf.predict(cv.transform(np.array(['Very cool!'])))
 import joblib
 joblib.dump(clf, 'Depression_NLP_model.pkl') 
+"""
+
+# use pkl file
+"""
+import joblib
+from sklearn.feature_extraction.text import CountVectorizer
+from sklearn.feature_extraction.text import CountVectorizer
+import pandas as pd
+import numpy as np
+
+# import pickle w/ cv
+import pickle
+f = open('store.pckl', 'rb')
+cv = pickle.load(f)
+f.close()
+
+# import NLP model
+NB_spam_model = open('Depression_NLP_model.pkl','rb')
+clf = joblib.load(NB_spam_model)
+
+#Calculate result
+
+# result = clf.predict(cv.transform(np.array(['I hate myself!']))) # use this for binary output
+# result_1 = clf.predict_proba(cv.transform(np.array(['I hate myself!']))) # percentage output
+
+# Modify DB to contain percentages 
 """
 
