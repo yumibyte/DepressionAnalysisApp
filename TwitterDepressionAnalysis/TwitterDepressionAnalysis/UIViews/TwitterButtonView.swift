@@ -14,6 +14,7 @@ struct TwitterButtonView: View {
             Rectangle()
                 .frame(width: 180, height: 60)
                 .foregroundColor(.blue)
+            
                 .overlay(
             Text("Login with Twitter")
                 .foregroundColor(.white)
