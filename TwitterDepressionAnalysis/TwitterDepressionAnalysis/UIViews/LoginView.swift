@@ -12,22 +12,34 @@ struct LoginView: View {
     @EnvironmentObject var twitter: TwitterService
     
     var body: some View {
-        VStack {
-            Text("Login to Twitter Depression Analysis")
-                .font(.title)
-            
-            
-            Button(action: { self.twitter.authorize() }) {
-                Text("Login with Twitter")
-            }
-            Text(twitter.credential?.userId ?? "")
-            Text(twitter.credential?.screenName ?? "")
-        }
-        .sheet(isPresented: self.$twitter.showSheet) {
-            CustomSafariViewController.SafariView(url: self.$twitter.authUrl)
-            
+        ZStack(alignment: .center) {
+            Rectangle()
+                .frame(width: 340, height: 60)
+                .foregroundColor(Color(red: 80 / 255, green: 171 / 255, blue: 241 / 255))
+                .cornerRadius(10)
+            HStack {
+                Button(action: { self.twitter.authorize() }) {
+                    Text("Sign in with Twitter")
+                }
+                    Text(twitter.credential?.userId ?? "")
+                        Text(twitter.credential?.screenName ?? "")
+                    }
+                    .sheet(isPresented: self.$twitter.showSheet) {
+                        CustomSafariViewController.SafariView(url: self.$twitter.authUrl)
+
+                    }
+                    .minimumScaleFactor(0.5)
+                    .foregroundColor(.white)
+                    .font(.system(size: 20, weight: .medium, design: .default))
+                    .lineLimit(1)
+                    .offset(x: 30)
+
+                Image("TwitterLogo")
+                    .scaleEffect(0.26)
+                .offset(x: -120)
         }
     }
+
 }
 
 struct LoginView_Previews: PreviewProvider {

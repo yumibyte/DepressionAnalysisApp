@@ -3,11 +3,10 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1690CD3D24C4A43200AC12B3 /* TwitterButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1690CD3C24C4A43200AC12B3 /* TwitterButtonView.swift */; };
 		16F9403A24BAF1A0002E6ECD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16F9403924BAF1A0002E6ECD /* AppDelegate.swift */; };
 		16F9403C24BAF1A0002E6ECD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16F9403B24BAF1A0002E6ECD /* SceneDelegate.swift */; };
 		16F9403E24BAF1A0002E6ECD /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16F9403D24BAF1A0002E6ECD /* LoginView.swift */; };
@@ -22,7 +21,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		1690CD3C24C4A43200AC12B3 /* TwitterButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwitterButtonView.swift; sourceTree = "<group>"; };
 		16F9403624BAF1A0002E6ECD /* TwitterDepressionAnalysis.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TwitterDepressionAnalysis.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		16F9403924BAF1A0002E6ECD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		16F9403B24BAF1A0002E6ECD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -113,7 +111,6 @@
 			children = (
 				16F9405D24BAFDD5002E6ECD /* CustomSafariViewController.swift */,
 				16F9403D24BAF1A0002E6ECD /* LoginView.swift */,
-				1690CD3C24C4A43200AC12B3 /* TwitterButtonView.swift */,
 			);
 			path = UIViews;
 			sourceTree = "<group>";
@@ -143,7 +140,6 @@
 				B8AC0D7C473CCAE171BD0F80 /* Pods-TwitterDepressionAnalysis.debug.xcconfig */,
 				FEE1F9D16FB6376B8D658976 /* Pods-TwitterDepressionAnalysis.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -269,7 +265,6 @@
 				16F9403E24BAF1A0002E6ECD /* LoginView.swift in Sources */,
 				16F9405C24BAFAD8002E6ECD /* FindAPIKey.swift in Sources */,
 				16F9404E24BAF2DB002E6ECD /* TwitterService.swift in Sources */,
-				1690CD3D24C4A43200AC12B3 /* TwitterButtonView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
