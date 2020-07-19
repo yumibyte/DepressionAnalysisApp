@@ -46,8 +46,9 @@ def Classify_Text(in_file_name, text_type):
     y_pred = clf.predict(X_test)
     global X_probability_results
     X_probability_results = clf.predict_proba(X)
-    #print(classification_report(y_test, y_pred))
+    print(classification_report(y_test, y_pred))
     return X_probability_results
+
 
 
 import csv
@@ -87,7 +88,7 @@ def Text_Swap(text_type, in_file_name, out_file_name):
     #csv_result = pd.read_csv('TEST_CASE_RESULT.csv')
     
 Classify_Text('Depression_Reddit_Database_Filtered.csv', "title")
-#Text_Swap("title", 'Depression_Reddit_Database_Filtered_Final.csv', 'Depression_Reddit_Database_Filtered_Final.csv')
+#Text_Swap("content", 'Depression_Reddit_Database_Filtered_Final.csv', 'Depression_Reddit_Database_Filtered_Final.csv')
 
 
 

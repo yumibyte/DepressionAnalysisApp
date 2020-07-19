@@ -13,6 +13,10 @@ struct LoginView: View {
     
     var body: some View {
         VStack {
+            Text("Login to Twitter Depression Analysis")
+                .font(.title)
+            
+            
             Button(action: { self.twitter.authorize() }) {
                 Text("Login with Twitter")
             }
