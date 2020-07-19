@@ -7,18 +7,32 @@
 //
 
 import SwiftUI
+import ChameleonFramework
 
 struct TwitterButtonView: View {
+
     var body: some View {
-        VStack() {
+        ZStack(alignment: .center) {
             Rectangle()
-                .frame(width: 180, height: 60)
-                .foregroundColor(.blue)
+                .frame(width: 340, height: 60)
+                .foregroundColor(Color(red: 80 / 255, green: 171 / 255, blue: 241 / 255))
+                .cornerRadius(10)
+            HStack {
+                Text("Sign in with Twitter")
+                    .minimumScaleFactor(0.5)
+                    .foregroundColor(.white)
+                    .font(.system(size: 20, weight: .medium, design: .default))
+                    .lineLimit(1)
+                    .offset(x: 140)
+
+                Image("TwitterLogo")
+                    .scaleEffect(0.26)
+                .offset(x: -190)
+                
+            }
             
-                .overlay(
-            Text("Login with Twitter")
-                .foregroundColor(.white)
-            )
+            
+            
 
         }
         
