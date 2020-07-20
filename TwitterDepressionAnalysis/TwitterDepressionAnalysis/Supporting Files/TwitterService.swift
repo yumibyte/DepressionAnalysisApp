@@ -19,13 +19,17 @@ class TwitterService: NSObject, ObservableObject {
     // Allows binding to LoginView()
     let objectWillChange = PassthroughSubject<TwitterService,Never>()
       
-      @Published var authUrl: URL? {
+    @Published var authUrl: URL? {
         willSet { self.objectWillChange.send(self) }
-      }
+    }
       
-      @Published var showSheet: Bool = false {
+    @Published var showSheet: Bool = false {
         willSet { self.objectWillChange.send(self) }
-      }
+    }
+    
+    @Published var isActive: Bool = false {
+        willSet { self.objectWillChange.send(self) }
+    }
       
       var callbackObserver: Any? {
         willSet {
@@ -203,6 +207,7 @@ class TwitterService: NSObject, ObservableObject {
     }
 
     func authorize() {
+
         self.showSheet = true // opens the sheet containing our safari view
       
       // Start Step 1: Requesting an access token
@@ -215,6 +220,7 @@ class TwitterService: NSObject, ObservableObject {
             self.callbackObserver = nil // remove notification observer
             self.showSheet = false      // hide sheet containing safari view
             self.authUrl = nil          // remove safari view
+            self.isActive = true
             guard let url = notification.object as? URL else { return }
             guard let parameters = url.query?.urlQueryStringParameters else { return }
               /*
@@ -234,6 +240,8 @@ class TwitterService: NSObject, ObservableObject {
                 DispatchQueue.main.async {
                     self.credential = accessTokenResponse
                     self.authUrl = nil
+                    self.isActive = true
+                    print(self.isActive)
                 }
             }
         }
@@ -245,6 +253,7 @@ class TwitterService: NSObject, ObservableObject {
           self.authUrl = oauthUrl // sets our safari view url
             }
         }
+        
     }
 }
 extension Notification.Name {

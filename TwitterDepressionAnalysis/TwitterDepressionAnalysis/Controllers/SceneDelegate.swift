@@ -18,7 +18,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
       // Create the SwiftUI view that provides the window contents.
       let twitter = TwitterService()
-      let contentView = LoginView().environmentObject(twitter)
+        let contentView = LoginView().environmentObject(twitter)
       // Use a UIHostingController as window root view controller.
       if let windowScene = scene as? UIWindowScene {
         let window = UIWindow(windowScene: windowScene)
