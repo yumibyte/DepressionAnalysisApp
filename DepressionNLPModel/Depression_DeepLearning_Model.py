@@ -20,11 +20,16 @@ Created on Tue Jul 14 22:53:42 2020
 import numpy as np
 import matplotlib.pyplot as plt
 import pandas as pd
-
 # Importing the dataset
-dataset = pd.read_csv('Depression_Reddit_Database_Filtered_Final.csv')
-X = dataset.iloc[:, 3:6].values
-y = dataset.iloc[:, 6].values
+dataset = pd.read_csv('Empath_Analysis.csv')
+X = dataset.iloc[:, 2:197].values
+
+#np.nan_to_num(X)
+for x in X:
+    if np.isnan(x) == True:
+        print(x)
+
+y = dataset.iloc[:, 0].values
 
 # Splitting the dataset into the Training set and Test set
 from sklearn.model_selection import train_test_split
@@ -47,12 +52,12 @@ from keras.layers import Dropout
 classifier = Sequential()
 
 # Adding input layer and first hidden layer with dropout
-classifier.add(Dense(output_dim = 3, init = 'uniform', activation = 'relu', input_dim = 3))
+classifier.add(Dense(output_dim = 1, init = 'uniform', activation = 'relu', input_dim = 195))
 classifier.add(Dropout(p = 0.1))
 
 
 # Adding the second hidden layer
-classifier.add(Dense(output_dim = 3, init = 'uniform', activation = 'relu'))
+classifier.add(Dense(output_dim = 1, init = 'uniform', activation = 'relu'))
 classifier.add(Dropout(p = 0.1))
 
 # Adding output layer
@@ -67,7 +72,7 @@ classifier.fit(X_train, y_train, batch_size = 25, nb_epoch = 500)
 # Predicting the Test set results
 y_pred = classifier.predict(X_test)
 y_pred = (y_pred > 0.5)
-
+"""
 # Load model
 # save the model to disk
 from keras.models import load_model
@@ -83,7 +88,7 @@ your_model = coremltools.converters.keras.convert('Depression_Deep_Learning_Mode
                                                    class_labels=output_labels, twitter_input_names='post')
 your_model.save('Depression_Deep_Learning_Model.mlmodel')
 
-
+"""
 
 # Predicting a single new observation
 """ Predict if the customer with the following info will leave the bank:
@@ -97,8 +102,8 @@ your_model.save('Depression_Deep_Learning_Model.mlmodel')
     Has credit card: Yes
     Is active Member: Yes
     Estimated Salary: 5000"""
-new_prediction = classifier.predict(sc.transform(np.array([[0, 0, 600, 1, 40, 3, 60000, 2, 1, 1, 50000]])))
-new_prediction = (new_prediction > 0.5)
+#new_prediction = classifier.predict(sc.transform(np.array([[0, 0, 600, 1, 40, 3, 60000, 2, 1, 1, 50000]])))
+#new_prediction = (new_prediction > 0.5)
 
 # Making the Confusion Matrix
 from sklearn.metrics import confusion_matrix
@@ -136,7 +141,7 @@ from keras.layers import Dense
 
 def build_classifier(optimizer): 
     classifier = Sequential()
-    classifier.add(Dense(output_dim = 6, init = 'uniform', activation = 'relu', input_dim = 3))
+    classifier.add(Dense(output_dim = 6, init = 'uniform', activation = 'relu', input_dim = 195))
     classifier.add(Dense(output_dim = 6, init = 'uniform', activation = 'relu'))
     classifier.add(Dense(output_dim = 1, init = 'uniform', activation = 'sigmoid'))
     classifier.compile(optimizer = optimizer, loss = 'binary_crossentropy', metrics = ['accuracy'])
