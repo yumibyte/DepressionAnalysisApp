@@ -12,19 +12,19 @@ import pandas as pd
 
 def Classify_Text(in_file_name, text_type):
     # Importing the dataset
-    dataset = pd.read_csv(in_file_name)
+    dataset = pd.read_csv('Empath_Analysis.csv')
             
     # Take key values for future processing
-    """
-    X_key_vars = dataset.iloc[:, 3:8].values
-    """
+    
+    #X = dataset.iloc[:, 2:197].values
+    
     
     # Take solely text to be processed
     if text_type == "title":
-        X = dataset.iloc[:, 3].values
+        X = dataset.iloc[:, 2:8].values
     if text_type == "content":
         X = dataset.iloc[:, 7].values
-    y = dataset.iloc[:, 8].values
+    y = dataset.iloc[:, 0].values
 
     # Process text function
     from sklearn.feature_extraction.text import CountVectorizer
@@ -87,7 +87,7 @@ def Text_Swap(text_type, in_file_name, out_file_name):
     #csv_read = pd.read_csv('TEST_CASE.csv')
     #csv_result = pd.read_csv('TEST_CASE_RESULT.csv')
     
-Classify_Text('Depression_Reddit_Database_Filtered.csv', "title")
+Classify_Text('Empath_Analysis.csv', "title")
 #Text_Swap("content", 'Depression_Reddit_Database_Filtered_Final.csv', 'Depression_Reddit_Database_Filtered_Final.csv')
 
 
