@@ -155,10 +155,10 @@ class TwitterService: NSObject, ObservableObject {
     }
 
     struct RequestAccessTokenResponse {
-      let accessToken: String
-      let accessTokenSecret: String
-      let userId: String
-      let screenName: String
+        let accessToken: String
+        let accessTokenSecret: String
+        let userId: String
+        let screenName: String
     }
 
     func requestAccessToken(args: RequestAccessTokenInput,
