@@ -7,12 +7,11 @@
 //
 
 import SwiftUI
-
 struct LoginView: View {
     
     @EnvironmentObject var twitter: TwitterService
     var body: some View {
-        
+
         NavigationView {
             VStack {
                 Text("Login to Twitter Depression Analysis")
