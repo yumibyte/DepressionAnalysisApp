@@ -158,6 +158,7 @@
 				16F9403324BAF1A0002E6ECD /* Frameworks */,
 				16F9403424BAF1A0002E6ECD /* Resources */,
 				A17ADAD3D3E1E8740F71A4AC /* [CP] Embed Pods Frameworks */,
+				F8DACBE3FD676054CAF68DF7 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -253,6 +254,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-TwitterDepressionAnalysis/Pods-TwitterDepressionAnalysis-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F8DACBE3FD676054CAF68DF7 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TwitterDepressionAnalysis/Pods-TwitterDepressionAnalysis-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TwitterDepressionAnalysis/Pods-TwitterDepressionAnalysis-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-TwitterDepressionAnalysis/Pods-TwitterDepressionAnalysis-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */

@@ -7,7 +7,7 @@ target 'TwitterDepressionAnalysis' do
   # Pods for TwitterDepressionAnalysis
 
 pod 'ChameleonFramework/Swift', :git => 'https://github.com/wowansm/Chameleon', :branch => 'swift5'
-
+pod 'TwitterKit'
 
 
 end

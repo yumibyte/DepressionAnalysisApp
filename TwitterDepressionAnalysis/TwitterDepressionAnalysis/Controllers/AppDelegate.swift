@@ -7,14 +7,16 @@
 //
 
 import UIKit
-
+import TwitterKit
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-
-
+    let findAPIKey = FindAPIKey()
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        TWTRTwitter.sharedInstance().start(withConsumerKey: findAPIKey.valueForAPIKey(named: "TWITTER_CONSUMER_KEY"), consumerSecret: findAPIKey.valueForAPIKey(named: "TWITTER_CONSUMER_SECRET"))
+
         return true
     }
 

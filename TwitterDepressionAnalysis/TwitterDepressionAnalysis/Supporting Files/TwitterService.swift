@@ -9,7 +9,7 @@
 import SwiftUI
 import Combine
 import CommonCrypto
-
+import TwitterKit
 class TwitterService: NSObject, ObservableObject {
     
     let TWITTER_CONSUMER_KEY = FindAPIKey().valueForAPIKey(named: "TWITTER_CONSUMER_KEY")
@@ -30,7 +30,7 @@ class TwitterService: NSObject, ObservableObject {
     @Published var isActive: Bool = false {
         willSet { self.objectWillChange.send(self) }
     }
-      
+    
       var callbackObserver: Any? {
         willSet {
           // we will add and remove this observer on an as-needed basis
@@ -241,7 +241,7 @@ class TwitterService: NSObject, ObservableObject {
                     self.credential = accessTokenResponse
                     self.authUrl = nil
                     self.isActive = true
-                    print(self.isActive)
+                    
                 }
             }
         }
