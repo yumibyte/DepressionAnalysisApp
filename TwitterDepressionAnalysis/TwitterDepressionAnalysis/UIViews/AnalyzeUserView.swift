@@ -15,6 +15,7 @@ struct AnalyzeUserView: View {
     let findAPIKey = FindAPIKey()
     @State var profilePictureURL: String?
     @EnvironmentObject var twitter: TwitterService
+    @State var createView: Bool
     
     func createUser(completion: @escaping (Result<String, Error>) -> Void) {
         TWTRTwitter.sharedInstance().logIn { (session, error) in
@@ -31,13 +32,6 @@ struct AnalyzeUserView: View {
         }
     }
     
-    func createImage(url: String) -> UIImage {
-        return AsyncImage(
-            url: URL(string: url)!,
-            placeholder: Text("Loading...")
-        ).aspectRatio(contentMode: .fit) as! UIImage
-        
-    }
     func readTweets() {
         // placeholder
     }
@@ -49,6 +43,12 @@ struct AnalyzeUserView: View {
                 ZStack {
                     Text("hi")
                     
+                    if createView {
+                        AsyncImage(
+                            url: URL(string: profilePictureURL!)!,
+                            placeholder: Text("Loading...")
+                        ).aspectRatio(contentMode: .fit)
+                    }
                     
                     
                     // Analyze user Button
@@ -72,10 +72,9 @@ struct AnalyzeUserView: View {
             self.createUser() { result in
             switch result {
                 case .success(let profileURL):
-
-                    
+                    self.profilePictureURL = profileURL
+                    self.createView = true
                     print("grabbed URL")
-                    self.createImage(url: profileURL)
 
                     
 
@@ -91,7 +90,7 @@ struct AnalyzeUserView: View {
 
 struct AnalyzeUserView_Previews: PreviewProvider {
     static var previews: some View {
-        AnalyzeUserView()
+        AnalyzeUserView(createView: false)
         
     }
 }
