@@ -28,21 +28,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window.makeKeyAndVisible()
       }
     }
-//    // Connect environment Object
-//    func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
-//        if let windowScene = scene as? UIWindowScene {
-//
-//            let window = UIWindow(windowScene: windowScene)
-//            self.window = window
-//
-//            let vc = UIHostingController(rootView: LoginView().environmentObject(TwitterService()))
-//            window.rootViewController = vc
-//            //            window.rootViewController = UIHostingController(
-//            //                rootView: LoginScreen().environmentObject(SessionStore())
-//            //            )
-//            window.makeKeyAndVisible()
-//            }
-//    }
     
     // URL Scheme for Twitter Login
     func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>) {
