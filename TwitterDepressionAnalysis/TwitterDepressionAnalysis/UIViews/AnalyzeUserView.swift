@@ -17,6 +17,7 @@ struct AnalyzeUserView: View {
     @EnvironmentObject var twitter: TwitterService
     @State var createView: Bool
     
+    
     func createUser(completion: @escaping (Result<String, Error>) -> Void) {
         TWTRTwitter.sharedInstance().logIn { (session, error) in
             let client = TWTRAPIClient.withCurrentUser()
@@ -43,11 +44,19 @@ struct AnalyzeUserView: View {
                 ZStack {
                     Text("hi")
                     
+//                    Rectangle()
+//                        .frame(width: 250, height: 250)
+//                        .offset(y: -225)
                     if createView {
-                        AsyncImage(
+                        let image = UIImage(AsyncImage(
                             url: URL(string: profilePictureURL!)!,
                             placeholder: Text("Loading...")
-                        ).aspectRatio(contentMode: .fit)
+                            ))
+//                            .aspectRatio(contentMode: .fill)
+//
+//                        .frame(width: 250, height: 250)
+//                        .offset(y: -225)
+
                     }
                     
                     
