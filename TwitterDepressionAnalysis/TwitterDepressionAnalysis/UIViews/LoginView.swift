@@ -7,6 +7,8 @@
 //
 
 import SwiftUI
+import TwitterKit
+
 struct LoginView: View {
     
     @EnvironmentObject var twitter: TwitterService
@@ -46,6 +48,8 @@ struct LoginView: View {
                                     
                                 .sheet(isPresented: self.$twitter.showSheet) {
                                     CustomSafariViewController.SafariView(url: self.$twitter.authUrl)
+
+
                                 }
                                 
                                 
