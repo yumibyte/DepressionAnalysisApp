@@ -13,36 +13,31 @@ import TwitterKit
 struct AnalyzeUserView: View {
     
     let findAPIKey = FindAPIKey()
-    
-    var profilePictureURL: String
+    @State var profilePictureURL: String?
     @EnvironmentObject var twitter: TwitterService
-
-//     create user, retrieve profile picture
     
-    func makeRequest(_ completion: @escaping (Result<(Data, URLResponse), Error>) -> Void) {
-      URLSession.shared.dataTask(with: URL(string: "https://donnywals.com")!) { data, response, error in
-        if let error = error {
-          completion(.failure(error))
-        } else if let data = data, let response = response {
-          completion(.success((data, response)))
+    func createUser(completion: @escaping (Result<String, Error>) -> Void) {
+        TWTRTwitter.sharedInstance().logIn { (session, error) in
+            let client = TWTRAPIClient.withCurrentUser()
+            client.loadUser(withID: self.twitter.credential?.userId ?? "") { (user, error) in
+                if let imageURL = user?.profileImageURL {
+                    completion(.success(imageURL))
+
+                } else if let error = error {
+                    completion(.failure(error))
+                }
+
+            }
         }
-
-        assertionFailure("We should either have an error or data + response.")
-      }
     }
-
     
-//    func createUser(completionHandler: @escaping (String?) -> String) {
-//        TWTRTwitter.sharedInstance().logIn { (session, error) in
-//            let client = TWTRAPIClient.withCurrentUser()
-//            client.loadUser(withID: self.twitter.credential?.userId ?? "") { (user, error) in
-//                self.profilePictureURL = user?.profileImageURL ?? ""
-//                completionHandler(self.profilePictureURL)
-//            }
-//        }
-//
-//    }
-//
+    func createImage(url: String) -> UIImage {
+        return AsyncImage(
+            url: URL(string: url)!,
+            placeholder: Text("Loading...")
+        ).aspectRatio(contentMode: .fit) as! UIImage
+        
+    }
     func readTweets() {
         // placeholder
     }
@@ -54,11 +49,7 @@ struct AnalyzeUserView: View {
                 ZStack {
                     Text("hi")
                     
-//                    AsyncImage(
-//                        url: URL(string: self.profilePictureURL!)!,
-//                        placeholder: Text("Loading...")
-//                    ).aspectRatio(contentMode: .fit)
-
+                    
                     
                     // Analyze user Button
                     Button(action: readTweets) {
@@ -79,16 +70,19 @@ struct AnalyzeUserView: View {
         }.navigationBarBackButtonHidden(true)
         .onAppear() {
             self.createUser() { result in
-                switch result {
-                    case .success(let url):
-                        
-                        self.profilePictureURL = url
-                        print("grabbed URL")
-                        
-                    case .failure(let error):
-                    print(error.localizedDescription)
-                }
+            switch result {
+                case .success(let profileURL):
+
+                    
+                    print("grabbed URL")
+                    self.createImage(url: profileURL)
+
+                    
+
+                case .failure(let error):
+                print(error.localizedDescription)
             }
+        }
         }
     }
 }
@@ -101,10 +95,3 @@ struct AnalyzeUserView_Previews: PreviewProvider {
         
     }
 }
-//TWTRTwitter.sharedInstance().logIn { (session, error) in
-//    let client = TWTRAPIClient.withCurrentUser()
-//    client.loadUser(withID: self.twitter.credential?.userId ?? "") { (user, error) in
-//        let profilePicture = user?.profileImageURL
-//        print(profilePicture)
-//    }
-//}

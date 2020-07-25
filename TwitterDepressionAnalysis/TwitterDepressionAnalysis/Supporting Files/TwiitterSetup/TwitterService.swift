@@ -18,7 +18,6 @@ class TwitterService: NSObject, ObservableObject {
     
     // Allows binding to LoginView()
     let objectWillChange = PassthroughSubject<TwitterService,Never>()
-      
     @Published var authUrl: URL? {
         willSet { self.objectWillChange.send(self) }
     }
@@ -30,7 +29,7 @@ class TwitterService: NSObject, ObservableObject {
     @Published var isActive: Bool = false {
         willSet { self.objectWillChange.send(self) }
     }
-    
+
       var callbackObserver: Any? {
         willSet {
           // we will add and remove this observer on an as-needed basis
@@ -39,6 +38,7 @@ class TwitterService: NSObject, ObservableObject {
         }
       }
       
+    
     func authorizationHeader(params: [String: Any]) -> String {
         var parts: [String] = []
         for param in params {

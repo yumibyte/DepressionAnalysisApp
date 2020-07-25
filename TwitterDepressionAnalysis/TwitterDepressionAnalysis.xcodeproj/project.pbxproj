@@ -10,7 +10,6 @@
 		066DE751A2F0DF3C74E5BF48 /* Pods_TwitterDepressionAnalysis.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE62B85D549172437B664D34 /* Pods_TwitterDepressionAnalysis.framework */; };
 		165DD28B24CA9C9B00E2B9A4 /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 165DD28A24CA9C9B00E2B9A4 /* ImageLoader.swift */; };
 		165DD28D24CAA0FF00E2B9A4 /* AsyncImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 165DD28C24CAA0FF00E2B9A4 /* AsyncImage.swift */; };
-		165DD29724CBEE8A00E2B9A4 /* CreateUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 165DD29624CBEE8A00E2B9A4 /* CreateUser.swift */; };
 		16F9403A24BAF1A0002E6ECD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16F9403924BAF1A0002E6ECD /* AppDelegate.swift */; };
 		16F9403C24BAF1A0002E6ECD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16F9403B24BAF1A0002E6ECD /* SceneDelegate.swift */; };
 		16F9403E24BAF1A0002E6ECD /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16F9403D24BAF1A0002E6ECD /* LoginView.swift */; };
@@ -27,7 +26,6 @@
 /* Begin PBXFileReference section */
 		165DD28A24CA9C9B00E2B9A4 /* ImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
 		165DD28C24CAA0FF00E2B9A4 /* AsyncImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncImage.swift; sourceTree = "<group>"; };
-		165DD29624CBEE8A00E2B9A4 /* CreateUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateUser.swift; sourceTree = "<group>"; };
 		16F9403624BAF1A0002E6ECD /* TwitterDepressionAnalysis.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TwitterDepressionAnalysis.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		16F9403924BAF1A0002E6ECD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		16F9403B24BAF1A0002E6ECD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -72,7 +70,6 @@
 			children = (
 				165DD28A24CA9C9B00E2B9A4 /* ImageLoader.swift */,
 				165DD28C24CAA0FF00E2B9A4 /* AsyncImage.swift */,
-				165DD29624CBEE8A00E2B9A4 /* CreateUser.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -313,7 +310,6 @@
 				16F9405C24BAFAD8002E6ECD /* FindAPIKey.swift in Sources */,
 				16FA99FF24C63C5E0082B02E /* AnalyzeUserView.swift in Sources */,
 				165DD28B24CA9C9B00E2B9A4 /* ImageLoader.swift in Sources */,
-				165DD29724CBEE8A00E2B9A4 /* CreateUser.swift in Sources */,
 				16F9404E24BAF2DB002E6ECD /* TwitterService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
