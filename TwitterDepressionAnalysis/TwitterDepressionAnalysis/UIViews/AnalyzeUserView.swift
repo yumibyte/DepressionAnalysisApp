@@ -13,10 +13,9 @@ import TwitterKit
 struct AnalyzeUserView: View {
     
     let findAPIKey = FindAPIKey()
-    @State var profilePictureURL: String?
+    @State var profilePictureURL: URL?
     @EnvironmentObject var twitter: TwitterService
     @State var createView: Bool
-    
     
     func createUser(completion: @escaping (Result<String, Error>) -> Void) {
         TWTRTwitter.sharedInstance().logIn { (session, error) in
@@ -44,21 +43,30 @@ struct AnalyzeUserView: View {
                 ZStack {
                     Text("hi")
                     
-//                    Rectangle()
-//                        .frame(width: 250, height: 250)
-//                        .offset(y: -225)
-                    if createView {
-                        let image = UIImage(AsyncImage(
-                            url: URL(string: profilePictureURL!)!,
-                            placeholder: Text("Loading...")
-                            ))
-//                            .aspectRatio(contentMode: .fill)
-//
-//                        .frame(width: 250, height: 250)
-//                        .offset(y: -225)
+                    Circle()
+                        .frame(width: 80, height: 80)
+                        .offset(x: -50, y: -225)
+                        
 
+                    if createView {
+                        AsyncImage(
+                            url: profilePictureURL!,
+                            placeholder: Text("Loading...")
+                        ).frame(width: 80, height: 80)
+                            .offset(x: -50, y: -225)
                     }
-                    
+//                    if createView {
+//                                            AsyncImage(
+//                                                url: URL(string: profilePictureURL!)!,
+//                                                placeholder: Text("Loading...")
+//                                                ).frame(frame(minWidth: 250, maxWidth: 250, minHeight: 250, maxHeight: 250))
+//                    //                            .aspectRatio(contentMode: .fit)
+//
+//                    //                            .frame(width: 250, height: 250)
+//                    //                            .offset(y: -225)
+//
+//                                        }
+//
                     
                     // Analyze user Button
                     Button(action: readTweets) {
@@ -81,7 +89,7 @@ struct AnalyzeUserView: View {
             self.createUser() { result in
             switch result {
                 case .success(let profileURL):
-                    self.profilePictureURL = profileURL
+                    self.profilePictureURL = URL(string: profileURL)
                     self.createView = true
                     print("grabbed URL")
 
