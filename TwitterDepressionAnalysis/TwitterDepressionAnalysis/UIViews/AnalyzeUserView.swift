@@ -10,12 +10,22 @@ import SwiftUI
 import ChameleonFramework
 import TwitterKit
 
+var enable = false
+
 struct AnalyzeUserView: View {
     
     let findAPIKey = FindAPIKey()
     @State var user: Array<String>?
     @EnvironmentObject var twitter: TwitterService
     @State var createView: Bool
+    
+    @EnvironmentObject var displayView: Bool
+    
+    func switchView() -> Bool {
+        self.displayView = false
+        return displayView
+    
+    }
     
     func createUser(completion: @escaping (Result<Array<String>, Error>) -> Void) {
         
@@ -77,7 +87,10 @@ struct AnalyzeUserView: View {
                         }
                         
                         // Analyze user Button
-                        Button(action: readTweets) {
+                        Button(action: {
+                            self.displayView.toggle()
+                            if self.displayView { enable = false }
+                        }) {
                             Text("Analyze User")
                             
                         }.frame(width: 180, height: 50)
@@ -120,7 +133,7 @@ struct AnalyzeUserView: View {
 
 struct AnalyzeUserView_Previews: PreviewProvider {
     static var previews: some View {
-        AnalyzeUserView(createView: false)
+        AnalyzeUserView(createView: false, displayView: true)
         
     }
 }

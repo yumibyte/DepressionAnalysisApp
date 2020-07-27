@@ -10,18 +10,17 @@ import SwiftUI
 
 struct FullTwitterDisplayView: View {
 //    @EnvironmentObject var twitter: TwitterService
-    
+    @State var displayView: Bool
     // true = open AnalyzeUserView()
     // false = open FullTwitterDisplayView()
-    @State var displayView: Bool = true
 
     var body: some View {
         NavigationView {
             VStack {
                 if displayView == true {
-                    AnalyzeUserView(createView: false)
+                    AnalyzeUserView(createView: false, displayView: displayView)
                 } else {
-                    TweetResultsView()
+                    TweetResultsView(displayView: displayView)
                 }
             }
         }.navigationBarBackButtonHidden(true)
@@ -30,6 +29,7 @@ struct FullTwitterDisplayView: View {
 
 struct FullTwitterDisplayView_Previews: PreviewProvider {
     static var previews: some View {
-        FullTwitterDisplayView()
+        FullTwitterDisplayView(displayView: true)
+        
     }
 }

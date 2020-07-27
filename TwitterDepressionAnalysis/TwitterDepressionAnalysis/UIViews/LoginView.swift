@@ -42,7 +42,7 @@ struct LoginView: View {
                                     .scaleEffect(0.26)
                                     .offset(x: -195)
                                 
-                                NavigationLink(destination: FullTwitterDisplayView(), isActive: self.$twitter.isActive) {
+                                NavigationLink(destination: FullTwitterDisplayView(displayView: true), isActive: self.$twitter.isActive) {
                                     EmptyView()
                                 }
                                     
