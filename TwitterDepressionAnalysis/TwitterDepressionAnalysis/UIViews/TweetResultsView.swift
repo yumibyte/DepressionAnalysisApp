@@ -7,16 +7,26 @@
 //
 
 import SwiftUI
+import TwitterKit
 
 struct TweetResultsView: View {
     
     @EnvironmentObject var displayView: DisplayView
+    @EnvironmentObject var twitter: TwitterService
+    @State var dataSource: TWTRUserTimelineDataSource?
+    @State var showTweetActions: Bool?
+    
     func readTweets() {
-        // placeholder
+        TWTRTwitter.sharedInstance().logIn { (session, error) in
+            let client = TWTRAPIClient.withCurrentUser()
+            self.dataSource = TWTRUserTimelineDataSource(screenName: self.twitter.credential!.screenName, apiClient: client)
+            self.showTweetActions = true
+        }
     }
     var body: some View {
         //
-        Text("HI")
+        TWTRTimelineViewController(dataSource: self.dataSource)
+        
     }
 }
 

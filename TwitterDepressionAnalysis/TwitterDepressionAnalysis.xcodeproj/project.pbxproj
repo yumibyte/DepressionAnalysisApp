@@ -13,6 +13,7 @@
 		16B5D15D24CF7E7A00F51B19 /* TweetResultsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16B5D15C24CF7E7A00F51B19 /* TweetResultsView.swift */; };
 		16B5D15F24CF7FB000F51B19 /* FullTwitterDisplayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16B5D15E24CF7FB000F51B19 /* FullTwitterDisplayView.swift */; };
 		16B5D16124CF88F300F51B19 /* DisplayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16B5D16024CF88F300F51B19 /* DisplayView.swift */; };
+		16B5D16324CF9AA800F51B19 /* TweetsTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16B5D16224CF9AA800F51B19 /* TweetsTableView.swift */; };
 		16F9403A24BAF1A0002E6ECD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16F9403924BAF1A0002E6ECD /* AppDelegate.swift */; };
 		16F9403C24BAF1A0002E6ECD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16F9403B24BAF1A0002E6ECD /* SceneDelegate.swift */; };
 		16F9403E24BAF1A0002E6ECD /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16F9403D24BAF1A0002E6ECD /* LoginView.swift */; };
@@ -32,6 +33,7 @@
 		16B5D15C24CF7E7A00F51B19 /* TweetResultsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TweetResultsView.swift; sourceTree = "<group>"; };
 		16B5D15E24CF7FB000F51B19 /* FullTwitterDisplayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullTwitterDisplayView.swift; sourceTree = "<group>"; };
 		16B5D16024CF88F300F51B19 /* DisplayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayView.swift; sourceTree = "<group>"; };
+		16B5D16224CF9AA800F51B19 /* TweetsTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TweetsTableView.swift; sourceTree = "<group>"; };
 		16F9403624BAF1A0002E6ECD /* TwitterDepressionAnalysis.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TwitterDepressionAnalysis.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		16F9403924BAF1A0002E6ECD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		16F9403B24BAF1A0002E6ECD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -145,6 +147,7 @@
 				16F9403D24BAF1A0002E6ECD /* LoginView.swift */,
 				16FA99FE24C63C5E0082B02E /* AnalyzeUserView.swift */,
 				16B5D15C24CF7E7A00F51B19 /* TweetResultsView.swift */,
+				16B5D16224CF9AA800F51B19 /* TweetsTableView.swift */,
 				16B5D15E24CF7FB000F51B19 /* FullTwitterDisplayView.swift */,
 			);
 			path = UIViews;
@@ -316,6 +319,7 @@
 				16B5D15D24CF7E7A00F51B19 /* TweetResultsView.swift in Sources */,
 				165DD28D24CAA0FF00E2B9A4 /* AsyncImage.swift in Sources */,
 				16F9403C24BAF1A0002E6ECD /* SceneDelegate.swift in Sources */,
+				16B5D16324CF9AA800F51B19 /* TweetsTableView.swift in Sources */,
 				16F9405E24BAFDD5002E6ECD /* CustomSafariViewController.swift in Sources */,
 				16F9403E24BAF1A0002E6ECD /* LoginView.swift in Sources */,
 				16F9405C24BAFAD8002E6ECD /* FindAPIKey.swift in Sources */,
