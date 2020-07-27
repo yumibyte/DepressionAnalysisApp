@@ -17,6 +17,14 @@ struct AnalyzeUserView: View {
     @EnvironmentObject var twitter: TwitterService
     @State var createView: Bool
     
+    @EnvironmentObject var displayView: DisplayView
+    
+    func switchView() -> Bool {
+        self.displayView.displayViewBool = false
+        return self.displayView.displayViewBool
+    
+    }
+    
     func createUser(completion: @escaping (Result<Array<String>, Error>) -> Void) {
         
         TWTRTwitter.sharedInstance().logIn { (session, error) in
@@ -33,11 +41,7 @@ struct AnalyzeUserView: View {
             }
         }
     }
-    
-    
-    func readTweets() {
-        // placeholder
-    }
+
     
     var body: some View {
         VStack {
@@ -81,7 +85,10 @@ struct AnalyzeUserView: View {
                         }
                         
                         // Analyze user Button
-                        Button(action: readTweets) {
+                        Button(action: {
+                            self.displayView.displayViewBool.toggle()
+                            })
+                            {
                             Text("Analyze User")
                             
                         }.frame(width: 180, height: 50)
@@ -125,6 +132,7 @@ struct AnalyzeUserView: View {
 struct AnalyzeUserView_Previews: PreviewProvider {
     static var previews: some View {
         AnalyzeUserView(createView: false)
+        .environmentObject(DisplayView())
         
     }
 }
