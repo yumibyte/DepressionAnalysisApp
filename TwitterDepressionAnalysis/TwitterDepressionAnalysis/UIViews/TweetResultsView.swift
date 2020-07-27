@@ -10,7 +10,7 @@ import SwiftUI
 
 struct TweetResultsView: View {
     
-    @Binding var displayView: DisplayView
+    @EnvironmentObject var displayView: DisplayView
     func readTweets() {
         // placeholder
     }

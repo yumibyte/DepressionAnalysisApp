@@ -10,18 +10,27 @@ import SwiftUI
 
 struct FullTwitterDisplayView: View {
 //    @EnvironmentObject var twitter: TwitterService
-    @Binding var displayView: DisplayView
+    @EnvironmentObject var displayView: DisplayView
     // true = open AnalyzeUserView()
     // false = open FullTwitterDisplayView()
-
+    
+//    func SwapView() {
+//
+//    }
+    
     var body: some View {
+        
         NavigationView {
             VStack {
                 if displayView.displayViewBool == true {
-                    AnalyzeUserView(createView: false, displayView: self.displayView.displayViewBool)
+                    AnalyzeUserView(createView: false)
+
                 } else {
-                    TweetResultsView(displayView: false)
+                    TweetResultsView()
                 }
+                
+                
+                
             }
         }.navigationBarBackButtonHidden(true)
     }

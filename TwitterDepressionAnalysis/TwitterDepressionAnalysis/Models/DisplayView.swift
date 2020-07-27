@@ -10,8 +10,5 @@ import Foundation
 
 class DisplayView: ObservableObject {
     
-    init(displayViewBool: Bool) {
-        self.displayViewBool = displayViewBool
-    }
-    var displayViewBool: Bool
+    @Published var displayViewBool: Bool = true
 }
