@@ -33,11 +33,7 @@ struct AnalyzeUserView: View {
             }
         }
     }
-    
-    
-    func readTweets() {
-        // placeholder
-    }
+
     
     var body: some View {
         VStack {
