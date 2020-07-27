@@ -10,7 +10,7 @@ import SwiftUI
 
 struct TweetResultsView: View {
     
-    @State var displayView: Bool
+    @Binding var displayView: DisplayView
     func readTweets() {
         // placeholder
     }
@@ -22,6 +22,6 @@ struct TweetResultsView: View {
 
 struct TweetResultsView_Previews: PreviewProvider {
     static var previews: some View {
-        TweetResultsView(displayView: false)
+        TweetResultsView()
     }
 }

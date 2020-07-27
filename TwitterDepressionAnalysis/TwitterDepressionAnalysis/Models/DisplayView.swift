@@ -10,8 +10,8 @@ import Foundation
 
 class DisplayView: ObservableObject {
     
-    init(displayView: Bool) {
-        self.displayView = displayView
+    init(displayViewBool: Bool) {
+        self.displayViewBool = displayViewBool
     }
-    var displayView: Bool
+    var displayViewBool: Bool
 }

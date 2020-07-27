@@ -19,11 +19,11 @@ struct AnalyzeUserView: View {
     @EnvironmentObject var twitter: TwitterService
     @State var createView: Bool
     
-    @EnvironmentObject var displayView: Bool
+    @Binding var displayView: DisplayView
     
     func switchView() -> Bool {
-        self.displayView = false
-        return displayView
+        self.displayView.displayViewBool = false
+        return self.displayView.displayViewBool
     
     }
     
@@ -88,8 +88,8 @@ struct AnalyzeUserView: View {
                         
                         // Analyze user Button
                         Button(action: {
-                            self.displayView.toggle()
-                            if self.displayView { enable = false }
+                            self.displayView.displayViewBool.toggle()
+                            if self.displayView.displayViewBool { enable = false }
                         }) {
                             Text("Analyze User")
                             
@@ -133,7 +133,7 @@ struct AnalyzeUserView: View {
 
 struct AnalyzeUserView_Previews: PreviewProvider {
     static var previews: some View {
-        AnalyzeUserView(createView: false, displayView: true)
+        AnalyzeUserView(createView: false)
         
     }
 }
