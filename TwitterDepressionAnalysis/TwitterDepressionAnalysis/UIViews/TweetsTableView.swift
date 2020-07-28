@@ -6,16 +6,16 @@
 //  Copyright © 2020 Ashley Raigosa. All rights reserved.
 //
 
-import SwiftUI
-
-struct TweetsTableView: UIViewControllerRepresentable {
-    var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-    }
-}
-
-struct TweetsTableView_Previews: PreviewProvider {
-    static var previews: some View {
-        TweetsTableView()
-    }
-}
+//import SwiftUI
+//import TwitterKit
+//
+//struct TweetsTableView: TWTRTimelineViewController {
+//    typealias UIViewControllerType = UIImagePickerController
+//    func makeUIViewController(context: UIViewControllerRepresentableContext<TWTRTimelineViewController>) -> UIViewController {
+//        //
+//    }
+//
+//    func updateUIViewController(_ uiViewController: UIImagePickerController, context: UIViewControllerRepresentableContext<TWTRTimelineViewController>) {
+//        //
+//    }
+//}
