@@ -29,14 +29,16 @@ struct AnalyzeUserView: View {
         
         TWTRTwitter.sharedInstance().logIn { (session, error) in
             let client = TWTRAPIClient.withCurrentUser()
+            
             client.loadUser(withID: self.twitter.credential?.userId ?? "") { (user, error) in
-                if let screenName = self.twitter.credential?.screenName {
-                    if let imageURL = user?.profileImageURL {
+                if let screenName = user?.formattedScreenName {
+                    if let imageURL = user?.profileImageLargeURL {
                         completion(.success([imageURL,screenName]))
                     }
                 } else if let error = error {
                     completion(.failure(error))
                 }
+                
 
             }
         }

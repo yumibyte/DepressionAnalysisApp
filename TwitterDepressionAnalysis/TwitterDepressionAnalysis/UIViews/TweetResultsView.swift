@@ -7,21 +7,34 @@
 //
 
 import SwiftUI
+import TwitterKit
 
 struct TweetResultsView: View {
     
+    
     @EnvironmentObject var displayView: DisplayView
+    @EnvironmentObject var twitter: TwitterService
+    @State var dataSource: TWTRUserTimelineDataSource?
+    @State var showTweetActions: Bool?
+    
     func readTweets() {
-        // placeholder
+
     }
     var body: some View {
-        //
-        Text("HI")
+        NavigationView {
+            VStack {
+                Rectangle()
+                TweetsTableUIViewStruct(twitter: twitter)
+            }.offset(y: -200)
+        }.navigationBarBackButtonHidden(true)
+        
     }
 }
 
 struct TweetResultsView_Previews: PreviewProvider {
     static var previews: some View {
         TweetResultsView()
+//        .environmentObject(TwitterService())
+//        .environmentObject(DisplayView())
     }
 }

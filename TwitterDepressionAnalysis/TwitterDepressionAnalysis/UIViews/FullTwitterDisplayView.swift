@@ -9,14 +9,8 @@
 import SwiftUI
 
 struct FullTwitterDisplayView: View {
-//    @EnvironmentObject var twitter: TwitterService
     @EnvironmentObject var displayView: DisplayView
-    // true = open AnalyzeUserView()
-    // false = open FullTwitterDisplayView()
-    
-//    func SwapView() {
-//
-//    }
+
     
     var body: some View {
         
@@ -39,6 +33,6 @@ struct FullTwitterDisplayView: View {
 struct FullTwitterDisplayView_Previews: PreviewProvider {
     static var previews: some View {
         FullTwitterDisplayView()
-        
+        .environmentObject(DisplayView())
     }
 }
