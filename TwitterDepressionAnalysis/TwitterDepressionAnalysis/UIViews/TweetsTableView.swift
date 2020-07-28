@@ -8,7 +8,22 @@
 
 import SwiftUI
 import TwitterKit
-class TweetsTableView: TWTRTimelineViewController, TWTRTweetViewDelegate {
+
+struct TweetsTableUIViewStruct: UIViewControllerRepresentable {
+    typealias UIViewControllerType = TweetsTableViewClass
+
+    func makeUIViewController(context: Context) -> TweetsTableViewClass {
+        return TweetsTableViewClass()
+    }
+    
+    func updateUIViewController(_ uiViewController: TweetsTableViewClass, context: Context) {
+        //
+    }
+    
+ 
+}
+
+class TweetsTableViewClass: TWTRTimelineViewController, TWTRTweetViewDelegate {
 
   convenience init() {
     // Show a timeline of @jack's Tweets
