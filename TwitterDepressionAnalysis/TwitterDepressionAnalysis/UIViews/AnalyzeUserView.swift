@@ -74,6 +74,7 @@ struct AnalyzeUserView: View {
                             AsyncImage(
                                 url: URL(string: user![0])!,
                                 placeholder: Text("Loading...")
+                                    .foregroundColor(.black)
                             )
                             .frame(width: 90, height: 90)
                             .foregroundColor(.white)

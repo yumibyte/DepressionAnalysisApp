@@ -8,6 +8,7 @@
 
 import SwiftUI
 import TwitterKit
+import Swifter
 
 struct TweetResultsView: View {
     
@@ -17,16 +18,29 @@ struct TweetResultsView: View {
     @State var dataSource: TWTRUserTimelineDataSource?
     @State var showTweetActions: Bool?
     
-    func readTweets() {
-
+    let findAPIKey = FindAPIKey()
+    func readTweets(tweetView: TWTRTweetView, didSelectTweet tweet: TWTRTweet) {
+    // Log a message whenever a user taps on a tweet
+    print("Selected tweet with ID: \(tweet.tweetID)")
     }
+    
     var body: some View {
         NavigationView {
             VStack {
-                Rectangle()
                 TweetsTableUIViewStruct(twitter: twitter)
-            }.offset(y: -200)
+            }.offset(y: -300)
         }.navigationBarBackButtonHidden(true)
+            .onAppear() {
+//                let x = "test"
+//                let test = TWTRListTimelineDataSource(listID: x, apiClient: TWTRAPIClient())
+//                print("<<<<>>>>")
+                
+//                print(self.dataSource.hashValue)
+//                print("<<<<<<<<<<<DESC>>>>>>>>>>>")
+//
+//                print(self.dataSource?.userID)
+
+        }
         
     }
 }
