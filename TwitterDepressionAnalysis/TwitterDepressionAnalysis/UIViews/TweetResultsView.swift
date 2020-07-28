@@ -18,25 +18,23 @@ struct TweetResultsView: View {
     @State var showTweetActions: Bool?
     
     func readTweets() {
-//
-//client.loadTweet(withID: <#T##String#>, completion: <#T##TWTRLoadTweetCompletion##TWTRLoadTweetCompletion##(TWTRTweet?, Error?) -> Void#>)
-//    }
+
     }
     var body: some View {
-        //
-        VStack {
-            Text("")
-            TweetsTableUIViewStruct()
-        }.onAppear {
-           //
-        }
+        NavigationView {
+            VStack {
+                Rectangle()
+                TweetsTableUIViewStruct(twitter: twitter)
+            }.offset(y: -200)
+        }.navigationBarBackButtonHidden(true)
         
-
     }
 }
 
 struct TweetResultsView_Previews: PreviewProvider {
     static var previews: some View {
         TweetResultsView()
+//        .environmentObject(TwitterService())
+//        .environmentObject(DisplayView())
     }
 }

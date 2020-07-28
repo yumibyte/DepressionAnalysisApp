@@ -10,40 +10,44 @@ import SwiftUI
 import TwitterKit
 
 struct TweetsTableUIViewStruct: UIViewControllerRepresentable {
+
+    var twitter: TwitterService
+
     typealias UIViewControllerType = TweetsTableViewClass
 
     func makeUIViewController(context: Context) -> TweetsTableViewClass {
-        return TweetsTableViewClass()
+        return TweetsTableViewClass(twitter: twitter)
     }
     
     func updateUIViewController(_ uiViewController: TweetsTableViewClass, context: Context) {
-        //
+        //placeholder
     }
     
  
 }
 
 class TweetsTableViewClass: TWTRTimelineViewController, TWTRTweetViewDelegate {
+    var twitter: TwitterService
+    
+    init(twitter: TwitterService) {
+        
+        // Display user timeline
+        self.twitter = twitter
+        let dataSource = TWTRUserTimelineDataSource(screenName: twitter.credential!.screenName, apiClient: TWTRAPIClient())
 
-  convenience init() {
-    // Show a timeline of @jack's Tweets
-    let dataSource = TWTRUserTimelineDataSource(screenName: "jack", apiClient: TWTRAPIClient())
-    self.init(dataSource: dataSource)
-
-    // Set the title for Nav bar
-    self.title = "@\(dataSource.screenName)"
-  }
-
-  func tweetView(tweetView: TWTRTweetView, didSelectTweet tweet: TWTRTweet) {
+//        self.title = "@\(dataSource.screenName)"
+        super.init(dataSource: dataSource)
+        
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    func tweetView(tweetView: TWTRTweetView, didSelectTweet tweet: TWTRTweet) {
     // Log a message whenever a user taps on a tweet
     print("Selected tweet with ID: \(tweet.tweetID)")
-  }
+    }
 
 }
-
-//struct TweetsTableView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        TweetsTableView()
-//    }
-//}
 

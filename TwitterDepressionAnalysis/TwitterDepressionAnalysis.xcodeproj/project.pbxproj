@@ -86,8 +86,8 @@
 		16B5D16724CFADC600F51B19 /* ProcessTweets */ = {
 			isa = PBXGroup;
 			children = (
-				16B5D15C24CF7E7A00F51B19 /* TweetResultsView.swift */,
 				16B5D16524CFAC0900F51B19 /* TweetsTableView.swift */,
+				16B5D15C24CF7E7A00F51B19 /* TweetResultsView.swift */,
 			);
 			name = ProcessTweets;
 			sourceTree = "<group>";
