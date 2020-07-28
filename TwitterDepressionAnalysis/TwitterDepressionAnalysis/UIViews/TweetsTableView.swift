@@ -18,7 +18,7 @@ struct TweetsTableUIViewStruct: UIViewControllerRepresentable {
     func makeUIViewController(context: Context) -> TweetsTableViewClass {
         return TweetsTableViewClass(twitter: twitter)
     }
-    
+
     func updateUIViewController(_ uiViewController: TweetsTableViewClass, context: Context) {
         //placeholder
     }
@@ -35,24 +35,25 @@ class TweetsTableViewClass: TWTRTimelineViewController, TWTRTweetViewDelegate {
         
         let dataSource = TWTRUserTimelineDataSource(screenName: twitter.credential!.screenName, userID: twitter.credential?.userId, apiClient: TWTRAPIClient(), maxTweetsPerRequest: 20, includeReplies: true, includeRetweets: true)
         super.init(dataSource: dataSource)
-
-        func retrievePosts() {
-        
-            // Display user timeline
-            
-            dataSource.loadPreviousTweets(beforePosition: "0") { (individualTweet, timelineCursor, tweets) in
-                print("<<<<<<>>>>>>")
+        func loadTweets(completion: @escaping (Result<Array<Any>, Error>) -> Void) {
+            dataSource.loadPreviousTweets(beforePosition: "0") { (individualTweet, timelineCursor, error) in
                 var count = 0
-                for x in individualTweet! {
-//                    NSLog("tweet text is == %@ \n", [List[count]])
-                    print(x.description)
-                    
-                    
-                    count += 1
+                print("<<<>>>")
+                while count < individualTweet!.count {
+                    for x in individualTweet! {
+                        //                    NSLog("tweet text is == %@ \n", [List[count]])
+                        print(x.description)
+                        count += 1
+                    }
+                }
+                if let error = error {
+                    completion(.failure(error))
+                } else {
+                    completion(.success([individualTweet]))
                 }
             }
         }
-
+        
     }
     
     required init?(coder: NSCoder) {
@@ -60,29 +61,4 @@ class TweetsTableViewClass: TWTRTimelineViewController, TWTRTweetViewDelegate {
     }
 }
     
-        
-//        let test = TWTRListTimelineDataSource(listID: "", apiClient: TWTRAPIClient())
-//        print(test)
-//        self.title = "@\(dataSource.screenName)"
-
-        
-        
-        
-        
-        
-        
-        
-        
-        
-//        super.init(dataSource: dataSource)
-        
-    
-
-//
-//    func tweetView(tweetView: TWTRTweetView, didSelectTweet tweet: TWTRTweet) {
-//    // Log a message whenever a user taps on a tweet
-//
-//    }
-
-
 

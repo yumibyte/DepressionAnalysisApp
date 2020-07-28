@@ -8,14 +8,13 @@
 
 import SwiftUI
 import TwitterKit
-import Swifter
 
 struct TweetResultsView: View {
     
     
     @EnvironmentObject var displayView: DisplayView
     @EnvironmentObject var twitter: TwitterService
-    @State var dataSource: TWTRUserTimelineDataSource?
+    @State var tweetTableViewClass = TweetsTableViewClass(twitter: TwitterService())
     @State var showTweetActions: Bool?
     
     let findAPIKey = FindAPIKey()
@@ -31,24 +30,13 @@ struct TweetResultsView: View {
             }.offset(y: -300)
         }.navigationBarBackButtonHidden(true)
             .onAppear() {
-//                let x = "test"
-//                let test = TWTRListTimelineDataSource(listID: x, apiClient: TWTRAPIClient())
-//                print("<<<<>>>>")
-                
-//                print(self.dataSource.hashValue)
-//                print("<<<<<<<<<<<DESC>>>>>>>>>>>")
-//
-//                print(self.dataSource?.userID)
-
+                self.tweetTableViewClass.loadTweets()
         }
-        
     }
 }
 
 struct TweetResultsView_Previews: PreviewProvider {
     static var previews: some View {
         TweetResultsView()
-//        .environmentObject(TwitterService())
-//        .environmentObject(DisplayView())
     }
 }
