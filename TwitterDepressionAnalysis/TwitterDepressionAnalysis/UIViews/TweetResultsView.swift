@@ -15,15 +15,15 @@ struct TweetResultsView: View {
     @EnvironmentObject var twitter: TwitterService
     @State var dataSource: TWTRUserTimelineDataSource?
     @State var showTweetActions: Bool?
-    @State var view: TweetsTableView?
     
     func readTweets() {
 //        TWTRTwitter.sharedInstance().logIn { (session, error) in
 //            let client = TWTRAPIClient.withCurrentUser()
 //            self.dataSource = TWTRUserTimelineDataSource(screenName: self.twitter.credential!.screenName, apiClient: client)
 //            self.showTweetActions = true
-//            print(self.dataSource)
+//            print(self.dataSource.)
 //        }
+        
         //placeholder
     }
     
@@ -43,7 +43,7 @@ struct TweetResultsView: View {
         //
         VStack {
             Text("")
-            TweetsTableView()
+//            TweetsTableView()
         }.onAppear {
             self.readTweets()
         }

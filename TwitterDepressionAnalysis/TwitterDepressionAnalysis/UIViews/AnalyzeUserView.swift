@@ -31,7 +31,7 @@ struct AnalyzeUserView: View {
             let client = TWTRAPIClient.withCurrentUser()
             client.loadUser(withID: self.twitter.credential?.userId ?? "") { (user, error) in
                 if let screenName = user?.formattedScreenName {
-                    if let imageURL = user?.profileImageURL {
+                    if let imageURL = user?.profileImageLargeURL {
                         completion(.success([imageURL,screenName]))
                     }
                 } else if let error = error {

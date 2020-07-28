@@ -8,23 +8,22 @@
 
 import SwiftUI
 import TwitterKit
-class TweetsTableView: TWTRTimelineViewController, UIViewRepresentable {
-    var body: some View {
-        VStack {
-            Text("")
-        }.onAppear() {
-            TWTRAPIClient().loadTweet(withID: "20") { tweet, error in
-                if let t = tweet {
-                    let tweetView = TWTRTweetView(tweet: t)
-                    tweetView.center = self.view.center
-                    self.view.addSubview(tweetView)
-                } else {
-                    print("Failed to load Tweet: \(error)")
-                }
-            }
-        }
-    }
-    
+class TweetsTableView: TWTRTimelineViewController, TWTRTweetViewDelegate {
+
+  convenience init() {
+    // Show a timeline of @jack's Tweets
+    let dataSource = TWTRUserTimelineDataSource(screenName: "jack", apiClient: TWTRAPIClient())
+    self.init(dataSource: dataSource)
+
+    // Set the title for Nav bar
+    self.title = "@\(dataSource.screenName)"
+  }
+
+  func tweetView(tweetView: TWTRTweetView, didSelectTweet tweet: TWTRTweet) {
+    // Log a message whenever a user taps on a tweet
+    print("Selected tweet with ID: \(tweet.tweetID)")
+  }
+
 }
 
 //struct TweetsTableView_Previews: PreviewProvider {
@@ -32,3 +31,4 @@ class TweetsTableView: TWTRTimelineViewController, UIViewRepresentable {
 //        TweetsTableView()
 //    }
 //}
+
