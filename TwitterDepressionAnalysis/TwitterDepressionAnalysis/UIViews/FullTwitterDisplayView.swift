@@ -34,5 +34,6 @@ struct FullTwitterDisplayView_Previews: PreviewProvider {
     static var previews: some View {
         FullTwitterDisplayView()
         .environmentObject(DisplayView())
+            
     }
 }

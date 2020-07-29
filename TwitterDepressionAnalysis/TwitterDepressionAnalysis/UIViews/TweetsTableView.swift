@@ -26,10 +26,9 @@ struct TweetsTableUIViewStruct: UIViewControllerRepresentable {
  
 }
 
-class TweetsTableViewClass: TWTRTimelineViewController, TWTRTweetViewDelegate, ObservableObject {
+class TweetsTableViewClass: TWTRTimelineViewController, TWTRTweetViewDelegate {
     var twitter: TwitterService
-    
-    
+
     init(twitter: TwitterService) {
         
         self.twitter = twitter
@@ -40,12 +39,13 @@ class TweetsTableViewClass: TWTRTimelineViewController, TWTRTweetViewDelegate, O
         
     }
     
-    func loadTweets(completion: @escaping (Result<Array<String>, Error>) -> Void) {
+    func loadTweets(completion: @escaping ([String]) -> Void) {
+
         dataSource.loadPreviousTweets(beforePosition: "0") { (individualTweet, timelineCursor, error) in
             
             // create count for individualTweet and pull description of each where tweet = x
             
-            var tweetArray: [String] = []
+            var tweetArray: [String] = [""]
             var count = 0
             while count < individualTweet!.count {
                 for x in individualTweet! {
@@ -53,12 +53,8 @@ class TweetsTableViewClass: TWTRTimelineViewController, TWTRTweetViewDelegate, O
                     count += 1
                 }
             }
-            if let error = error {
-                completion(.failure(error))
-            } else {
-                
-                completion((.success(tweetArray)))
-            }
+            completion(tweetArray)
+
         }
     }
     required init?(coder: NSCoder) {

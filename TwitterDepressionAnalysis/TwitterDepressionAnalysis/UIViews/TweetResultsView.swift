@@ -14,9 +14,8 @@ struct TweetResultsView: View {
     @State var tweetArray: [String]?
     @EnvironmentObject var displayView: DisplayView
     @EnvironmentObject var twitter: TwitterService
-    @EnvironmentObject var tweets: TweetsTableViewClass
-//    @State var tweetTableViewClass = TweetsTableViewClass(twitter: TwitterService())
-    @State var showTweetActions: Bool?
+    @State var tweetTableViewClass = TweetsTableViewClass(twitter: TwitterService())
+//    @State var showTweetActions: Bool?
     
     let findAPIKey = FindAPIKey()
     
@@ -31,15 +30,10 @@ struct TweetResultsView: View {
             }.offset(y: -300)
         }.navigationBarBackButtonHidden(true)
             .onAppear() {
-                self.tweets.loadTweets() { result in
-                    switch result {
-                    case .success(let tweetArray):
-                        self.tweetArray = tweetArray
-                        print("grabbed URL")
-
-                        case .failure(let error):
-                        print(error.localizedDescription)
-                    }
+                self.tweetTableViewClass.loadTweets() { tweetArray in
+                    self.tweetArray = tweetArray
+//                    image in
+//                    self.placeHolderImage = Image(uiImage: image)
                 }
         }
     }
@@ -48,6 +42,5 @@ struct TweetResultsView: View {
 struct TweetResultsView_Previews: PreviewProvider {
     static var previews: some View {
         TweetResultsView()
-//        .environmentObject(TweetsTableViewClass)
     }
 }
