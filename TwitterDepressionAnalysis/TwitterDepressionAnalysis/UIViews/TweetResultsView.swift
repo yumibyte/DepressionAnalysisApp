@@ -11,30 +11,38 @@ import TwitterKit
 
 struct TweetResultsView: View {
     
-    
+    @State var tweetArray: [String]?
     @EnvironmentObject var displayView: DisplayView
     @EnvironmentObject var twitter: TwitterService
-    @State var dataSource: TWTRUserTimelineDataSource?
-    @State var showTweetActions: Bool?
+//    @State var showTweetActions: Bool?
+    
+    let findAPIKey = FindAPIKey()
     
     func readTweets() {
-
+        print(tweetArray)
     }
+    
     var body: some View {
         NavigationView {
             VStack {
-                Rectangle()
-                TweetsTableUIViewStruct(twitter: twitter)
-            }.offset(y: -200)
+                TweetsTableUIViewStruct(twitter: self.twitter)
+            }.offset(y: -300)
         }.navigationBarBackButtonHidden(true)
-        
+            .onAppear() {
+                TweetsTableViewClass(twitter: self.twitter).loadTweets() { tweetArray in
+                    self.tweetArray = tweetArray
+                    //                    image in
+                    //                    self.placeHolderImage = Image(uiImage: image)
+                    self.readTweets()
+                }
+                
+                
+        }
     }
 }
 
 struct TweetResultsView_Previews: PreviewProvider {
     static var previews: some View {
         TweetResultsView()
-//        .environmentObject(TwitterService())
-//        .environmentObject(DisplayView())
     }
 }
