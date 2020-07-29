@@ -11,16 +11,17 @@ import TwitterKit
 
 struct TweetResultsView: View {
     
-    
+    @State var tweetArray: [String]?
     @EnvironmentObject var displayView: DisplayView
     @EnvironmentObject var twitter: TwitterService
-    @State var tweetTableViewClass = TweetsTableViewClass(twitter: TwitterService())
+    @EnvironmentObject var tweets: TweetsTableViewClass
+//    @State var tweetTableViewClass = TweetsTableViewClass(twitter: TwitterService())
     @State var showTweetActions: Bool?
     
     let findAPIKey = FindAPIKey()
-    func readTweets(tweetView: TWTRTweetView, didSelectTweet tweet: TWTRTweet) {
-    // Log a message whenever a user taps on a tweet
-    print("Selected tweet with ID: \(tweet.tweetID)")
+    
+    func readTweets() {
+        print(tweetArray)
     }
     
     var body: some View {
@@ -30,7 +31,16 @@ struct TweetResultsView: View {
             }.offset(y: -300)
         }.navigationBarBackButtonHidden(true)
             .onAppear() {
-                self.tweetTableViewClass.loadTweets()
+                self.tweets.loadTweets() { result in
+                    switch result {
+                    case .success(let tweetArray):
+                        self.tweetArray = tweetArray
+                        print("grabbed URL")
+
+                        case .failure(let error):
+                        print(error.localizedDescription)
+                    }
+                }
         }
     }
 }
@@ -38,5 +48,6 @@ struct TweetResultsView: View {
 struct TweetResultsView_Previews: PreviewProvider {
     static var previews: some View {
         TweetResultsView()
+//        .environmentObject(TweetsTableViewClass)
     }
 }

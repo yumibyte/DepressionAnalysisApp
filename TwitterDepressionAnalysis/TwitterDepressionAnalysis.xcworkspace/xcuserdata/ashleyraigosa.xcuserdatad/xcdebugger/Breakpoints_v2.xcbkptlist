@@ -23,65 +23,33 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "46BFC759-5ED1-424B-83DF-B6A8755251B4"
+            uuid = "0D7CA5A1-5318-4A3C-950C-DF69C6E6B8FB"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "TwitterDepressionAnalysis/UIViews/TweetsTableView.swift"
+            filePath = "TwitterDepressionAnalysis/UIViews/TweetResultsView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "56"
-            endingLineNumber = "56"
-            landmarkName = "init(twitter:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "46BFC759-5ED1-424B-83DF-B6A8755251B4 - 639efc22413ec1f5"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "TwitterDepressionAnalysis.TweetsTableViewClass.init(twitter: TwitterDepressionAnalysis.TwitterService) -&gt; TwitterDepressionAnalysis.TweetsTableViewClass"
-                  moduleName = "TwitterDepressionAnalysis"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/ashleyraigosa/Desktop/Programming/IAIF/DepressionAnalysisApp/TwitterDepressionAnalysis/TwitterDepressionAnalysis/UIViews/TweetsTableView.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "46"
-                  endingLineNumber = "46"
-                  offsetFromSymbolStart = "1035">
-               </Location>
-               <Location
-                  uuid = "46BFC759-5ED1-424B-83DF-B6A8755251B4 - bf9977a838755323"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Optional&lt;Swift.Array&lt;__C.TWTRTweet&gt;&gt;, Swift.Optional&lt;__C.TWTRTimelineCursor&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in TwitterDepressionAnalysis.TweetsTableViewClass.init(twitter: TwitterDepressionAnalysis.TwitterService) -&gt; TwitterDepressionAnalysis.TweetsTableViewClass"
-                  moduleName = "TwitterDepressionAnalysis"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/ashleyraigosa/Desktop/Programming/IAIF/DepressionAnalysisApp/TwitterDepressionAnalysis/TwitterDepressionAnalysis/UIViews/TweetsTableView.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "47"
-                  endingLineNumber = "47"
-                  offsetFromSymbolStart = "194">
-               </Location>
-            </Locations>
+            startingLineNumber = "38"
+            endingLineNumber = "38"
+            landmarkName = "body"
+            landmarkType = "24">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "7C8CF800-E8FF-4C17-8A70-50C7753AD53D"
-            shouldBeEnabled = "Yes"
+            uuid = "5FA54A20-0A36-456F-85D7-5E09149333DB"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "TwitterDepressionAnalysis/UIViews/TweetsTableView.swift"
+            filePath = "TwitterDepressionAnalysis/UIViews/TweetResultsView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "32"
-            endingLineNumber = "32"
-            landmarkName = "init(twitter:)"
-            landmarkType = "7">
+            startingLineNumber = "39"
+            endingLineNumber = "39"
+            landmarkName = "body"
+            landmarkType = "24">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

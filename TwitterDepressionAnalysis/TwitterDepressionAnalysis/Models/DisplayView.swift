@@ -11,4 +11,5 @@ import Foundation
 class DisplayView: ObservableObject {
     
     @Published var displayViewBool: Bool = true
+    @Published var tweetArray: [String] = []
 }
