@@ -29,6 +29,7 @@ struct TweetsTableUIViewStruct: UIViewControllerRepresentable {
 class TweetsTableViewClass: TWTRTimelineViewController, TWTRTweetViewDelegate, ObservableObject {
     var twitter: TwitterService
     
+    
     init(twitter: TwitterService) {
         
         self.twitter = twitter
