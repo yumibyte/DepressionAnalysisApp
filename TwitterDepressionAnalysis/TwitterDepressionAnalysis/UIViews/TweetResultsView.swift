@@ -29,13 +29,13 @@ struct TweetResultsView: View {
             }.offset(y: -300)
         }.navigationBarBackButtonHidden(true)
             .onAppear() {
-                if self.displayView.displayViewBool == true {
-                    TweetsTableViewClass(twitter: self.twitter).loadTweets() { tweetArray in
-                        self.tweetArray = tweetArray
-                        //                    image in
-                        //                    self.placeHolderImage = Image(uiImage: image)
-                    }
+                TweetsTableViewClass(twitter: self.twitter).loadTweets() { tweetArray in
+                    self.tweetArray = tweetArray
+                    //                    image in
+                    //                    self.placeHolderImage = Image(uiImage: image)
+                    self.readTweets()
                 }
+                
                 
         }
     }

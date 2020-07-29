@@ -53,6 +53,7 @@ class TweetsTableViewClass: TWTRTimelineViewController, TWTRTweetViewDelegate {
                     count += 1
                 }
             }
+            tweetArray = [tweetArray.removeLast()]
             completion(tweetArray)
 
         }
