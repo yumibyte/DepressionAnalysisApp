@@ -14,7 +14,6 @@ struct TweetResultsView: View {
     @State var tweetArray: [String]?
     @EnvironmentObject var displayView: DisplayView
     @EnvironmentObject var twitter: TwitterService
-    @State var tweetTableViewClass = TweetsTableViewClass(twitter: TwitterService())
 //    @State var showTweetActions: Bool?
     
     let findAPIKey = FindAPIKey()
@@ -26,15 +25,18 @@ struct TweetResultsView: View {
     var body: some View {
         NavigationView {
             VStack {
-                TweetsTableUIViewStruct(twitter: twitter)
+                TweetsTableUIViewStruct(twitter: self.twitter)
             }.offset(y: -300)
         }.navigationBarBackButtonHidden(true)
             .onAppear() {
-                self.tweetTableViewClass.loadTweets() { tweetArray in
-                    self.tweetArray = tweetArray
-//                    image in
-//                    self.placeHolderImage = Image(uiImage: image)
+                if self.displayView.displayViewBool == true {
+                    TweetsTableViewClass(twitter: self.twitter).loadTweets() { tweetArray in
+                        self.tweetArray = tweetArray
+                        //                    image in
+                        //                    self.placeHolderImage = Image(uiImage: image)
+                    }
                 }
+                
         }
     }
 }
