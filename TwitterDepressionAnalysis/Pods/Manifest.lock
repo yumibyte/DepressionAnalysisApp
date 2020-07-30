@@ -2,19 +2,16 @@ PODS:
   - ChameleonFramework/Default (2.1.0)
   - ChameleonFramework/Swift (2.1.0):
     - ChameleonFramework/Default
-  - Swifter (1.4.7)
   - TwitterCore (3.2.0)
   - TwitterKit (3.4.2):
     - TwitterCore (>= 3.2.0)
 
 DEPENDENCIES:
   - ChameleonFramework/Swift (from `https://github.com/wowansm/Chameleon`, branch `swift5`)
-  - Swifter
   - TwitterKit
 
 SPEC REPOS:
   trunk:
-    - Swifter
     - TwitterCore
     - TwitterKit
 
@@ -30,10 +27,9 @@ CHECKOUT OPTIONS:
 
 SPEC CHECKSUMS:
   ChameleonFramework: d21a3cc247abfe5e37609a283a8238b03575cf64
-  Swifter: 2327ef5d872c638aebab79646ce494af508b0c8f
   TwitterCore: 8cbc9ad34d91c63a0035ea05bfbfc0d7ca72a28c
   TwitterKit: 5e4f41d70b9abdb41df5467f52d7aa2c0fd26ebb
 
-PODFILE CHECKSUM: 52d65bb8b0c4c0cc3526070633b6bd8d4d4e8a36
+PODFILE CHECKSUM: 38f74636fe87f1480965f3bffb1c1cd4a440673e
 
 COCOAPODS: 1.9.0.beta.2

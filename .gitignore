@@ -8,3 +8,5 @@ Depression_Reddit_Database_Final.xlsx
 TwitterDepressionAnalysis/TwitterDepressionAnalysis/Sensitive Files*
 store.pckl
 Depression_NLP_model.pkl
+*.csv
+*.gz

@@ -1,5 +1,4 @@
 ${PODS_ROOT}/Target Support Files/Pods-TwitterDepressionAnalysis/Pods-TwitterDepressionAnalysis-frameworks.sh
 ${BUILT_PRODUCTS_DIR}/ChameleonFramework/ChameleonFramework.framework
-${BUILT_PRODUCTS_DIR}/Swifter/Swifter.framework
 ${PODS_ROOT}/TwitterCore/iOS/TwitterCore.framework
 ${PODS_ROOT}/TwitterKit/iOS/TwitterKit.framework
