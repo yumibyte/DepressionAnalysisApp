@@ -131,26 +131,47 @@ struct CleanTweet {
       ["you're", "you are"],
       ["you've", "you have"]
     ]
-
-    func regexTweet() {
+    
+    // remove contractions
+    func filterTweet(input: String) {
         var removedContractions: String?
-        let input = "i you've doing it:"
-
+//        let input = "abc :@http://apple.com/@ xxx    don't     🚚"
+        let input = input 
         for x in (0..<cList.count) {
             let templateStringInput: String = cList[x][0]
             let templateStringResult: String = cList[x][1]
             let regex = try! NSRegularExpression(pattern: templateStringInput, options: .caseInsensitive)
             removedContractions = regex.stringByReplacingMatches(in: input, options: [], range: NSRange(0..<input.utf16.count), withTemplate: templateStringResult)
             
-            //        let c_re = re.compile("(%s)" % "|".join(cList.keys()))
+        //TODO: implement ftfy in Swift
             
+        // remove puncuation
         }
         if let removedContractions = removedContractions {
             let removedPuncuation = removedContractions.components(separatedBy: .punctuationCharacters).joined()
-            print(removedPuncuation)
+            
+            // remove links
+
+            let linkText: String = "@(https?://([-\\w\\.]+[-\\w])+(:\\d+)?(/([\\w/_\\.#-]*(\\?\\S+)?[^\\.\\s])?)?)@"
+            let removedLinks = removedPuncuation.replacingOccurrences(of: linkText, with: "", options: .regularExpression, range: removedPuncuation.startIndex..<removedPuncuation.endIndex)
+            
+            // remove emojis
+            let removedEmojis = removedLinks.stringByRemovingEmoji()
+            print(removedEmojis)
         }
 
     }
     
 }
+extension String {
+  func stringByRemovingEmoji() -> String {
+    return String(self.filter { !$0.isEmoji() })
+  }
+}
 
+extension Character {
+  fileprivate func isEmoji() -> Bool {
+    return Character(UnicodeScalar(UInt32(0x1d000))!) <= self && self <= Character(UnicodeScalar(UInt32(0x1f77f))!)
+      || Character(UnicodeScalar(UInt32(0x2100))!) <= self && self <= Character(UnicodeScalar(UInt32(0x26ff))!)
+  }
+}
