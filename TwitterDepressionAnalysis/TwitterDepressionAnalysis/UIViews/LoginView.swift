@@ -36,11 +36,11 @@ struct LoginView: View {
                                     .foregroundColor(.white)
                                     .font(.system(size: 20, weight: .medium, design: .default))
                                     .lineLimit(1)
-                                    .offset(x: 120)
+                                    .offset(x: 125)
                                     
                                 Image("TwitterLogo")
                                     .scaleEffect(0.26)
-                                    .offset(x: -195)
+                                    .offset(x: -213)
                                 
                                 NavigationLink(destination: FullTwitterDisplayView(), isActive: self.$twitter.isActive) {
                                     EmptyView()

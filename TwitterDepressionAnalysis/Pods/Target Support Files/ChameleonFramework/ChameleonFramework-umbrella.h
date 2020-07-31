@@ -13,7 +13,6 @@
 #import "Chameleon.h"
 #import "ChameleonConstants.h"
 #import "ChameleonEnums.h"
-#import "ChameleonMacros 2.h"
 #import "ChameleonMacros.h"
 #import "Chameleon_.h"
 #import "NSArray+Chameleon.h"

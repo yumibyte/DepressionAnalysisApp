@@ -1,118 +1,134 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Bucket
-   uuid = "124FE142-62EE-4714-AF87-AC4C32073DFE"
+   uuid = "8C0AC82C-E04F-46ED-A64C-FF7FB59F608F"
    type = "0"
    version = "2.0">
    <Breakpoints>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "ECA962F4-4DAD-4113-9B7B-D1039356E3B7"
+            uuid = "75060229-33D0-4F63-9974-C32F4B45305E"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "TwitterDepressionAnalysis/UIViews/TweetResultsView.swift"
+            filePath = "TwitterDepressionAnalysis/Models/CleanTweet.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "88"
-            endingLineNumber = "88"
-            landmarkName = "body"
-            landmarkType = "24">
-            <Locations>
-               <Location
-                  uuid = "ECA962F4-4DAD-4113-9B7B-D1039356E3B7 - d9d84b63f2f6bcee"
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "TwitterDepressionAnalysis.TweetResultsView.body.getter : some"
-                  moduleName = "TwitterDepressionAnalysis"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/ashleyraigosa/Desktop/Programming/IAIF/DepressionAnalysisApp/TwitterDepressionAnalysis/TwitterDepressionAnalysis/UIViews/TweetResultsView.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "31"
-                  endingLineNumber = "31"
-                  offsetFromSymbolStart = "707">
-               </Location>
-               <Location
-                  uuid = "ECA962F4-4DAD-4113-9B7B-D1039356E3B7 - a15c5fb09af422dd"
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #2 () -&gt; () in TwitterDepressionAnalysis.TweetResultsView.body.getter : some"
-                  moduleName = "TwitterDepressionAnalysis"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/ashleyraigosa/Desktop/Programming/IAIF/DepressionAnalysisApp/TwitterDepressionAnalysis/TwitterDepressionAnalysis/UIViews/TweetResultsView.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "32"
-                  endingLineNumber = "32"
-                  offsetFromSymbolStart = "30">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "733135FD-74BF-4662-AF20-35A463132C2D"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "TwitterDepressionAnalysis/UIViews/TweetResultsView.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "60"
-            endingLineNumber = "60"
-            landmarkName = "readTweets()"
+            startingLineNumber = "144"
+            endingLineNumber = "144"
+            landmarkName = "filterTweet(input:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "B4096395-0AD7-4C7C-8A07-7BF8FA552750"
+            uuid = "980DBBD9-EBAA-4FF1-88C6-1B361FE00B7A"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "TwitterDepressionAnalysis/UIViews/TweetResultsView.swift"
+            filePath = "TwitterDepressionAnalysis/Models/CleanTweet.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "61"
-            endingLineNumber = "61"
-            landmarkName = "readTweets()"
+            startingLineNumber = "159"
+            endingLineNumber = "159"
+            landmarkName = "filterTweet(input:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "8E115F98-1242-4622-9072-84C35145AEC2"
+            uuid = "766BD0B2-248D-488D-9768-2004557ED5BC"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "TwitterDepressionAnalysis/UIViews/TweetResultsView.swift"
+            filePath = "TwitterDepressionAnalysis/Models/CleanTweet.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "30"
-            endingLineNumber = "30"
-            landmarkName = "readTweets()"
+            startingLineNumber = "156"
+            endingLineNumber = "156"
+            landmarkName = "filterTweet(input:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "A5B55C73-0977-4A45-9EEA-A67149402430"
+            uuid = "A3A64262-EF00-41F3-8609-10A59CF4FAD9"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "TwitterDepressionAnalysis/UIViews/TweetResultsView.swift"
+            filePath = "TwitterDepressionAnalysis/Models/CleanTweet.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "39"
-            endingLineNumber = "39"
-            landmarkName = "readTweets()"
+            startingLineNumber = "137"
+            endingLineNumber = "137"
+            landmarkName = "filterTweet(input:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "09463E33-44B0-45C1-AD95-5D839B0309B6"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TwitterDepressionAnalysis/Models/CleanTweet.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "141"
+            endingLineNumber = "141"
+            landmarkName = "filterTweet(input:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "AD569AAC-FDD1-4E16-B9AA-48E8D0F96DA5"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TwitterDepressionAnalysis/Models/CleanTweet.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "142"
+            endingLineNumber = "142"
+            landmarkName = "filterTweet(input:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "3DC3DF13-2E84-4876-8825-830097F7BC93"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TwitterDepressionAnalysis/Models/CleanTweet.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "143"
+            endingLineNumber = "143"
+            landmarkName = "filterTweet(input:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "403F0C40-F4C2-4C91-B4E2-B184E49BAEF5"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TwitterDepressionAnalysis/Models/CleanTweet.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "136"
+            endingLineNumber = "136"
+            landmarkName = "filterTweet(input:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
