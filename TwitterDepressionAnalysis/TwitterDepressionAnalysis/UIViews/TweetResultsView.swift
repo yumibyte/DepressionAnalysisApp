@@ -25,7 +25,7 @@ struct TweetResultsView: View {
         print(tweetArray)
         
         do {
-            CleanTweet().filterTweet(input: "abc :@http://apple.com/@ xxx    don't     🚚")
+            CleanTweet().filterTweet(input: "I realy can't deal with her. She's so stupid, I don't even want to deal with her.")
 //            let fileName = "/Users/ashleyraigosa/Desktop/Programming/IAIF/DepressionAnalysisApp/LSTM_CNN_MLModel/LSTM_CNN_Trained.mlmodel"
 //            let filePath = URL(string: "file://\(fileName)")
 //            let model = LSTM_CNN_Trained()
