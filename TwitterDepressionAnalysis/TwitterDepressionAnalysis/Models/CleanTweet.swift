@@ -131,18 +131,24 @@ struct CleanTweet {
       ["you're", "you are"],
       ["you've", "you have"]
     ]
+
     func regexTweet() {
+        var removedContractions: String?
+        let input = "i you've doing it:"
+
         for x in (0..<cList.count) {
             let templateStringInput: String = cList[x][0]
             let templateStringResult: String = cList[x][1]
-            let input = "i you've doing it"
             let regex = try! NSRegularExpression(pattern: templateStringInput, options: .caseInsensitive)
-            let input_regex = regex.stringByReplacingMatches(in: input, options: [], range: NSRange(0..<input.utf16.count), withTemplate: templateStringResult)
+            removedContractions = regex.stringByReplacingMatches(in: input, options: [], range: NSRange(0..<input.utf16.count), withTemplate: templateStringResult)
             
             //        let c_re = re.compile("(%s)" % "|".join(cList.keys()))
-            print(input_regex)
+            
         }
-        
+        if let removedContractions = removedContractions {
+            let removedPuncuation = removedContractions.components(separatedBy: .punctuationCharacters).joined()
+            print(removedPuncuation)
+        }
 
     }
     
