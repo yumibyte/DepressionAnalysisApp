@@ -133,12 +133,14 @@ struct CleanTweet {
     ]
     func regexTweet() {
         for x in (0..<cList.count) {
-            var templateString: String = cList[x]
-            var input = "i won't do it"
-            let regex = try! NSRegularExpression(pattern: "(%s)", options: .caseInsensitive)
-            var input_regex = regex.stringByReplacingMatches(in: input, options: [], range: NSRange(0..<input.utf16.count), withTemplate: cList)
+            let templateStringInput: String = cList[x][0]
+            let templateStringResult: String = cList[x][1]
+            let input = "i you've doing it"
+            let regex = try! NSRegularExpression(pattern: templateStringInput, options: .caseInsensitive)
+            let input_regex = regex.stringByReplacingMatches(in: input, options: [], range: NSRange(0..<input.utf16.count), withTemplate: templateStringResult)
             
             //        let c_re = re.compile("(%s)" % "|".join(cList.keys()))
+            print(input_regex)
         }
         
 

@@ -25,15 +25,15 @@ struct TweetResultsView: View {
         print(tweetArray)
         
         do {
-//
+            CleanTweet().regexTweet()
 //            let fileName = "/Users/ashleyraigosa/Desktop/Programming/IAIF/DepressionAnalysisApp/LSTM_CNN_MLModel/LSTM_CNN_Trained.mlmodel"
 //            let filePath = URL(string: "file://\(fileName)")
-            let model = LSTM_CNN_Trained()
-            let lstm_1_h_in = 
-
-            let modelOutput = try model.prediction(text: <#T##MLMultiArray#>, lstm_1_h_in: <#T##MLMultiArray?#>, lstm_1_c_in: <#T##MLMultiArray?#>)
-            let res = marsHabitatPricerOutput.price
-            print(res)
+//            let model = LSTM_CNN_Trained()
+//            let lstm_1_h_in =
+//
+//            let modelOutput = try model.prediction(text: <#T##MLMultiArray#>, lstm_1_h_in: <#T##MLMultiArray?#>, lstm_1_c_in: <#T##MLMultiArray?#>)
+//            let res = marsHabitatPricerOutput.price
+//            print(res)
             
 //            let mlModel = try MarsHabitatPricer(configuration: MLModelConfiguration()).model
 //            let customModel = try NLModel(mlModel: mlModel)
