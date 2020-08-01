@@ -7,6 +7,8 @@
 //
 
 import Foundation
+import PorterStemmer2
+
 struct CleanTweet {
         
     let cList = [
@@ -167,7 +169,11 @@ struct CleanTweet {
         // stopwords
         
         // stemming
-
+        var stem = removedStopwords
+        if let stemmer = PorterStemmer(withLanguage: .English) {
+            stem = stemmer.stem(stem)
+        }
+        print(stem)
     }
     
 }
