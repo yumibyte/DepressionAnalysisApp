@@ -8,9 +8,7 @@
 
 import Foundation
 struct CleanTweet {
-    
-    //MARK:- Expand Contraction with Regular Expressions
-    
+        
     let cList = [
       ["ain't", "am not"],
       ["aren't", "are not"],
@@ -135,7 +133,6 @@ struct CleanTweet {
     // remove contractions
     func filterTweet(input: String) {
         var removedContractions = input
-//        let input = "abc :@http://apple.com/@ xxx    don't     🚚"
         for x in (0..<cList.count) {
             let templateStringInput: String = cList[x][0]
             let templateStringResult: String = cList[x][1]
@@ -143,48 +140,38 @@ struct CleanTweet {
                 let regex = try! NSRegularExpression(pattern: templateStringInput, options: .caseInsensitive)
                 removedContractions = regex.stringByReplacingMatches(in: removedContractions, options: [], range: NSRange(0..<input.utf16.count), withTemplate: templateStringResult)
             }
-
-            
-            
-            
-        //TODO: implement ftfy in Swift
-            
-        // remove puncuation
         }
-        print(removedContractions)
+        //TODO: implement ftfy in Swift
+        
+        // remove puncuation
+        let removedPuncuation = removedContractions.components(separatedBy: .punctuationCharacters).joined()
+        
+        // remove links
+        let linkText: String = "@(https?://([-\\w\\.]+[-\\w])+(:\\d+)?(/([\\w/_\\.#-]*(\\?\\S+)?[^\\.\\s])?)?)@"
+        let removedLinks = removedPuncuation.replacingOccurrences(of: linkText, with: "", options: .regularExpression, range: removedPuncuation.startIndex..<removedPuncuation.endIndex)
+        
+        // remove emojis
+        let removedEmojis = removedLinks.stringByRemovingEmoji()
+        
+        // remove stopwords
+        // stopwords taken from nltk 3.5
+        let stopwords = ["i", "me", "my", "myself", "we", "our", "ours", "ourselves", "you", "you're", "you've", "you'll", "you'd", "your", "yours", "yourself", "yourselves", "he", "him", "his", "himself", "she", "she's", "her", "hers", "herself", "it", "it's", "its", "itself", "they", "them", "their", "theirs", "themselves", "what", "which", "who", "whom", "this", "that", "that'll", "these", "those", "am", "is", "are", "was", "were", "be", "been", "being", "have", "has", "had", "having", "do", "does", "did", "doing", "a", "an", "the", "and", "but", "if", "or", "because", "as", "until", "while", "of", "at", "by", "for", "with", "about", "against", "between", "into", "through", "during", "before", "after", "above", "below", "to", "from", "up", "down", "in", "out", "on", "off", "over", "under", "again", "further", "then", "once", "here", "there", "when", "where", "why", "how", "all", "any", "both", "each", "few", "more", "most", "other", "some", "such", "no", "nor", "not", "only", "own", "same", "so", "than", "too", "very", "s", "t", "can", "will", "just", "don", "don't", "should", "should've", "now", "d", "ll", "m", "o", "re", "ve", "y", "ain", "aren", "aren't", "couldn", "couldn't", "didn", "didn't", "doesn", "doesn't", "hadn", "hadn't", "hasn", "hasn't", "haven", "haven't", "isn", "isn't", "ma", "mightn", "mightn't", "mustn", "mustn't", "needn", "needn't", "shan", "shan't", "shouldn", "shouldn't", "wasn", "wasn't", "weren", "weren't", "won", "won't", "wouldn", "wouldn't"]
+        
+        var removedStopwords = removedEmojis
+        for x in 0..<stopwords.count {
+            if let range = removedStopwords.contains(word: stopwords[x]) {
+                removedStopwords.removeSubrange(range)
+            }
 
-//        let removedContractionsJoined = " ".join(removedContractions)
-//        let removedPuncuation = removedContractions.components(separatedBy: .punctuationCharacters).joined()
-//
-//        // remove links
-//
-//        let linkText: String = "@(https?://([-\\w\\.]+[-\\w])+(:\\d+)?(/([\\w/_\\.#-]*(\\?\\S+)?[^\\.\\s])?)?)@"
-//        let removedLinks = removedPuncuation.replacingOccurrences(of: linkText, with: "", options: .regularExpression, range: removedPuncuation.startIndex..<removedPuncuation.endIndex)
-//
-//        // remove emojis
-//        var removedEmojis = removedLinks.stringByRemovingEmoji()
-//
-//        // remove stopwords
-//        // stopwords taken from nltk 3.5
-//
-//        let stopwords = ["i", "me", "my", "myself", "we", "our", "ours", "ourselves", "you", "you're", "you've", "you'll", "you'd", "your", "yours", "yourself", "yourselves", "he", "him", "his", "himself", "she", "she's", "her", "hers", "herself", "it", "it's", "its", "itself", "they", "them", "their", "theirs", "themselves", "what", "which", "who", "whom", "this", "that", "that'll", "these", "those", "am", "is", "are", "was", "were", "be", "been", "being", "have", "has", "had", "having", "do", "does", "did", "doing", "a", "an", "the", "and", "but", "if", "or", "because", "as", "until", "while", "of", "at", "by", "for", "with", "about", "against", "between", "into", "through", "during", "before", "after", "above", "below", "to", "from", "up", "down", "in", "out", "on", "off", "over", "under", "again", "further", "then", "once", "here", "there", "when", "where", "why", "how", "all", "any", "both", "each", "few", "more", "most", "other", "some", "such", "no", "nor", "not", "only", "own", "same", "so", "than", "too", "very", "s", "t", "can", "will", "just", "don", "don't", "should", "should've", "now", "d", "ll", "m", "o", "re", "ve", "y", "ain", "aren", "aren't", "couldn", "couldn't", "didn", "didn't", "doesn", "doesn't", "hadn", "hadn't", "hasn", "hasn't", "haven", "haven't", "isn", "isn't", "ma", "mightn", "mightn't", "mustn", "mustn't", "needn", "needn't", "shan", "shan't", "shouldn", "shouldn't", "wasn", "wasn't", "weren", "weren't", "won", "won't", "wouldn", "wouldn't"]
-//        var removedStopwords: String?
-//        for x in 0..<stopwords.count {
-//            removedStopwords = removedEmojis.replacingOccurrences(of: stopwords[x], with: "")
-////                let stopword: String = stopwords[x]
-////                removedStopwords = removedPuncuation.replacingOccurrences(of: stopword, with: "", options: .regularExpression, range: removedEmojis.startIndex..<removedEmojis.endIndex)
-////
-//        }
-//        print(removedStopwords)
-//
+        }
+        // stopwords
         
-        
-        
-        
+        // stemming
 
     }
     
 }
+// remove emojis
 extension String {
   func stringByRemovingEmoji() -> String {
     return String(self.filter { !$0.isEmoji() })
@@ -196,4 +183,13 @@ extension Character {
     return Character(UnicodeScalar(UInt32(0x1d000))!) <= self && self <= Character(UnicodeScalar(UInt32(0x1f77f))!)
       || Character(UnicodeScalar(UInt32(0x2100))!) <= self && self <= Character(UnicodeScalar(UInt32(0x26ff))!)
   }
+}
+
+//remove stopwords
+extension String {
+
+    func contains(word : String) -> Range<String.Index>?
+    {
+        return self.range(of: "\\b\(word)\\b", options: .regularExpression)
+    }
 }
