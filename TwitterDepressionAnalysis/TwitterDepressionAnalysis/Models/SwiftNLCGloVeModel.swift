@@ -23,7 +23,7 @@ class SwiftNLCGloVeModel {
         return try! JSONDecoder().decode(Array<String>.self, from: Data(contentsOf: Bundle.main.url(forResource:"Classes", withExtension: "json")!))
     }()
 
-    func predict(_ utterance: String) -> (LSTM_CNN_TrainedOutput)? {
+    func predict(_ utterance: String) -> (String, Float)? {
         let words = lemmatizer.lemmatize(text: utterance).compactMap { $0.0 } //$0.1 for lemma -- $0.0 Do not take lemma but original word !!!
         var embedding = [Int]()
         for word in words {
@@ -63,28 +63,25 @@ class SwiftNLCGloVeModel {
             i += 1
         }
         
-        do {
-            let input = try LSTM_CNN_TrainedInput(text: input_data, lstm_1_h_in: lstm_1_h_in, lstm_1_c_in: lstm_1_c_in)
-            
-            guard let prediction = try? model.prediction(input: input) else {
-                fatalError("Unexpected runtime error: prediction")
-            }
-            print(prediction)
-            return prediction
-//                var max:Double = 0.0
-//                var pos = -1
-//                for i in 0..<classes.count {
-//                    let value = prediction.classes.count
-//                    if value > max {
-//                        max = value
-//                        pos = i
-//                    }
-//                }
-//
-//                return (classes[pos], max)
-        } catch {
-            fatalError()
-        }
+    
+        let input = try LSTM_CNN_TrainedInput(text: input_data, lstm_1_h_in: lstm_1_h_in, lstm_1_c_in: lstm_1_c_in)
         
+        guard let prediction = try? model.prediction(input: input) else {
+            fatalError("Unexpected runtime error: prediction")
+        }
+            
+//        var max:Double = 0.0
+//        var pos = -1
+//        print(classes.description)
+//        for i in 0..<classes.count {
+//            let value = classes.
+//            if value > max {
+//                max = value
+//                pos = i
+//            }
+//        }
+        return ("test", 2)
+
+
     }
 }
