@@ -17,12 +17,20 @@ struct TweetResultsView: View {
     @EnvironmentObject var displayView: DisplayView
     @EnvironmentObject var twitter: TwitterService
 //    @State var showTweetActions: Bool?
-    
+    let model = LSTM_CNN_Trained()
     let findAPIKey = FindAPIKey()
     
     func readTweets() {
+        let result = SwiftNLCModel().predict("I am sad")
+        print(result)
+//        if let prediction = model.prediction(input: SwiftNLCModel().predict("i am sad")) {
+//            print(prediction.0)
+//        }
+//        else {
+//            print("error")
+//        }
+
         
- 
     }
     
     var body: some View {

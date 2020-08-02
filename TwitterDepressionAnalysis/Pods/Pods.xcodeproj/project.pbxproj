@@ -9,11 +9,11 @@
 /* Begin PBXAggregateTarget section */
 		B60766D2DF87D6EAD1E04F386DA8986E /* TwitterKit */ = {
 			isa = PBXAggregateTarget;
-			buildConfigurationList = 79600F7D3A8048BD01C11891E77496FC /* Build configuration list for PBXAggregateTarget "TwitterKit" */;
+			buildConfigurationList = 6FE90C77BD61B5F55D67CD15A0BF7F1E /* Build configuration list for PBXAggregateTarget "TwitterKit" */;
 			buildPhases = (
 			);
 			dependencies = (
-				CC0698D6BC84446C5CDC021FECA9E62F /* PBXTargetDependency */,
+				046C21D69CDB2F91A15B267A8BD610D1 /* PBXTargetDependency */,
 			);
 			name = TwitterKit;
 		};
@@ -66,10 +66,12 @@
 		63BEADA7BE7C4101E12ECFD06D51ED7B /* stem_ISO_8859_1_portuguese.h in Headers */ = {isa = PBXBuildFile; fileRef = C8FD3711A638EB01C3F17F94B306D84E /* stem_ISO_8859_1_portuguese.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		65084FCD23BCF4CB0A0266478A38C8F2 /* libstemmer.c in Sources */ = {isa = PBXBuildFile; fileRef = 240A3913C6D313ACD208928A114270CF /* libstemmer.c */; };
 		693B98DE045C80265A735BD94C87953D /* ChameleonConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = A59AB3E0A6B88D4D640D1FF5FE063760 /* ChameleonConstants.m */; };
+		69A5FF646719F052D5F44465329DDD95 /* Pods-TwitterDepressionAnalysis-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = A462EA6256DE9CE9234B77218465B1DB /* Pods-TwitterDepressionAnalysis-dummy.m */; };
 		6A84D9F0F3CDE1CA30BA5B447A05A2E5 /* stem_ISO_8859_1_english.c in Sources */ = {isa = PBXBuildFile; fileRef = 5669DB5C345A9CDB61B14C708E98DFFD /* stem_ISO_8859_1_english.c */; };
 		6B2DC678EA5CCC291354FE306DF0B28E /* Chameleon_.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C793DC773048E55D983A6812A374C1F /* Chameleon_.m */; };
 		6C87CCC7E974983BF3DDB7CDDD1CCC6A /* Chameleon_.h in Headers */ = {isa = PBXBuildFile; fileRef = 281290809396E5B84C1FB6B8CFFD0885 /* Chameleon_.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6CBD2C8952A9646CCB14F1F1EAA095B7 /* stem_ISO_8859_1_french.c in Sources */ = {isa = PBXBuildFile; fileRef = C6A60C00528B4C8FDE588D24151C3F84 /* stem_ISO_8859_1_french.c */; };
+		6D2CEE6696EC7B93AE19775ECDC5D506 /* Pods-TwitterDepressionAnalysis-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 1606EF2D40580636EAD80C15C8CF9551 /* Pods-TwitterDepressionAnalysis-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		71FC0E691B065284BAD9CF010979C6E6 /* stem_UTF_8_english.c in Sources */ = {isa = PBXBuildFile; fileRef = 4292202346989E9E7831DDE791FDDCEC /* stem_UTF_8_english.c */; };
 		74A118001701CA89B52762C27CB79174 /* stem_UTF_8_swedish.h in Headers */ = {isa = PBXBuildFile; fileRef = F7F5BF05C26749C19F226C0DF71F3041 /* stem_UTF_8_swedish.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		74B84AE1C4E925AD5D49B30DE9F6D9F8 /* stem_UTF_8_porter.h in Headers */ = {isa = PBXBuildFile; fileRef = F45FCF9F672626B56452ED614AEBDAAF /* stem_UTF_8_porter.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -88,6 +90,7 @@
 		879016F0FF627E6EB69CC7F216F62342 /* stem_UTF_8_french.c in Sources */ = {isa = PBXBuildFile; fileRef = E40AC2C4FBA991BE85BFD1C795098DFE /* stem_UTF_8_french.c */; };
 		88A569DC5FA4CEED7FCD51F8F762D4F9 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1EE48DAC4AD4FC98EC01A9CC5B34AE82 /* Foundation.framework */; };
 		89E5DF495CB788905459E09EC76EC401 /* stem_ISO_8859_1_spanish.h in Headers */ = {isa = PBXBuildFile; fileRef = 88B1ED9379B71F786BFDCE1082DC6136 /* stem_ISO_8859_1_spanish.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		8C842F0BA2360C3181FA9DD29D08ECA9 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1EE48DAC4AD4FC98EC01A9CC5B34AE82 /* Foundation.framework */; };
 		8F2CFA38B059EDDEB44245F3F938E51A /* stem_ISO_8859_1_porter.c in Sources */ = {isa = PBXBuildFile; fileRef = 0241316372B496C9643BB5FD76EC33BE /* stem_ISO_8859_1_porter.c */; };
 		918885B90BECC18ABC5F58D92E34EF13 /* UIViewController+Chameleon.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EA47444156F54832CD93D199153AD9E /* UIViewController+Chameleon.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		92114F57F27390B8352BC5765A081678 /* stem_ISO_8859_1_danish.h in Headers */ = {isa = PBXBuildFile; fileRef = 0BC3DCBB8E5EC858378B5CBB1BAD311B /* stem_ISO_8859_1_danish.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -125,7 +128,6 @@
 		E1235B5AD981AF80DA4E728F70E077FD /* stem_UTF_8_hungarian.h in Headers */ = {isa = PBXBuildFile; fileRef = 053E7AE9FEEA883014EB4D62F76EED79 /* stem_UTF_8_hungarian.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E6E93F2CFC3F4E402F2A3FC8DC54D543 /* stem_ISO_8859_1_portuguese.c in Sources */ = {isa = PBXBuildFile; fileRef = C8B32495A262EFBB84686BD613F0CBB9 /* stem_ISO_8859_1_portuguese.c */; };
 		E7D344059042D076A5C61D13018BA0D8 /* ChameleonEnums.h in Headers */ = {isa = PBXBuildFile; fileRef = 9F02C6867BE8516DDE96459A86C8B480 /* ChameleonEnums.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		E7E9D5C4EA5BA01F439447DD00CDB1E0 /* Pods-TwitterDepressionAnalysis-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = A462EA6256DE9CE9234B77218465B1DB /* Pods-TwitterDepressionAnalysis-dummy.m */; };
 		E82EF3AFD38848BAC02735643F4FBF6C /* UILabel+Chameleon.h in Headers */ = {isa = PBXBuildFile; fileRef = 089EDC1BDD597CEB5CDC293E00118E1D /* UILabel+Chameleon.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E9CBA32BCA1326F61BFC45DEB9B0E9E6 /* stem_ISO_8859_1_porter.h in Headers */ = {isa = PBXBuildFile; fileRef = A606372BD9239C2D46DD172CBBBFFA78 /* stem_ISO_8859_1_porter.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EEF22A1455C96635E480D1DCCE664913 /* UIColor+Chameleon.h in Headers */ = {isa = PBXBuildFile; fileRef = 7C175931490B492F9F5DBA68993B4D8A /* UIColor+Chameleon.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -134,48 +136,46 @@
 		F40B94427ACEA57A6ADCCEFB7E0781A5 /* utilities.c in Sources */ = {isa = PBXBuildFile; fileRef = 1B71597AFB0CAA01CA98DBCFFAE24155 /* utilities.c */; };
 		F9151980EB3F69E41F3E0FB5D43B2EB1 /* stem_UTF_8_danish.c in Sources */ = {isa = PBXBuildFile; fileRef = 2C9891F11FDF8AE2659BA0710DECADD3 /* stem_UTF_8_danish.c */; };
 		FA49618EEDBE490B9BF56CAD65ABF8EA /* ChameleonConstants.h in Headers */ = {isa = PBXBuildFile; fileRef = A8865292C6E4D9B1BA760FC318D0C7E1 /* ChameleonConstants.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		FAD875E49FD26FE129949EDBAF74874D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1EE48DAC4AD4FC98EC01A9CC5B34AE82 /* Foundation.framework */; };
 		FAF49C88CE8AD27B6C27FAD4B0F014D7 /* stem_KOI8_R_russian.h in Headers */ = {isa = PBXBuildFile; fileRef = B7B9A9091084662D504C6696A06F4ED5 /* stem_KOI8_R_russian.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		FE3A4BBC89893220B5590FC8A65C0233 /* UINavigationController+Chameleon.m in Sources */ = {isa = PBXBuildFile; fileRef = 394EAF6D791427DE2276A75D8C181100 /* UINavigationController+Chameleon.m */; };
 		FED6EA88BB90ECD90C5207B3C9DB325B /* api.h in Headers */ = {isa = PBXBuildFile; fileRef = E46D62F50AE2DCAEC318A0CDC4E535BD /* api.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		FF16B07F65FF71F846C04B8B027D2DB6 /* Pods-TwitterDepressionAnalysis-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 1606EF2D40580636EAD80C15C8CF9551 /* Pods-TwitterDepressionAnalysis-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		50B8A65F17B457A3E96939CD5818812B /* PBXContainerItemProxy */ = {
+		00F2F8CFD1554068C69BB92632ECE206 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D0D98A3F1DDB5986495AF1DD067F7C78;
+			remoteInfo = TwitterCore;
+		};
+		162463729D0CA3CB3C48A530517C6EBC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D0D98A3F1DDB5986495AF1DD067F7C78;
+			remoteInfo = TwitterCore;
+		};
+		5CBD255F75211E756AD649AEA0FBBD2F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B60766D2DF87D6EAD1E04F386DA8986E;
+			remoteInfo = TwitterKit;
+		};
+		62F33926F41F7436B9B984A3B7215689 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 1A6E96524B7B5B108D5E4C732075CA8A;
 			remoteInfo = PorterStemmer2;
 		};
-		5D7A0802391C276FAE355DEAE758103D /* PBXContainerItemProxy */ = {
+		A10AC254CF1A2C45B2ECE1AC120B9D5C /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 28BFDC89BA4363F4F3576DEC70EE10AE;
 			remoteInfo = ChameleonFramework;
-		};
-		62DAA399E3198DB17FB41778E1503D41 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = D0D98A3F1DDB5986495AF1DD067F7C78;
-			remoteInfo = TwitterCore;
-		};
-		A917FDBA8DB8DA30343F8D4DB807C478 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = D0D98A3F1DDB5986495AF1DD067F7C78;
-			remoteInfo = TwitterCore;
-		};
-		BE45DAEBC861FD6FB015542DA76D6FD3 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = B60766D2DF87D6EAD1E04F386DA8986E;
-			remoteInfo = TwitterKit;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -328,11 +328,11 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		5C4FBC4F84A7D88EB51D93FEE93C278A /* Frameworks */ = {
+		26A9A3CE27D7D75A03DE510156F90CE7 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FAD875E49FD26FE129949EDBAF74874D /* Foundation.framework in Frameworks */,
+				8C842F0BA2360C3181FA9DD29D08ECA9 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -657,14 +657,6 @@
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		64284E0EA134DBE67AB6AB9B108F5CD7 /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				FF16B07F65FF71F846C04B8B027D2DB6 /* Pods-TwitterDepressionAnalysis-umbrella.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		80C66671584EC649F15BCCEB6D07E387 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
@@ -685,6 +677,14 @@
 				07F4634E722082DB20A867BD271864CA /* UINavigationController+Chameleon.h in Headers */,
 				0C66E72276B24115F4EE16246D0D11C0 /* UIView+ChameleonPrivate.h in Headers */,
 				918885B90BECC18ABC5F58D92E34EF13 /* UIViewController+Chameleon.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		848A44FFC5674F8A139A12017DE7010A /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6D2CEE6696EC7B93AE19775ECDC5D506 /* Pods-TwitterDepressionAnalysis-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -772,20 +772,20 @@
 		};
 		BD031F1F08596ECEAA8167824A64155B /* Pods-TwitterDepressionAnalysis */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = D1D41A406AAD3C0189935A0AB7875740 /* Build configuration list for PBXNativeTarget "Pods-TwitterDepressionAnalysis" */;
+			buildConfigurationList = DD761765290BDF3506D65B3CB3DE53D4 /* Build configuration list for PBXNativeTarget "Pods-TwitterDepressionAnalysis" */;
 			buildPhases = (
-				64284E0EA134DBE67AB6AB9B108F5CD7 /* Headers */,
-				1F1718B5422D4438E498FA3F0661618C /* Sources */,
-				5C4FBC4F84A7D88EB51D93FEE93C278A /* Frameworks */,
-				706FFB6FCBA622B173DC797A9D1D541D /* Resources */,
+				848A44FFC5674F8A139A12017DE7010A /* Headers */,
+				920CF981CE855159F224F724B3A26BA5 /* Sources */,
+				26A9A3CE27D7D75A03DE510156F90CE7 /* Frameworks */,
+				4EA98E3A12C44892B3DE71FDEBF3C5D9 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				37745FD55D823F5877B5D7863B73FFDA /* PBXTargetDependency */,
-				C310E11579F0EFD0E5207BB14D6310BB /* PBXTargetDependency */,
-				E3A40969239726047C085AFFA2516672 /* PBXTargetDependency */,
-				FFEC26B0161487AF9839A3522A693390 /* PBXTargetDependency */,
+				AD6C7F614099964D4E7D7A2DFDC88816 /* PBXTargetDependency */,
+				48108FC8C55E0793B9944F82138F5B99 /* PBXTargetDependency */,
+				14BC58CFFA9B182DD784352BBA133DD2 /* PBXTargetDependency */,
+				690B0E9B1DBAF9813CE9B445DE93783A /* PBXTargetDependency */,
 			);
 			name = "Pods-TwitterDepressionAnalysis";
 			productName = "Pods-TwitterDepressionAnalysis";
@@ -831,7 +831,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		706FFB6FCBA622B173DC797A9D1D541D /* Resources */ = {
+		4EA98E3A12C44892B3DE71FDEBF3C5D9 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -848,11 +848,11 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		1F1718B5422D4438E498FA3F0661618C /* Sources */ = {
+		920CF981CE855159F224F724B3A26BA5 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E7E9D5C4EA5BA01F439447DD00CDB1E0 /* Pods-TwitterDepressionAnalysis-dummy.m in Sources */,
+				69A5FF646719F052D5F44465329DDD95 /* Pods-TwitterDepressionAnalysis-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -923,42 +923,42 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		37745FD55D823F5877B5D7863B73FFDA /* PBXTargetDependency */ = {
+		046C21D69CDB2F91A15B267A8BD610D1 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			name = ChameleonFramework;
-			target = 28BFDC89BA4363F4F3576DEC70EE10AE /* ChameleonFramework */;
-			targetProxy = 5D7A0802391C276FAE355DEAE758103D /* PBXContainerItemProxy */;
+			name = TwitterCore;
+			target = D0D98A3F1DDB5986495AF1DD067F7C78 /* TwitterCore */;
+			targetProxy = 162463729D0CA3CB3C48A530517C6EBC /* PBXContainerItemProxy */;
 		};
-		C310E11579F0EFD0E5207BB14D6310BB /* PBXTargetDependency */ = {
+		14BC58CFFA9B182DD784352BBA133DD2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = TwitterCore;
+			target = D0D98A3F1DDB5986495AF1DD067F7C78 /* TwitterCore */;
+			targetProxy = 00F2F8CFD1554068C69BB92632ECE206 /* PBXContainerItemProxy */;
+		};
+		48108FC8C55E0793B9944F82138F5B99 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = PorterStemmer2;
 			target = 1A6E96524B7B5B108D5E4C732075CA8A /* PorterStemmer2 */;
-			targetProxy = 50B8A65F17B457A3E96939CD5818812B /* PBXContainerItemProxy */;
+			targetProxy = 62F33926F41F7436B9B984A3B7215689 /* PBXContainerItemProxy */;
 		};
-		CC0698D6BC84446C5CDC021FECA9E62F /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = TwitterCore;
-			target = D0D98A3F1DDB5986495AF1DD067F7C78 /* TwitterCore */;
-			targetProxy = 62DAA399E3198DB17FB41778E1503D41 /* PBXContainerItemProxy */;
-		};
-		E3A40969239726047C085AFFA2516672 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = TwitterCore;
-			target = D0D98A3F1DDB5986495AF1DD067F7C78 /* TwitterCore */;
-			targetProxy = A917FDBA8DB8DA30343F8D4DB807C478 /* PBXContainerItemProxy */;
-		};
-		FFEC26B0161487AF9839A3522A693390 /* PBXTargetDependency */ = {
+		690B0E9B1DBAF9813CE9B445DE93783A /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = TwitterKit;
 			target = B60766D2DF87D6EAD1E04F386DA8986E /* TwitterKit */;
-			targetProxy = BE45DAEBC861FD6FB015542DA76D6FD3 /* PBXContainerItemProxy */;
+			targetProxy = 5CBD255F75211E756AD649AEA0FBBD2F /* PBXContainerItemProxy */;
+		};
+		AD6C7F614099964D4E7D7A2DFDC88816 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = ChameleonFramework;
+			target = 28BFDC89BA4363F4F3576DEC70EE10AE /* ChameleonFramework */;
+			targetProxy = A10AC254CF1A2C45B2ECE1AC120B9D5C /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		0A8C1B227A1C40C15187D45EBBC78B16 /* Release */ = {
+		04D36946F0BCBBD145C00DE0492BFCD4 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7A3784EFA14B247BBF4E8B7964592E86 /* TwitterKit.release.xcconfig */;
+			baseConfigurationReference = 98004C073BA4F59F1B3A911013DB26A7 /* TwitterKit.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -969,13 +969,12 @@
 				);
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
 			};
-			name = Release;
+			name = Debug;
 		};
-		77D39AAC442ABDE11C937EE7741ADA2D /* Release */ = {
+		69455D62993C75193EB951F5810BB041 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 66743EC69EEFD905011C664A8FAC4D4D /* Pods-TwitterDepressionAnalysis.release.xcconfig */;
+			baseConfigurationReference = 718C4C8416F23824B16301DBFCA0C5F1 /* Pods-TwitterDepressionAnalysis.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				CODE_SIGN_IDENTITY = "";
@@ -1005,11 +1004,10 @@
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
-			name = Release;
+			name = Debug;
 		};
 		8F17DC3A99F99FBAD606CE6963886315 /* Release */ = {
 			isa = XCBuildConfiguration;
@@ -1152,9 +1150,9 @@
 			};
 			name = Debug;
 		};
-		9EADA79C81C2A7C8907E33AE67008AF4 /* Debug */ = {
+		A5863D59D902EDAF4DF2DD58270B535C /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 98004C073BA4F59F1B3A911013DB26A7 /* TwitterKit.debug.xcconfig */;
+			baseConfigurationReference = 7A3784EFA14B247BBF4E8B7964592E86 /* TwitterKit.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -1165,45 +1163,9 @@
 				);
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
 			};
-			name = Debug;
-		};
-		C41DB160259927084F669A0E184C6B8C /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 718C4C8416F23824B16301DBFCA0C5F1 /* Pods-TwitterDepressionAnalysis.debug.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Target Support Files/Pods-TwitterDepressionAnalysis/Pods-TwitterDepressionAnalysis-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-TwitterDepressionAnalysis/Pods-TwitterDepressionAnalysis.modulemap";
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
+			name = Release;
 		};
 		C78C6BD7B5EFD54B9982D9EEE7653F3B /* Release */ = {
 			isa = XCBuildConfiguration;
@@ -1311,6 +1273,44 @@
 			};
 			name = Debug;
 		};
+		DBBFC82BABC0F2465E335C48857D5A74 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 66743EC69EEFD905011C664A8FAC4D4D /* Pods-TwitterDepressionAnalysis.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-TwitterDepressionAnalysis/Pods-TwitterDepressionAnalysis-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-TwitterDepressionAnalysis/Pods-TwitterDepressionAnalysis.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
 		E156AE839F89F6A53B59FEFF7443C7C2 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 758BCC8FF6600E5D314A281D6DE595BD /* TwitterCore.debug.xcconfig */;
@@ -1384,11 +1384,11 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		79600F7D3A8048BD01C11891E77496FC /* Build configuration list for PBXAggregateTarget "TwitterKit" */ = {
+		6FE90C77BD61B5F55D67CD15A0BF7F1E /* Build configuration list for PBXAggregateTarget "TwitterKit" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				9EADA79C81C2A7C8907E33AE67008AF4 /* Debug */,
-				0A8C1B227A1C40C15187D45EBBC78B16 /* Release */,
+				04D36946F0BCBBD145C00DE0492BFCD4 /* Debug */,
+				A5863D59D902EDAF4DF2DD58270B535C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -1411,11 +1411,11 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		D1D41A406AAD3C0189935A0AB7875740 /* Build configuration list for PBXNativeTarget "Pods-TwitterDepressionAnalysis" */ = {
+		DD761765290BDF3506D65B3CB3DE53D4 /* Build configuration list for PBXNativeTarget "Pods-TwitterDepressionAnalysis" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				C41DB160259927084F669A0E184C6B8C /* Debug */,
-				77D39AAC442ABDE11C937EE7741ADA2D /* Release */,
+				69455D62993C75193EB951F5810BB041 /* Debug */,
+				DBBFC82BABC0F2465E335C48857D5A74 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
