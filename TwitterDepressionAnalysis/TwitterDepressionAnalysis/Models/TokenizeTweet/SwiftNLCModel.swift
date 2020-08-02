@@ -28,14 +28,14 @@ class SwiftNLCModel {
         
 //        let size = NSNumber(value: embedding.count)
         let size = NSNumber(value: embedding.count)
-        let mlMultiArrayInput = try! MLMultiArray(shape:[size], dataType:MLMultiArrayDataType.double)
+        let mlMultiArrayInput = try! MLMultiArray(shape:[300, 1, 1], dataType:MLMultiArrayDataType.double)
         
         for i in 0..<embedding.count - 1 {
             mlMultiArrayInput[i] = NSNumber(floatLiteral: Double(embedding[i]))
         }
         
         let prediction = try! model.prediction(input: LSTM_CNN_TrainedInput(text: mlMultiArrayInput))
-        
+        print(prediction.output)
         var pos = -1
         var max:Float = 0.0
         
