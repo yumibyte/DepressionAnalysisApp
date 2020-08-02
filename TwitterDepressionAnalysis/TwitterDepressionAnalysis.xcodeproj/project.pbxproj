@@ -12,14 +12,14 @@
 		1655903824D75355003B1221 /* Lemmatizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1655903724D75355003B1221 /* Lemmatizer.swift */; };
 		1655903A24D753F5003B1221 /* SwiftNLCModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1655903924D753F5003B1221 /* SwiftNLCModel.swift */; };
 		1655903C24D75422003B1221 /* BagOfWords.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1655903B24D75422003B1221 /* BagOfWords.swift */; };
-		1655903E24D7590E003B1221 /* bagOfWords.json in Resources */ = {isa = PBXBuildFile; fileRef = 1655903D24D7590E003B1221 /* bagOfWords.json */; };
-		1655904024D7591A003B1221 /* intents.json in Resources */ = {isa = PBXBuildFile; fileRef = 1655903F24D7591A003B1221 /* intents.json */; };
 		165DD28B24CA9C9B00E2B9A4 /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 165DD28A24CA9C9B00E2B9A4 /* ImageLoader.swift */; };
 		165DD28D24CAA0FF00E2B9A4 /* AsyncImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 165DD28C24CAA0FF00E2B9A4 /* AsyncImage.swift */; };
 		16B5D15D24CF7E7A00F51B19 /* TweetResultsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16B5D15C24CF7E7A00F51B19 /* TweetResultsView.swift */; };
 		16B5D15F24CF7FB000F51B19 /* FullTwitterDisplayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16B5D15E24CF7FB000F51B19 /* FullTwitterDisplayView.swift */; };
 		16B5D16124CF88F300F51B19 /* DisplayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16B5D16024CF88F300F51B19 /* DisplayView.swift */; };
 		16B5D16624CFAC0900F51B19 /* TweetsTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16B5D16524CFAC0900F51B19 /* TweetsTableView.swift */; };
+		16BE645C24D76E3100E9B49A /* bagOfWords.json in Resources */ = {isa = PBXBuildFile; fileRef = 16BE645A24D76E3000E9B49A /* bagOfWords.json */; };
+		16BE645D24D76E3100E9B49A /* intents.json in Resources */ = {isa = PBXBuildFile; fileRef = 16BE645B24D76E3100E9B49A /* intents.json */; };
 		16F78CED24D3D31A00C4C4CE /* CleanTweet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16F78CEC24D3D31A00C4C4CE /* CleanTweet.swift */; };
 		16F9403A24BAF1A0002E6ECD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16F9403924BAF1A0002E6ECD /* AppDelegate.swift */; };
 		16F9403C24BAF1A0002E6ECD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16F9403B24BAF1A0002E6ECD /* SceneDelegate.swift */; };
@@ -41,14 +41,14 @@
 		1655903724D75355003B1221 /* Lemmatizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Lemmatizer.swift; path = /Users/ashleyraigosa/Desktop/Programming/IAIF/DepressionAnalysisApp/TwitterDepressionAnalysis/TwitterDepressionAnalysis/Models/Lemmatizer.swift; sourceTree = "<absolute>"; };
 		1655903924D753F5003B1221 /* SwiftNLCModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftNLCModel.swift; sourceTree = "<group>"; };
 		1655903B24D75422003B1221 /* BagOfWords.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BagOfWords.swift; sourceTree = "<group>"; };
-		1655903D24D7590E003B1221 /* bagOfWords.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = bagOfWords.json; sourceTree = "<group>"; };
-		1655903F24D7591A003B1221 /* intents.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = intents.json; sourceTree = SOURCE_ROOT; };
 		165DD28A24CA9C9B00E2B9A4 /* ImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
 		165DD28C24CAA0FF00E2B9A4 /* AsyncImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncImage.swift; sourceTree = "<group>"; };
 		16B5D15C24CF7E7A00F51B19 /* TweetResultsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TweetResultsView.swift; sourceTree = "<group>"; };
 		16B5D15E24CF7FB000F51B19 /* FullTwitterDisplayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullTwitterDisplayView.swift; sourceTree = "<group>"; };
 		16B5D16024CF88F300F51B19 /* DisplayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayView.swift; sourceTree = "<group>"; };
 		16B5D16524CFAC0900F51B19 /* TweetsTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TweetsTableView.swift; sourceTree = "<group>"; };
+		16BE645A24D76E3000E9B49A /* bagOfWords.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = bagOfWords.json; sourceTree = "<group>"; };
+		16BE645B24D76E3100E9B49A /* intents.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = intents.json; sourceTree = "<group>"; };
 		16F78CEC24D3D31A00C4C4CE /* CleanTweet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CleanTweet.swift; sourceTree = "<group>"; };
 		16F8E79624D66E6700FD9F7B /* TwitterDepressionAnalysis.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TwitterDepressionAnalysis.entitlements; sourceTree = "<group>"; };
 		16F9403624BAF1A0002E6ECD /* TwitterDepressionAnalysis.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TwitterDepressionAnalysis.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -92,15 +92,15 @@
 		1623E39C24C96FFF009BEA15 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				1655903D24D7590E003B1221 /* bagOfWords.json */,
-				1655903F24D7591A003B1221 /* intents.json */,
+				1602EE1024D1F5A800D206B6 /* LSTM_CNN_Trained.mlmodel */,
+				16BE645A24D76E3000E9B49A /* bagOfWords.json */,
+				16BE645B24D76E3100E9B49A /* intents.json */,
+				16F9404D24BAF2DB002E6ECD /* TwitterService.swift */,
+				16F78CEC24D3D31A00C4C4CE /* CleanTweet.swift */,
+				1655903724D75355003B1221 /* Lemmatizer.swift */,
 				1655903524D750D1003B1221 /* SwiftNLCGloVeModel.swift */,
 				1655903924D753F5003B1221 /* SwiftNLCModel.swift */,
 				1655903B24D75422003B1221 /* BagOfWords.swift */,
-				1655903724D75355003B1221 /* Lemmatizer.swift */,
-				1602EE1024D1F5A800D206B6 /* LSTM_CNN_Trained.mlmodel */,
-				16F9404D24BAF2DB002E6ECD /* TwitterService.swift */,
-				16F78CEC24D3D31A00C4C4CE /* CleanTweet.swift */,
 				165DD28A24CA9C9B00E2B9A4 /* ImageLoader.swift */,
 				165DD28C24CAA0FF00E2B9A4 /* AsyncImage.swift */,
 				16B5D16024CF88F300F51B19 /* DisplayView.swift */,
@@ -284,10 +284,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				16F9405A24BAF808002E6ECD /* Keys.plist in Resources */,
-				1655904024D7591A003B1221 /* intents.json in Resources */,
+				16BE645D24D76E3100E9B49A /* intents.json in Resources */,
 				16F9404624BAF1A3002E6ECD /* LaunchScreen.storyboard in Resources */,
-				1655903E24D7590E003B1221 /* bagOfWords.json in Resources */,
 				16F9404324BAF1A3002E6ECD /* Preview Assets.xcassets in Resources */,
+				16BE645C24D76E3100E9B49A /* bagOfWords.json in Resources */,
 				16F9404024BAF1A3002E6ECD /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
