@@ -48,7 +48,7 @@ EPOCHS= 10
 # depressive_tweets_processed, Sentiment Analysis Dataset 2
 DEPRESSIVE_TWEETS_CSV = 'depressedredditonly.csv'
 RANDOM_TWEETS_CSV = 'nondepressed_content_title_combined.csv'
-EMBEDDING_FILE = 'GoogleNews-vectors-negative300.bin.gz'
+EMBEDDING_FILE = 'GoogleNews-vectors-negative300.gz'
 depressive_tweets_df = pd.read_csv(DEPRESSIVE_TWEETS_CSV, sep = ',', engine = 'python', header = None, usecols = range(0,9), nrows = DEPRES_NROWS)
 random_tweets_df = pd.read_csv(RANDOM_TWEETS_CSV, encoding = "ISO-8859-1", usecols = range(0,5), nrows = RANDOM_NROWS)
 

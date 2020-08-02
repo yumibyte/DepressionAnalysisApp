@@ -8,7 +8,7 @@
 
 import Foundation
 import PorterStemmer2
-
+import NaturalLanguage
 struct CleanTweet {
         
     let cList = [
@@ -166,14 +166,22 @@ struct CleanTweet {
             }
 
         }
-        // stopwords
         
         // stemming
         var stem = removedStopwords
         if let stemmer = PorterStemmer(withLanguage: .English) {
             stem = stemmer.stem(stem)
         }
-        print(stem)
+        let cleanedTweet = stem.condenseWhitespace()
+        
+        // tokenization
+        let tokenizer = NLTokenizer(unit: .word)
+        tokenizer.string = cleanedTweet
+        
+        tokenizer.enumerateTokens(in: cleanedTweet.startIndex..<cleanedTweet.endIndex) { tokenRange, _ in
+            print(cleanedTweet[tokenRange])
+            return true
+        }
     }
     
 }
@@ -199,3 +207,12 @@ extension String {
         return self.range(of: "\\b\(word)\\b", options: .regularExpression)
     }
 }
+
+// remove double white spaces
+extension String {
+    func condenseWhitespace() -> String {
+        let components = self.components(separatedBy: .whitespacesAndNewlines)
+        return components.filter { !$0.isEmpty }.joined(separator: " ")
+    }
+}
+

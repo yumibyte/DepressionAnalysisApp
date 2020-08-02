@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:/Users/ashleyraigosa/Desktop/Programming/IAIF/DepressionAnalysisApp/TwitterDepressionAnalysis/TwitterDepressionAnalysis/Models/Lemmatizer.swift">
+   </FileRef>
+   <FileRef
       location = "group:TwitterDepressionAnalysis.xcodeproj">
    </FileRef>
    <FileRef
