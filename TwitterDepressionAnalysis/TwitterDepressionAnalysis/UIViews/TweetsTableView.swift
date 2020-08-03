@@ -27,16 +27,31 @@ struct TweetsTableUIViewStruct: UIViewControllerRepresentable {
 }
 
 class TweetsTableViewClass: TWTRTimelineViewController, TWTRTweetViewDelegate {
+    var tweetIds: [String] = []
+    var tweetsToDisplay: [TWTRTweet] = []
     var twitter: TwitterService
 
     init(twitter: TwitterService) {
         
         self.twitter = twitter
-                let dataSource = TWTRUserTimelineDataSource(screenName: twitter.credential!.screenName, apiClient: TWTRAPIClient())
+        let dataSource = TWTRUserTimelineDataSource(screenName: twitter.credential!.screenName, apiClient: TWTRAPIClient())
 
   
         super.init(dataSource: dataSource)
         
+    }
+    
+    func displayTweets() {
+        let client = TWTRAPIClient()
+        client.loadTweets(withIDs: tweetIds) { (tweets, error) -> Void in
+            if ((tweets) != nil) {
+                for i in tweets! {
+                    self.tweetsToDisplay.append(i)
+                }
+            } else {
+                print(error as Any)
+            }
+        }
     }
     
     func loadTweets(completion: @escaping ([String], [String]) -> Void) {
@@ -46,16 +61,15 @@ class TweetsTableViewClass: TWTRTimelineViewController, TWTRTweetViewDelegate {
             // create count for individualTweet and pull description of each where tweet = x
             
             var tweetArray: [String] = []
-            var tweetIds: [String] = []
             var count = 0
             while count < individualTweet!.count {
                 for x in individualTweet! {
                     tweetArray.append(x.description)
-                    tweetIds.append(x.tweetID)
+                    self.tweetIds.append(x.tweetID)
                     count += 1
                 }
             }
-            completion(tweetArray, tweetIds)
+            completion(tweetArray, self.tweetIds)
 
         }
     }
@@ -63,5 +77,4 @@ class TweetsTableViewClass: TWTRTimelineViewController, TWTRTweetViewDelegate {
         fatalError("init(coder:) has not been implemented")
     }
 }
-    
 

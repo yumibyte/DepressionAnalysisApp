@@ -15,6 +15,8 @@ struct TweetResultsView: View {
 
     @State var tweetArray: [String]?
     @State var tweetIds: [String]?
+    @State var tweetsToDisplay: [TWTRTweet]?
+    
     @EnvironmentObject var displayView: DisplayView
     @EnvironmentObject var twitter: TwitterService
 //    @State var showTweetActions: Bool?
@@ -37,7 +39,7 @@ struct TweetResultsView: View {
     var body: some View {
         NavigationView {
             VStack {
-                Rectangle()
+                Text("hi")
                 TweetsTableUIViewStruct(twitter: self.twitter)
                 
                 
@@ -52,6 +54,7 @@ struct TweetResultsView: View {
                     self.readTweets()
                     
                 }
+                TweetsTableViewClass(twitter: self.twitter).displayTweets() 
                 
                 
         }
