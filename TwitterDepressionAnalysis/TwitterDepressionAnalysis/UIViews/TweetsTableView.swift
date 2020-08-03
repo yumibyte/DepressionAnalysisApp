@@ -39,22 +39,23 @@ class TweetsTableViewClass: TWTRTimelineViewController, TWTRTweetViewDelegate {
         
     }
     
-    func loadTweets(completion: @escaping ([String]) -> Void) {
+    func loadTweets(completion: @escaping ([String], [String]) -> Void) {
 
         dataSource.loadPreviousTweets(beforePosition: "0") { (individualTweet, timelineCursor, error) in
             
             // create count for individualTweet and pull description of each where tweet = x
             
-            var tweetArray: [String] = [""]
+            var tweetArray: [String] = []
+            var tweetIds: [String] = []
             var count = 0
             while count < individualTweet!.count {
                 for x in individualTweet! {
                     tweetArray.append(x.description)
+                    tweetIds.append(x.tweetID)
                     count += 1
                 }
             }
-            tweetArray = [tweetArray.removeLast()]
-            completion(tweetArray)
+            completion(tweetArray, tweetIds)
 
         }
     }
