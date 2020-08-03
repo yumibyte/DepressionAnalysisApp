@@ -14,6 +14,9 @@ import NaturalLanguage
 struct TweetResultsView: View {
 
     @State var tweetArray: [String]?
+    @State var tweetIds: [String]?
+    @State var tweetsToDisplay: [TWTRTweet]?
+    
     @EnvironmentObject var displayView: DisplayView
     @EnvironmentObject var twitter: TwitterService
 //    @State var showTweetActions: Bool?
@@ -21,8 +24,7 @@ struct TweetResultsView: View {
     let findAPIKey = FindAPIKey()
     
     func readTweets() {
-        var depressedTweets = [""]
-
+        var depressedTweets: [String] = []
         for tweet in tweetArray! {
             let prediction = SwiftNLCModel().predict(tweet)
             if prediction!.1 > 0.01 {
@@ -37,16 +39,22 @@ struct TweetResultsView: View {
     var body: some View {
         NavigationView {
             VStack {
+                Text("hi")
                 TweetsTableUIViewStruct(twitter: self.twitter)
+                
+                
             }.offset(y: -300)
         }.navigationBarBackButtonHidden(true)
             .onAppear() {
-                TweetsTableViewClass(twitter: self.twitter).loadTweets() { tweetArray in
+                TweetsTableViewClass(twitter: self.twitter).loadTweets() { tweetIds, tweetArray in
+                    self.tweetIds = tweetIds
                     self.tweetArray = tweetArray
                     //                    image in
                     //                    self.placeHolderImage = Image(uiImage: image)
                     self.readTweets()
+                    
                 }
+                TweetsTableViewClass(twitter: self.twitter).displayTweets() 
                 
                 
         }
