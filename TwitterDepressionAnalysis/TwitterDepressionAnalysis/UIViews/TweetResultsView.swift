@@ -21,8 +21,20 @@ struct TweetResultsView: View {
     let findAPIKey = FindAPIKey()
     
     func readTweets() {
-        let result = SwiftNLCModel().predict("I am sad")
-        print(result)
+        do {
+            let prediction = SwiftNLCModel().predict("Life's horrible. The world is a shithole and I just wanna leave it all behind. I'm so suicidal")
+            //I am so sad and don't know what to do with my life anymore. I just want to give up.
+
+            print(prediction!.1)
+            
+//            let nextInput = try model.prediction(input: result)
+//            print(result.text)
+        } catch {
+            print(error.localizedDescription)
+            fatalError()
+            
+        }
+        
 //        if let prediction = model.prediction(input: SwiftNLCModel().predict("i am sad")) {
 //            print(prediction.0)
 //        }
