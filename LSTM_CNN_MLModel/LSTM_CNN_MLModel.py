@@ -269,6 +269,9 @@ embedding_matrix = np.zeros((nb_words, EMBEDDING_DIM))
 for (word, idx) in word_index.items():
     if word in word2vec.vocab and idx < MAX_NB_WORDS:
         embedding_matrix[idx] = word2vec.word_vec(word)
+        
+
+
 # Assigning labels to the depressive tweets and random tweets data
 labels_d = np.array([1] * DEPRES_NROWS)
 labels_r = np.array([0] * RANDOM_NROWS)
@@ -318,6 +321,9 @@ model.compile(loss='binary_crossentropy', optimizer='nadam', metrics=['acc'])
 print(model.summary())
 early_stop = EarlyStopping(monitor='val_loss', patience=3)
 
+df =  pd.DataFrame(vectors[name_index[:,1].astype(int)])
+df.index = name_index[:, 0]
+df.to_csv("embedding.csv")
 
 hist = model.fit(data_train, labels_train, \
         validation_data=(data_val, labels_val), \
