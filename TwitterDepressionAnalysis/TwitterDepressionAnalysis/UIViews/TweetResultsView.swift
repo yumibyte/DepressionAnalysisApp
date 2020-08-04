@@ -16,8 +16,6 @@ struct TweetResultsView: View {
     @State var tweetArray: [String]?
     @State var tweetIds: [String]?
     
-    
-    @EnvironmentObject var displayView: DisplayView
     @EnvironmentObject var twitter: TwitterService
 //    @State var showTweetActions: Bool?
     let model = LSTM_CNN_Trained()
@@ -65,9 +63,7 @@ struct TweetResultsView: View {
                     self.tweetArray = tweetArray
                     //                    image in
                     //                    self.placeHolderImage = Image(uiImage: image)
-                    self.readTweets()
-                    self.displayView.isActiveTweetIds = true
-                    
+                    self.readTweets()                    
                 }
         }
     }
