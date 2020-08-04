@@ -30,29 +30,37 @@ class TweetsTableViewClass: TWTRTimelineViewController, TWTRTweetViewDelegate {
     var tweetIds: [String] = []
     var tweetsToDisplay: [TWTRTweet] = []
     var twitter: TwitterService
-
+    
     init(twitter: TwitterService) {
-        
+
         self.twitter = twitter
         let dataSource = TWTRUserTimelineDataSource(screenName: twitter.credential!.screenName, apiClient: TWTRAPIClient())
-
-  
-        super.init(dataSource: dataSource)
         
+        super.init(dataSource: dataSource)
+
     }
     
-    func displayTweets() {
-        let client = TWTRAPIClient()
-        client.loadTweets(withIDs: tweetIds) { (tweets, error) -> Void in
-            if ((tweets) != nil) {
-                for i in tweets! {
-                    self.tweetsToDisplay.append(i)
-                }
-            } else {
-                print(error as Any)
-            }
-        }
-    }
+//    func displayTweets(completion: @escaping (TWTRTweetView) -> Void) {
+//
+//        TWTRAPIClient().loadTweets(withIDs: tweetIds) { (tweet, error) in
+//            var tweetView: TWTRTweetView?
+//
+//            if let t = tweet {
+//                for x in t {
+//
+//                    tweetView = TWTRTweetView(tweet: x)
+//                    tweetView!.center = self.view.center
+//                    tweetView!.addSubview(tweetView!)
+//                    completion(tweetView!)
+//                }
+//
+//            }
+//
+//        }
+//
+//
+//
+//    }
     
     func loadTweets(completion: @escaping ([String], [String]) -> Void) {
 
@@ -67,6 +75,7 @@ class TweetsTableViewClass: TWTRTimelineViewController, TWTRTweetViewDelegate {
                     tweetArray.append(x.description)
                     self.tweetIds.append(x.tweetID)
                     count += 1
+                    
                 }
             }
             completion(tweetArray, self.tweetIds)
@@ -77,4 +86,5 @@ class TweetsTableViewClass: TWTRTimelineViewController, TWTRTweetViewDelegate {
         fatalError("init(coder:) has not been implemented")
     }
 }
+
 

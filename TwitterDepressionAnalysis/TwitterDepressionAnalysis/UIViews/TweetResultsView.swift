@@ -12,10 +12,10 @@ import CoreML
 import NaturalLanguage
 
 struct TweetResultsView: View {
-
+    @State var depressedTweets: [String] = []
     @State var tweetArray: [String]?
     @State var tweetIds: [String]?
-    @State var tweetsToDisplay: [TWTRTweet]?
+    
     
     @EnvironmentObject var displayView: DisplayView
     @EnvironmentObject var twitter: TwitterService
@@ -24,7 +24,6 @@ struct TweetResultsView: View {
     let findAPIKey = FindAPIKey()
     
     func readTweets() {
-        var depressedTweets: [String] = []
         for tweet in tweetArray! {
             let prediction = SwiftNLCModel().predict(tweet)
             if prediction!.1 > 0.01 {
@@ -38,25 +37,38 @@ struct TweetResultsView: View {
     
     var body: some View {
         NavigationView {
-            VStack {
-                Text("hi")
-                TweetsTableUIViewStruct(twitter: self.twitter)
-                
-                
-            }.offset(y: -300)
+            HStack {
+                VStack {
+                    Text("hi")
+//                    List {
+//                        ForEach (self.depressedTweets) { tweet in
+//
+//                            Text(tweet)
+//
+//                        }
+//                    }
+//                    TweetsTableUIViewStruct(twitter: self.twitter)
+                    
+                    
+                }
+            }
         }.navigationBarBackButtonHidden(true)
             .onAppear() {
+//                if self.displayView.isActiveTweetIds == true {
+//                    TweetsTableViewClass(twitter: self.twitter).displayTweets() { tweetView in
+//                        self.tweetViewToDisplay = tweetView
+//                    }
+//                }
                 TweetsTableViewClass(twitter: self.twitter).loadTweets() { tweetIds, tweetArray in
+                    
                     self.tweetIds = tweetIds
                     self.tweetArray = tweetArray
                     //                    image in
                     //                    self.placeHolderImage = Image(uiImage: image)
                     self.readTweets()
+                    self.displayView.isActiveTweetIds = true
                     
                 }
-                TweetsTableViewClass(twitter: self.twitter).displayTweets() 
-                
-                
         }
     }
 }
