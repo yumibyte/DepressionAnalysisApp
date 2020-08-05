@@ -11,4 +11,10 @@ import Foundation
 class DisplayView: ObservableObject {
     
     @Published var displayViewBool: Bool = true
+    @Published var displayTweetsBool: Bool = false
+    @Published var tweetArrayText: [String] = []
+    @Published var tweetArrayIds: [String] = []
+    
+
 }
+

@@ -8,14 +8,23 @@
 
 import SwiftUI
 
+
 struct DisplayTweetView: View {
+    
+    @EnvironmentObject var tweetStructure: TweetStructure
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        Rectangle()
+        .frame(width: 300, height: 250)
+        .cornerRadius(15)
+        .
     }
 }
 
 struct DisplayTweetView_Previews: PreviewProvider {
     static var previews: some View {
         DisplayTweetView()
+        .environmentObject(TweetStructure())
+
     }
 }

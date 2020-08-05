@@ -40,28 +40,6 @@ class TweetsTableViewClass: TWTRTimelineViewController, TWTRTweetViewDelegate {
 
     }
     
-//    func displayTweets(completion: @escaping (TWTRTweetView) -> Void) {
-//
-//        TWTRAPIClient().loadTweets(withIDs: tweetIds) { (tweet, error) in
-//            var tweetView: TWTRTweetView?
-//
-//            if let t = tweet {
-//                for x in t {
-//
-//                    tweetView = TWTRTweetView(tweet: x)
-//                    tweetView!.center = self.view.center
-//                    tweetView!.addSubview(tweetView!)
-//                    completion(tweetView!)
-//                }
-//
-//            }
-//
-//        }
-//
-//
-//
-//    }
-    
     func loadTweets(completion: @escaping ([String], [String]) -> Void) {
 
         dataSource.loadPreviousTweets(beforePosition: "0") { (individualTweet, timelineCursor, error) in
@@ -70,10 +48,19 @@ class TweetsTableViewClass: TWTRTimelineViewController, TWTRTweetViewDelegate {
             
             var tweetArray: [String] = []
             var count = 0
+            
+            let formatter = DateFormatter()
+            formatter.dateFormat = "MM-dd-yyyy HH:mm:ss"
+            let inString = formatter.string(from: Date())
+            let date = formatter.date(from: inString)
+            formatter.dateFormat = "MM-dd-yyyy"
+//
             while count < individualTweet!.count {
                 for x in individualTweet! {
                     tweetArray.append(x.description)
-                    self.tweetIds.append(x.tweetID)
+//                    let tweetID = formatter.string(from: x.createdAt)
+                    let tweetID = formatter.string(from: x.createdAt)
+                    self.tweetIds.append(tweetID)
                     count += 1
                     
                 }

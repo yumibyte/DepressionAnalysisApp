@@ -12,59 +12,35 @@ import CoreML
 import NaturalLanguage
 
 struct TweetResultsView: View {
-    @State var depressedTweets: [String] = []
-    @State var tweetArray: [String]?
     @State var tweetIds: [String]?
     
+    @EnvironmentObject var tweetStructure: TweetStructure
+    @EnvironmentObject var displayView: DisplayView
     @EnvironmentObject var twitter: TwitterService
 //    @State var showTweetActions: Bool?
     let model = LSTM_CNN_Trained()
     let findAPIKey = FindAPIKey()
-    
-    func readTweets() {
-        for tweet in tweetArray! {
-            let prediction = SwiftNLCModel().predict(tweet)
-            if prediction!.1 > 0.01 {
-                depressedTweets.append(tweet)
-            }
-        }
-        print(depressedTweets)
 
-        
-    }
-    
     var body: some View {
         NavigationView {
-            HStack {
-                VStack {
-                    Text("hi")
-//                    List {
-//                        ForEach (self.depressedTweets) { tweet in
-//
-//                            Text(tweet)
-//
-//                        }
-//                    }
-//                    TweetsTableUIViewStruct(twitter: self.twitter)
-                    
-                    
+            if displayView.displayTweetsBool == true {
+                HStack {
+                    VStack {
+                       List {
+                            ForEach(tweetStructure.depressedTweet.sorted(by: >), id: \.key) { key, value in
+                                Section(header: Text(key)) {
+                                    Text(value)
+                                }
+                            }
+                        }
+                        
+                    }
                 }
             }
+            
         }.navigationBarBackButtonHidden(true)
             .onAppear() {
-//                if self.displayView.isActiveTweetIds == true {
-//                    TweetsTableViewClass(twitter: self.twitter).displayTweets() { tweetView in
-//                        self.tweetViewToDisplay = tweetView
-//                    }
-//                }
-                TweetsTableViewClass(twitter: self.twitter).loadTweets() { tweetIds, tweetArray in
-                    
-                    self.tweetIds = tweetIds
-                    self.tweetArray = tweetArray
-                    //                    image in
-                    //                    self.placeHolderImage = Image(uiImage: image)
-                    self.readTweets()                    
-                }
+                print(TweetStructure().depressedTweet)
         }
     }
 }
@@ -72,5 +48,6 @@ struct TweetResultsView: View {
 struct TweetResultsView_Previews: PreviewProvider {
     static var previews: some View {
         TweetResultsView()
+        .environmentObject(TweetStructure())
     }
 }
