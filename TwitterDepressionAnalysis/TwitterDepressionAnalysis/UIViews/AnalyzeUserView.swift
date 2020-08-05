@@ -19,11 +19,7 @@ struct AnalyzeUserView: View {
     
     @EnvironmentObject var displayView: DisplayView
     @EnvironmentObject var tweetStructure: TweetStructure
-    func switchView() -> Bool {
-        self.displayView.displayViewBool = false
-        return self.displayView.displayViewBool
     
-    }
     
     func createUser(completion: @escaping (Result<Array<String>, Error>) -> Void) {
         
@@ -101,33 +97,34 @@ struct AnalyzeUserView: View {
                             .font(.system(size: 16, weight: .medium, design: .default))
                             .offset(y: 90)
                     }
-                    
-                    
-                    
-                    
+                }
+            .navigationBarTitle("")
+            .navigationBarHidden(true)
+
+            }
+        }
+
+
+            
+            .onAppear() {
+                self.createUser() { result in
+                switch result {
+                case .success(let user):
+                        self.user = user
+                        self.createView = true
+                        print("grabbed URL")
+
+                        
+
+                    case .failure(let error):
+                    print(error.localizedDescription)
                 }
             }
-        }.navigationBarBackButtonHidden(true)
-            
-        .onAppear() {
-            self.createUser() { result in
-            switch result {
-            case .success(let user):
-                    self.user = user
-                    self.createView = true
-                    print("grabbed URL")
-
-                    
-
-                case .failure(let error):
-                print(error.localizedDescription)
-            }
         }
-        }
-        .navigationBarTitle("Analytics", displayMode: .inline)
-//        .edgesIgnoringSafeArea(.top)
+        
 
     }
+
 }
 
     

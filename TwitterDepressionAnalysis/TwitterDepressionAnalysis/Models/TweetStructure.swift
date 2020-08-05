@@ -8,14 +8,11 @@
 
 import Foundation
 
-
 class TweetStructure: ObservableObject {
         
     @Published var tweetId: String = ""
     @Published var tweetText: String = ""
     
-    @Published var depressedTweet: [String: String] = [:]
-
 
 }
 

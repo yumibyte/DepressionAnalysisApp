@@ -12,7 +12,6 @@ import ChameleonFramework
 struct FullTwitterDisplayView: View {
     @EnvironmentObject var displayView: DisplayView
     @State var tweetIds: [String]?
-    @State var depressedTweets: [String:String]?
     @EnvironmentObject var tweetStructure: TweetStructure
     @EnvironmentObject var twitter: TwitterService
     
@@ -45,47 +44,38 @@ struct FullTwitterDisplayView: View {
     var body: some View {
         
         NavigationView {
-            VStack {
+            VStack() {
                 if displayView.displayViewBool == true {
                     AnalyzeUserView(createView: false)
-                } else if displayView.displayTweetsBool == true && displayView.displayViewBool == false {
-                    HStack {
-                        VStack {
-                           List {
-                            ForEach(depressedTweets!.sorted(by: >), id: \.key) { key, value in
-                                    ZStack {
-                                        Rectangle()
-                                        .frame(width: 330, height: 250)
-                                        .cornerRadius(15)
-                                            .foregroundColor(Color(FlatWhite()))
-                                        Text(value)
-                                        .lineLimit(5)
-                                            .frame(width: 293)
-                                            .offset(y: -20)
-                                            .font(.body)
-                                        Text(key)
-                                            .offset(x: -60, y: -80)
-                                            .font(.title)
+                        .navigationBarTitle("Current User", displayMode: .automatic)
 
-                                        
-                                    }
-                                }
-                                
-                            }
-                            
-                        }
-                    }
+                } else if displayView.displayTweetsBool == true && displayView.displayViewBool == false {
+                    
+                    DisplayTweetView()
+                    .navigationBarTitle("Depressed Tweets", displayMode: .automatic)
+                } else if displayView.displayHelpViewBool == true {
+                    HelpView()
+                        .navigationBarTitle("Resources", displayMode: .automatic)
                 }
-            }.onAppear() {
+                
+                
+            }
+
+
+            
+            .onAppear() {
                 TweetsTableViewClass(twitter: self.twitter).loadTweets() { tweetIds, tweetArray in
                     
                     self.displayView.tweetArrayText.append(contentsOf: tweetArray)
                     self.displayView.tweetArrayIds.append(contentsOf: tweetIds)
                     
-                    self.depressedTweets = self.readTweets()
+                    self.displayView.depressedTweet = self.readTweets()
                 }
             }
-        }.navigationBarBackButtonHidden(true)
+
+        }
+        .navigationBarBackButtonHidden(true)
+        .offset(y: -0.2)
     }
 }
 
@@ -97,3 +87,4 @@ struct FullTwitterDisplayView_Previews: PreviewProvider {
             
     }
 }
+
