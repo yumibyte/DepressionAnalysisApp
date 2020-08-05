@@ -12,9 +12,11 @@ class DisplayView: ObservableObject {
     
     @Published var displayViewBool: Bool = true
     @Published var displayTweetsBool: Bool = false
+    @Published var displayHelpViewBool: Bool = false
+    
     @Published var tweetArrayText: [String] = []
     @Published var tweetArrayIds: [String] = []
-    
+    @Published var depressedTweet: [String: String] = [:]
 
 }
 
