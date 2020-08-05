@@ -7,6 +7,7 @@
 //
 
 import SwiftUI
+import ChameleonFramework
 
 struct FullTwitterDisplayView: View {
     @EnvironmentObject var displayView: DisplayView
@@ -52,10 +53,24 @@ struct FullTwitterDisplayView: View {
                         VStack {
                            List {
                             ForEach(depressedTweets!.sorted(by: >), id: \.key) { key, value in
-                                    Section(header: Text(key)) {
+                                    ZStack {
+                                        Rectangle()
+                                        .frame(width: 330, height: 250)
+                                        .cornerRadius(15)
+                                            .foregroundColor(Color(FlatWhite()))
                                         Text(value)
+                                        .lineLimit(5)
+                                            .frame(width: 293)
+                                            .offset(y: -20)
+                                            .font(.body)
+                                        Text(key)
+                                            .offset(x: -60, y: -80)
+                                            .font(.title)
+
+                                        
                                     }
                                 }
+                                
                             }
                             
                         }

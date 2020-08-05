@@ -10,6 +10,7 @@ import SwiftUI
 import TwitterKit
 import CoreML
 import NaturalLanguage
+import ChameleonFramework
 
 struct TweetResultsView: View {
     @State var tweetIds: [String]?
@@ -29,7 +30,22 @@ struct TweetResultsView: View {
                        List {
                             ForEach(tweetStructure.depressedTweet.sorted(by: >), id: \.key) { key, value in
                                 Section(header: Text(key)) {
-                                    Text(value)
+                                    ZStack {
+                                        Rectangle()
+                                        .frame(width: 330, height: 250)
+                                        .cornerRadius(15)
+                                            .foregroundColor(Color(FlatWhite()))
+                                        Text(value)
+                                        .lineLimit(5)
+                                            .frame(width: 293)
+                                            .offset(y: -20)
+                                            .font(.body)
+                                        Text(key)
+                                            .offset(x: -80, y: -80)
+                                            .font(.title)
+
+                                        
+                                    }
                                 }
                             }
                         }

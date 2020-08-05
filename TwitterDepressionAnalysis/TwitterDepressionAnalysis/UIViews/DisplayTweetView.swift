@@ -13,6 +13,7 @@ struct DisplayTweetView: View {
     
     @EnvironmentObject var tweetStructure: TweetStructure
     
+    
     var body: some View {
         ZStack {
             Rectangle()
