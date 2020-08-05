@@ -48,7 +48,7 @@ struct LoginView: View {
                                 
                                 Image("TwitterLogo")
                                     .scaleEffect(0.26)
-                                    .offset(x: -200)
+                                    .offset(x: -215)
                                 
                                 
                                 NavigationLink(destination: FullTwitterDisplayView(), isActive: self.$twitter.isActive) {
