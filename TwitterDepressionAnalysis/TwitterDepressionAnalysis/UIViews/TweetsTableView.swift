@@ -27,31 +27,16 @@ struct TweetsTableUIViewStruct: UIViewControllerRepresentable {
 }
 
 class TweetsTableViewClass: TWTRTimelineViewController, TWTRTweetViewDelegate {
-    var tweetIds: [String] = []
     var tweetsToDisplay: [TWTRTweet] = []
     var twitter: TwitterService
-
+    
     init(twitter: TwitterService) {
-        
+
         self.twitter = twitter
         let dataSource = TWTRUserTimelineDataSource(screenName: twitter.credential!.screenName, apiClient: TWTRAPIClient())
-
-  
-        super.init(dataSource: dataSource)
         
-    }
-    
-    func displayTweets() {
-        let client = TWTRAPIClient()
-        client.loadTweets(withIDs: tweetIds) { (tweets, error) -> Void in
-            if ((tweets) != nil) {
-                for i in tweets! {
-                    self.tweetsToDisplay.append(i)
-                }
-            } else {
-                print(error as Any)
-            }
-        }
+        super.init(dataSource: dataSource)
+
     }
     
     func loadTweets(completion: @escaping ([String], [String]) -> Void) {
@@ -59,17 +44,28 @@ class TweetsTableViewClass: TWTRTimelineViewController, TWTRTweetViewDelegate {
         dataSource.loadPreviousTweets(beforePosition: "0") { (individualTweet, timelineCursor, error) in
             
             // create count for individualTweet and pull description of each where tweet = x
-            
+            var tweetIds: [String] = []
             var tweetArray: [String] = []
+            
             var count = 0
+            
+            let formatter = DateFormatter()
+            formatter.dateFormat = "MM-dd-yyyy HH:mm:ss"
+            let inString = formatter.string(from: Date())
+            let date = formatter.date(from: inString)
+            formatter.dateFormat = "MM-dd-yyyy"
+//
             while count < individualTweet!.count {
                 for x in individualTweet! {
                     tweetArray.append(x.description)
-                    self.tweetIds.append(x.tweetID)
+//                    let tweetID = formatter.string(from: x.createdAt)
+                    let tweetID = formatter.string(from: x.createdAt)
+                    tweetIds.append(tweetID)
                     count += 1
+                    
                 }
             }
-            completion(tweetArray, self.tweetIds)
+            completion(tweetArray, tweetIds)
 
         }
     }
@@ -77,4 +73,5 @@ class TweetsTableViewClass: TWTRTimelineViewController, TWTRTweetViewDelegate {
         fatalError("init(coder:) has not been implemented")
     }
 }
+
 

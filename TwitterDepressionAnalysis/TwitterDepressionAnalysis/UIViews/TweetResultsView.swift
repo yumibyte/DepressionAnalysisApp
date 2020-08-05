@@ -10,53 +10,53 @@ import SwiftUI
 import TwitterKit
 import CoreML
 import NaturalLanguage
+import ChameleonFramework
 
 struct TweetResultsView: View {
-
-    @State var tweetArray: [String]?
     @State var tweetIds: [String]?
-    @State var tweetsToDisplay: [TWTRTweet]?
     
+    @EnvironmentObject var tweetStructure: TweetStructure
     @EnvironmentObject var displayView: DisplayView
     @EnvironmentObject var twitter: TwitterService
 //    @State var showTweetActions: Bool?
     let model = LSTM_CNN_Trained()
     let findAPIKey = FindAPIKey()
-    
-    func readTweets() {
-        var depressedTweets: [String] = []
-        for tweet in tweetArray! {
-            let prediction = SwiftNLCModel().predict(tweet)
-            if prediction!.1 > 0.01 {
-                depressedTweets.append(tweet)
-            }
-        }
-        print(depressedTweets)
 
-        
-    }
-    
     var body: some View {
         NavigationView {
-            VStack {
-                Text("hi")
-                TweetsTableUIViewStruct(twitter: self.twitter)
-                
-                
-            }.offset(y: -300)
+            if displayView.displayTweetsBool == true {
+                HStack {
+                    VStack {
+                       List {
+                            ForEach(tweetStructure.depressedTweet.sorted(by: >), id: \.key) { key, value in
+                                Section(header: Text(key)) {
+                                    ZStack {
+                                        Rectangle()
+                                        .frame(width: 330, height: 250)
+                                        .cornerRadius(15)
+                                            .foregroundColor(Color(FlatWhite()))
+                                        Text(value)
+                                        .lineLimit(5)
+                                            .frame(width: 293)
+                                            .offset(y: -20)
+                                            .font(.body)
+                                        Text(key)
+                                            .offset(x: -80, y: -80)
+                                            .font(.title)
+
+                                        
+                                    }
+                                }
+                            }
+                        }
+                        
+                    }
+                }
+            }
+            
         }.navigationBarBackButtonHidden(true)
             .onAppear() {
-                TweetsTableViewClass(twitter: self.twitter).loadTweets() { tweetIds, tweetArray in
-                    self.tweetIds = tweetIds
-                    self.tweetArray = tweetArray
-                    //                    image in
-                    //                    self.placeHolderImage = Image(uiImage: image)
-                    self.readTweets()
-                    
-                }
-                TweetsTableViewClass(twitter: self.twitter).displayTweets() 
-                
-                
+                print(TweetStructure().depressedTweet)
         }
     }
 }
@@ -64,5 +64,6 @@ struct TweetResultsView: View {
 struct TweetResultsView_Previews: PreviewProvider {
     static var previews: some View {
         TweetResultsView()
+        .environmentObject(TweetStructure())
     }
 }

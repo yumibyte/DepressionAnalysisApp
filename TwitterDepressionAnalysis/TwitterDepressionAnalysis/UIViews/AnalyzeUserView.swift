@@ -18,7 +18,7 @@ struct AnalyzeUserView: View {
     @State var createView: Bool
     
     @EnvironmentObject var displayView: DisplayView
-    
+    @EnvironmentObject var tweetStructure: TweetStructure
     func switchView() -> Bool {
         self.displayView.displayViewBool = false
         return self.displayView.displayViewBool

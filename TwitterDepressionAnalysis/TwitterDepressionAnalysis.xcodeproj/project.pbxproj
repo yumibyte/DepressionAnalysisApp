@@ -14,6 +14,8 @@
 		1655903C24D75422003B1221 /* BagOfWords.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1655903B24D75422003B1221 /* BagOfWords.swift */; };
 		165DD28B24CA9C9B00E2B9A4 /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 165DD28A24CA9C9B00E2B9A4 /* ImageLoader.swift */; };
 		165DD28D24CAA0FF00E2B9A4 /* AsyncImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 165DD28C24CAA0FF00E2B9A4 /* AsyncImage.swift */; };
+		16773D0524D90E4300708B6A /* DisplayTweetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16773D0424D90E4300708B6A /* DisplayTweetView.swift */; };
+		16773D0924D94B7C00708B6A /* TweetStructure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16773D0824D94B7C00708B6A /* TweetStructure.swift */; };
 		16B5D15D24CF7E7A00F51B19 /* TweetResultsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16B5D15C24CF7E7A00F51B19 /* TweetResultsView.swift */; };
 		16B5D15F24CF7FB000F51B19 /* FullTwitterDisplayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16B5D15E24CF7FB000F51B19 /* FullTwitterDisplayView.swift */; };
 		16B5D16124CF88F300F51B19 /* DisplayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16B5D16024CF88F300F51B19 /* DisplayView.swift */; };
@@ -43,6 +45,8 @@
 		1655903B24D75422003B1221 /* BagOfWords.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BagOfWords.swift; sourceTree = "<group>"; };
 		165DD28A24CA9C9B00E2B9A4 /* ImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
 		165DD28C24CAA0FF00E2B9A4 /* AsyncImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncImage.swift; sourceTree = "<group>"; };
+		16773D0424D90E4300708B6A /* DisplayTweetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayTweetView.swift; sourceTree = "<group>"; };
+		16773D0824D94B7C00708B6A /* TweetStructure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TweetStructure.swift; sourceTree = "<group>"; };
 		16B5D15C24CF7E7A00F51B19 /* TweetResultsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TweetResultsView.swift; sourceTree = "<group>"; };
 		16B5D15E24CF7FB000F51B19 /* FullTwitterDisplayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullTwitterDisplayView.swift; sourceTree = "<group>"; };
 		16B5D16024CF88F300F51B19 /* DisplayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayView.swift; sourceTree = "<group>"; };
@@ -104,6 +108,7 @@
 				165DD28A24CA9C9B00E2B9A4 /* ImageLoader.swift */,
 				165DD28C24CAA0FF00E2B9A4 /* AsyncImage.swift */,
 				16B5D16024CF88F300F51B19 /* DisplayView.swift */,
+				16773D0824D94B7C00708B6A /* TweetStructure.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -191,6 +196,7 @@
 				16B5D16824CFADDE00F51B19 /* LoginUser */,
 				16B5D16724CFADC600F51B19 /* ProcessTweets */,
 				16B5D15E24CF7FB000F51B19 /* FullTwitterDisplayView.swift */,
+				16773D0424D90E4300708B6A /* DisplayTweetView.swift */,
 			);
 			path = UIViews;
 			sourceTree = "<group>";
@@ -367,6 +373,7 @@
 				16F9405E24BAFDD5002E6ECD /* CustomSafariViewController.swift in Sources */,
 				1655903A24D753F5003B1221 /* SwiftNLCModel.swift in Sources */,
 				16F78CED24D3D31A00C4C4CE /* CleanTweet.swift in Sources */,
+				16773D0924D94B7C00708B6A /* TweetStructure.swift in Sources */,
 				16F9403E24BAF1A0002E6ECD /* LoginView.swift in Sources */,
 				16F9405C24BAFAD8002E6ECD /* FindAPIKey.swift in Sources */,
 				16FA99FF24C63C5E0082B02E /* AnalyzeUserView.swift in Sources */,
@@ -377,6 +384,7 @@
 				1655903C24D75422003B1221 /* BagOfWords.swift in Sources */,
 				165DD28B24CA9C9B00E2B9A4 /* ImageLoader.swift in Sources */,
 				16F9404E24BAF2DB002E6ECD /* TwitterService.swift in Sources */,
+				16773D0524D90E4300708B6A /* DisplayTweetView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
