@@ -27,7 +27,6 @@ struct TweetsTableUIViewStruct: UIViewControllerRepresentable {
 }
 
 class TweetsTableViewClass: TWTRTimelineViewController, TWTRTweetViewDelegate {
-    var tweetIds: [String] = []
     var tweetsToDisplay: [TWTRTweet] = []
     var twitter: TwitterService
     
@@ -45,8 +44,9 @@ class TweetsTableViewClass: TWTRTimelineViewController, TWTRTweetViewDelegate {
         dataSource.loadPreviousTweets(beforePosition: "0") { (individualTweet, timelineCursor, error) in
             
             // create count for individualTweet and pull description of each where tweet = x
-            
+            var tweetIds: [String] = []
             var tweetArray: [String] = []
+            
             var count = 0
             
             let formatter = DateFormatter()
@@ -60,12 +60,12 @@ class TweetsTableViewClass: TWTRTimelineViewController, TWTRTweetViewDelegate {
                     tweetArray.append(x.description)
 //                    let tweetID = formatter.string(from: x.createdAt)
                     let tweetID = formatter.string(from: x.createdAt)
-                    self.tweetIds.append(tweetID)
+                    tweetIds.append(tweetID)
                     count += 1
                     
                 }
             }
-            completion(tweetArray, self.tweetIds)
+            completion(tweetArray, tweetIds)
 
         }
     }

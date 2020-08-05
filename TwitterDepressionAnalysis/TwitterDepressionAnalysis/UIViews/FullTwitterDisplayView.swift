@@ -18,7 +18,6 @@ struct FullTwitterDisplayView: View {
     func readTweets() -> [String:String] {
         var depressedTweets: [String:String] = [:]
         
-        
         var finalArrayText: [String] = []
         var finalArrayIds: [String] = []
         for x in 0..<displayView.tweetArrayText.count {
@@ -51,7 +50,7 @@ struct FullTwitterDisplayView: View {
                 } else if displayView.displayTweetsBool == true && displayView.displayViewBool == false {
                     HStack {
                         VStack {
-                           List {  
+                           List {
                             ForEach(depressedTweets!.sorted(by: >), id: \.key) { key, value in
                                     Section(header: Text(key)) {
                                         Text(value)
@@ -67,6 +66,7 @@ struct FullTwitterDisplayView: View {
                     
                     self.displayView.tweetArrayText.append(contentsOf: tweetArray)
                     self.displayView.tweetArrayIds.append(contentsOf: tweetIds)
+                    
                     self.depressedTweets = self.readTweets()
                 }
             }

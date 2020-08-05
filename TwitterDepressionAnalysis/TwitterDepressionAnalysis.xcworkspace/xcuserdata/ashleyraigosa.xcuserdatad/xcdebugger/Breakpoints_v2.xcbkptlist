@@ -583,8 +583,8 @@
             filePath = "TwitterDepressionAnalysis/UIViews/FullTwitterDisplayView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "51"
-            endingLineNumber = "51"
+            startingLineNumber = "50"
+            endingLineNumber = "50"
             landmarkName = "body"
             landmarkType = "24">
          </BreakpointContent>
@@ -599,8 +599,8 @@
             filePath = "TwitterDepressionAnalysis/UIViews/TweetsTableView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "34"
-            endingLineNumber = "34"
+            startingLineNumber = "33"
+            endingLineNumber = "33"
             landmarkName = "init(twitter:)"
             landmarkType = "7">
             <Locations>
@@ -647,8 +647,8 @@
             filePath = "TwitterDepressionAnalysis/UIViews/TweetsTableView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "36"
-            endingLineNumber = "36"
+            startingLineNumber = "35"
+            endingLineNumber = "35"
             landmarkName = "init(twitter:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -663,8 +663,8 @@
             filePath = "TwitterDepressionAnalysis/UIViews/TweetsTableView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "37"
-            endingLineNumber = "37"
+            startingLineNumber = "36"
+            endingLineNumber = "36"
             landmarkName = "init(twitter:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -681,22 +681,6 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "58"
             endingLineNumber = "58"
-            landmarkName = "loadTweets(completion:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "50BE2201-193B-4DA8-B863-FDB3D1433CF2"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "TwitterDepressionAnalysis/UIViews/TweetsTableView.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "64"
-            endingLineNumber = "64"
             landmarkName = "loadTweets(completion:)"
             landmarkType = "7">
          </BreakpointContent>
