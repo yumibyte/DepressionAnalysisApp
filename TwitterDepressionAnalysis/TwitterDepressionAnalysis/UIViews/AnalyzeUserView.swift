@@ -28,6 +28,7 @@ struct AnalyzeUserView: View {
             
             client.loadUser(withID: self.twitter.credential?.userId ?? "") { (user, error) in
                 if let screenName = user?.formattedScreenName {
+                    print("grabbed image")
                     if let imageURL = user?.profileImageLargeURL {
                         completion(.success([imageURL,screenName]))
                     }
