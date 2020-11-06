@@ -20,7 +20,8 @@
 * First prize in the Girls Computing League AI Summit; September 2020.
 * First place in the International Artificial Intelligence Fair out of 1,000 teams; August 2020.
 
-## Videos :clapper:
+## App Demo/Explanation :clapper:
+![image](FinalAppImages.png)
 * Video demo of Spero --> https://youtu.be/X1XI5dMyRJs
 * Feature on SenseTime's LinkedIn. Includes our presentation with slides --> https://www.linkedin.com/feed/update/urn:li:activity:6720551765768581120/
 
